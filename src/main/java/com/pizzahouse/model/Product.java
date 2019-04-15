@@ -18,7 +18,7 @@ public class Product {
     @Id
     @GeneratedValue
     @Column(name = "id")
-    private int id;
+    private long id;
     
     @NotNull
     @Column(name = "name", nullable = false)
@@ -47,7 +47,7 @@ public class Product {
         this.imagePath = imagePath;
     }
 
-    public Product(int id, String name, String description, String ingredients, float price, String imagePath) {
+    public Product(long id, String name, String description, String ingredients, float price, String imagePath) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -58,11 +58,11 @@ public class Product {
 
 
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

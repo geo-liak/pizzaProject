@@ -33,6 +33,15 @@
 
         <h2>Welcome ${pageContext.request.userPrincipal.name} | <a onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
         <p>Menu ${menu}</p>
+        <c:forEach items="${menu}" var="product">
+            <tr>
+                <td>${product.id}</td>
+                <td>${product.name}</td>
+                <td>${product.description}</td>
+                <td>${product.ingredients}</td>
+                <td>${product.price}</td>
+            </tr>
+        </c:forEach>
     </c:if>
 
 </div>

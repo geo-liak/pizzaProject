@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "/")
 public class ProductController {
 
-//    @Autowired
-//    ProductService productService;
+    @Autowired
+    ProductService productService;
 
 
     @RequestMapping(value = "/menu", method = RequestMethod.GET)
     public String productsMenu(Model model) {
-//        model.addAttribute("menu", productService.findAllProducts());
-        model.addAttribute("menu", "asdasdasdas");
+        model.addAttribute("menu", productService.findAllProducts());
+        model.addAttribute("sentence", "asdasdasdas");
         return "orders/products"; 
     }
 

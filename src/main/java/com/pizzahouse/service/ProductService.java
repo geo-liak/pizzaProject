@@ -16,12 +16,13 @@ public interface ProductService {
     
     List<Product> findAllProducts();
     
-    Product findProductById (String id);
+    Product findProductById (Long id);
     
-    void deleteProductById (String id);
+//    void deleteProductById (String id);
+//    
+//    void createProduct (Product product);
+//    
+//    void updateProduct (Product product);
     
-    void createProduct (Product product);
-    
-    void updateProduct (Product product);
-    
-}
+} 
+

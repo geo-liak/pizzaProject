@@ -56,8 +56,8 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
 
--- `addres table`
-CREATE TABLE `addres`
+-- `address table`
+CREATE TABLE `address`
 (
  `id`      int(11) NOT NULL AUTO_INCREMENT,
  `street`  varchar(45) NOT NULL ,
@@ -91,7 +91,7 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
 -- products table
-create table if not exists `products` (
+create table if not exists `product` (
 `id` int(11) not null auto_increment,
 `name` varchar(45) not null,
 `description` varchar(200),
