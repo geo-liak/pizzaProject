@@ -5,24 +5,25 @@
  */
 package com.pizzahouse.service;
 
+import com.pizzahouse.exceptions.ResourceNotFoundException;
 import com.pizzahouse.model.Product;
+import org.springframework.data.jpa.domain.Specifications;
+
 import java.util.List;
 
 /**
- *
  * @author stargazer
  */
 public interface ProductService {
-    
-    List<Product> findAllProducts();
-    
-    Product findProductById (Long id);
-    
-//    void deleteProductById (String id);
-//    
-//    void createProduct (Product product);
-//    
-//    void updateProduct (Product product);
-    
-} 
 
+    List<Product> findAll();
+
+    List<Product> findAll(Specifications specifications);
+
+    Product find(Long id);
+
+    void delete(Long id) throws ResourceNotFoundException;
+
+    Product save(Product product) throws ResourceNotFoundException;
+
+}
