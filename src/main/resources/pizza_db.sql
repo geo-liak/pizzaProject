@@ -102,6 +102,61 @@ primary key (`id`))
 engine = InnoDB
 default character set = utf8mb4;
 
+DROP TABLE IF EXISTS `addresses_per_user`;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `addresses_per_user` (
+  `id` int(11) NOT NULL,
+  `fk_address` int(11) NOT NULL,
+  `fk_user` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_address_idx` (`fk_address`),
+  KEY `fk_user_idx` (`fk_user`),
+  KEY `fk_userpp_idx` (`id`,`fk_user`),
+  CONSTRAINT `fk_address` FOREIGN KEY (`fk_address`) REFERENCES `address` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_userpp` FOREIGN KEY (`fk_user`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Table structure for table `menu`
+DROP TABLE IF EXISTS `menu`;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `menu` (
+  `id` int(11) NOT NULL,
+  `itemName` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Table structure for table `order`
+DROP TABLE IF EXISTS `order`;
+SET character_set_client = utf8mb4 ;
+CREATE TABLE `order` (
+  `id` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
+  `fk_addresses_per_user` int(11) NOT NULL,
+  `date` timestamp NOT NULL,
+  `status` int(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_addresses_per_user_idx_idx` (`fk_addresses_per_user`),
+  CONSTRAINT `fk_addresses_per_user_idx` FOREIGN KEY (`fk_addresses_per_user`) REFERENCES `addresses_per_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+-- Table structure for table `order_description`
+DROP TABLE IF EXISTS `order_description`;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `order_description` (
+  `id` int(11) NOT NULL,
+  `item` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `fk_order` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_order_idx` (`fk_order`),
+  CONSTRAINT `fk_order` FOREIGN KEY (`fk_order`) REFERENCES `order` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+
+
 
 -- insert data --
 LOCK TABLES `role` WRITE;
