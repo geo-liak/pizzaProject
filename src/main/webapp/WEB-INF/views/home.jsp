@@ -44,10 +44,10 @@
         <div class="collapse navbar-collapse justify-content-left" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="Home.html">Home </a>
+                    <a class="nav-link active" href="${contextPath}/home">Home </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="menu.jsp">Menu</a>
+                    <a class="nav-link" href="${contextPath}/menu">Menu</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#Contact">Contact</a>
