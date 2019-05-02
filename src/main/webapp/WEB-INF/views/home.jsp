@@ -70,7 +70,7 @@
                 </li>
          <!-- LOGIN BUTTON -->
                 <li class="nav-item">
-                    <a href="/login" id="login_btn" class="btn btn-outline-light my-2 my-sm-0">
+                    <a href="${contextPath}/login" id="login_btn" class="btn btn-outline-light my-2 my-sm-0">
                         Login
                     </a>
                 </li>
