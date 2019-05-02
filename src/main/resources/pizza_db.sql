@@ -146,12 +146,12 @@ DROP TABLE IF EXISTS `order_description`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `order_description` (
   `id` int(11) NOT NULL,
-  `item` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
-  `fk_order` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_order_idx` (`fk_order`),
-  CONSTRAINT `fk_order` FOREIGN KEY (`fk_order`) REFERENCES `order` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `fk_order` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
@@ -174,7 +174,7 @@ insert into `user_role` values ('1', '1');
 insert into `user_role` values ('2', '2');
 insert into `user_role` values ('3', '3');
 
-INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`) VALUES ('1', 'Margheritta', 'Pizza margheritta', 'Tomato, cheese', '10');
+INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`) VALUES ('1', 'Margherita', 'Pizza margherita', 'Tomato, cheese', '10');
 INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`) VALUES ('2', 'Pepperoni', 'Pizza pepperoni', 'Tomato, cheese, pepperoni', '12');
 INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`) VALUES ('3', 'Carbonara', 'Spaghetti Carbonara', 'Fresh cream, bacon', '15');
 INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`) VALUES ('4', 'Water 0.5l', 'Table water', 'water', '3');
