@@ -20,7 +20,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- Style css -->
-    <link rel="stylesheet" href="${contextPath}/resources/css/login.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/home.css">
     <title>Login Page</title>
 </head>
 
@@ -86,7 +86,7 @@
 
       <div class="row mx-2 align-items-center d-flex justify-content-center ">
         <div class="card p-2 m-2 col-3">
-          <img class="card-img-top" src="/FrontEnd/PEPPERONI-PIZZAZZ.jpg" alt="Card image cap">
+          <img class="card-img-top" src="${contextPath}/resources/images/PEPPERONI-PIZZAZZ.jpg" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">Pepperoni Classic</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of
@@ -103,7 +103,7 @@
 
 
         <div class="card p-2 m-2 col-3">
-          <img class="card-img-top" src="/FrontEnd/MARGHERITA.jpg" alt="Card image cap">
+          <img class="card-img-top" src="${contextPath}/resources/images/MARGHERITA.jpg" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">Margherita</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of
@@ -118,7 +118,7 @@
         </div>
 
         <div class="card p-2 m-2 col-3">
-          <img class="card-img-top" src="/FrontEnd/HAWAIIAN.jpg" alt="Card image cap">
+          <img class="card-img-top" src="${contextPath}/resources/images/HAWAIIAN.jpg" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">Hawaiian</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of
