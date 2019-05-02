@@ -32,7 +32,7 @@ public class ProductController extends AbstractController {
     @RequestMapping(value = "/menu", method = RequestMethod.GET)
     public String productsMenu(Model model) {
         model.addAttribute("products", productService.findAll());
-        return "menu";
+        return "pages/menu";
     }
 
 
@@ -46,7 +46,7 @@ public class ProductController extends AbstractController {
             model.addAttribute("products", productService.findAll());
         }
 
-        return "products/list";
+        return "pages/products/list";
     }
 
 
@@ -58,7 +58,7 @@ public class ProductController extends AbstractController {
             Product product = productService.find(id);
             theModel.addAttribute("product", product);
         }
-        return "products/edit";
+        return "pages/products/edit";
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
@@ -74,15 +74,15 @@ public class ProductController extends AbstractController {
         if (bindingResult.hasErrors()) {
             theModel.addAttribute("product", product);
 
-            return "/products/edit";
+            return "pages/products/edit";
         } else {
-            return "redirect:/products/list";
+            return "redirect:pages/products/list";
         }
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public String delete(@RequestParam("id") Long id) throws ResourceNotFoundException {
         productService.delete(id);
-        return "redirect:/products/list";
+        return "redirect:pages/products/list";
     }
 }
