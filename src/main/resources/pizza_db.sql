@@ -164,3 +164,17 @@ INSERT INTO `role` VALUES (1,'ROLE_ADMIN');
 INSERT INTO `role` VALUES (2,'ROLE_EMPLOYEE');
 INSERT INTO `role` VALUES (3,'ROLE_CUSTOMER');
 UNLOCK TABLES;
+
+
+insert into `user` values ('1', 'admin1', 'admin1', 'admin1234', 'admin1234');
+insert into `user` values ('2', 'employee1', 'employee1', 'empl1234', 'empl1234');
+insert into `user` values ('3', 'customer1', 'customer1', 'cust1234', 'cust1234');
+
+insert into `user_role` values ('1', '1');
+insert into `user_role` values ('2', '2');
+insert into `user_role` values ('3', '3');
+
+INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`) VALUES ('1', 'Margheritta', 'Pizza margheritta', 'Tomato, cheese', '10');
+INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`) VALUES ('2', 'Pepperoni', 'Pizza pepperoni', 'Tomato, cheese, pepperoni', '12');
+INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`) VALUES ('3', 'Carbonara', 'Spaghetti Carbonara', 'Fresh cream, bacon', '15');
+INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`) VALUES ('4', 'Water 0.5l', 'Table water', 'water', '3');
