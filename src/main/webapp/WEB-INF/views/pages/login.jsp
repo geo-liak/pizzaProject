@@ -93,7 +93,7 @@
 							</c:if> -->
                             <div class="form-group">
                                     <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                                   </div>
                                   <div class="form-group">
                                     <label for="exampleInputPassword1">Password</label>
@@ -102,6 +102,8 @@
                                   <div>
                                     <button type="submit" class="btn btn-success btn-block">Submit</button>
                                   </div>
+                                    <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
+
                                   <h6 class="text-center mt-2"><a href="${contextPath}/registration">Create an account</a></h6>
                     </form>
                 </div>
@@ -125,7 +127,7 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
         </script>
 
-        <script src="login.js"></script>
+        <script src="${contextPath}/resources/js/login.js"></script>
 </body>
 
 </html>

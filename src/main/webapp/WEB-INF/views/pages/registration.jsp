@@ -119,6 +119,8 @@
 
         <button class="btn btn-lg btn-success btn-block" type="submit">Submit</button>
     </form:form>
+  <h6 class="text-center mt-2"><a href="${contextPath}/login">Already have an account?</a></h6>
+
                 </div>
             </div>
         </div>
