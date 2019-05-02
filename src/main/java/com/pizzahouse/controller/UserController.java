@@ -29,7 +29,7 @@ public class UserController {
     public String registration(Model model) {
         model.addAttribute("userForm", new User());
 
-        return "registration";
+        return "pages/registration";
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
@@ -44,7 +44,7 @@ public class UserController {
 
         securityService.autologin(userForm.getUsername(), userForm.getPasswordConfirm());
 
-        return "redirect:/welcome";
+        return "redirect:pages/welcome";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -57,7 +57,7 @@ public class UserController {
             model.addAttribute("message", "You have been logged out successfully.");
         }
 
-        return "login";
+        return "/pages/login";
     }
 
     @RequestMapping(value = {"/","home"} , method = RequestMethod.GET)
