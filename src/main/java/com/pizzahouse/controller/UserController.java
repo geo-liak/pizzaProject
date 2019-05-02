@@ -31,6 +31,11 @@ public class UserController {
 
         return "pages/registration";
     }
+    
+      @RequestMapping(value = "/menu", method = RequestMethod.GET)
+    public String menu(Model model) {
+        return "pages/menu";
+    }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
