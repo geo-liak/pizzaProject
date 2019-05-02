@@ -37,10 +37,10 @@
             <div class="collapse navbar-collapse justify-content-left" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                          <a class="nav-link active" href="${contextPath}/home">Home </a>
+                          <a class="nav-link" href="${contextPath}/home">Home </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="${contextPath}/menu">Menu</a>
+                    <a class="nav-link active" href="${contextPath}/menu">Menu</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#Contact">Contact</a>
@@ -154,10 +154,9 @@
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of
               the card's content.</p>
             <div class="card-footer align-items-center d-flex justify-content-center">
-              <div class="input-group"><span class="input-group-btn"><button type="button"
-                    class="btn btn-danger">-</button></span><input id="colorful" class="form-control rounded-0"
-                  type="text" value="1" min="1" max="10" style="text-align: center;"><span
-                  class="input-group-btn"><button type="button" class="btn btn-success">+</button></span></div>
+                <div class="input-group">
+                     <button type="button" class="btn btn-success btn-block">Add to Cart</button> 
+                </div>
             </div>
           </div>
         </div>
@@ -171,14 +170,14 @@
             <div class="card-footer align-items-center d-flex justify-content-center">
               <div class="input-group"><span class="input-group-btn"><button type="button"
                     class="btn btn-danger">-</button></span><input id="colorful" class="form-control rounded-0"
-                  type="text" value="1" min="1" max="10" style="text-align: center;"><span
+                  type="number" value="1" min="1" max="10" style="text-align: center;"><span
                   class="input-group-btn"><button type="button" class="btn btn-success">+</button></span></div>
             </div>
           </div>
         </div>
 
       </div>
-      <button type="button" class="btn btn-success offset-9 col-2 my-3 m"><i class="fas fa-shopping-basket fa-spin"></i> Checkout</button>
+      <button type="button" class="btn btn-success offset-9 col-2 my-3 m"><i class="fas fa-shopping-basket fa-pulse"></i> Checkout</button>
     </section>
    
     <!-- Contact Footer -->
