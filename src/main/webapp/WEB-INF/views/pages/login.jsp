@@ -81,7 +81,7 @@
                     <c:url var="loginUrl" value="/login" />
                     <form action="${loginUrl}" method="post" class="form-horizontal">
                           <h2 class="form-signin-heading">Log-in</h2>
-                        <!-- <c:if test="${param.error != null}">
+                        <c:if test="${param.error != null}">
 								<div class="alert alert-danger">
 									<p>Invalid username and password.</p>
 								</div>
@@ -90,7 +90,7 @@
 								<div class="alert alert-success">
 									<p>You have been logged out successfully.</p>
 								</div>
-							</c:if> -->
+							</c:if>
                             <div class="form-group">
                                     <label for="exampleInputEmail1">Email address</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
