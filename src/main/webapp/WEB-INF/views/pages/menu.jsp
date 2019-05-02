@@ -178,7 +178,7 @@
         </div>
 
       </div>
-      <button type="button" class="btn btn-success offset-9 col-2 my-3 m"><i class="fas fa-shopping-basket"></i> Checkout</button>
+      <button type="button" class="btn btn-success offset-9 col-2 my-3 m"><i class="fas fa-shopping-basket fa-spin"></i> Checkout</button>
     </section>
    
     <!-- Contact Footer -->
