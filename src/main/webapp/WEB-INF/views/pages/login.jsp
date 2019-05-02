@@ -74,10 +74,13 @@
 
     <div id="mainWrapper">
         <div class="login-container">
+           
             <div class="login-card">
+               
                 <div class="login-form">
                     <c:url var="loginUrl" value="/login" />
                     <form action="${loginUrl}" method="post" class="form-horizontal">
+                          <h2 class="form-signin-heading">Log-in</h2>
                         <!-- <c:if test="${param.error != null}">
 								<div class="alert alert-danger">
 									<p>Invalid username and password.</p>
@@ -96,8 +99,10 @@
                                     <label for="exampleInputPassword1">Password</label>
                                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                                   </div>
-                                  
-                                  <button type="submit" class="btn btn-success btn-block">Submit</button>
+                                  <div>
+                                    <button type="submit" class="btn btn-success btn-block">Submit</button>
+                                  </div>
+                                  <h6 class="text-center mt-2"><a href="${contextPath}/registration">Create an account</a></h6>
                     </form>
                 </div>
             </div>
