@@ -166,9 +166,9 @@ INSERT INTO `role` VALUES (3,'ROLE_CUSTOMER');
 UNLOCK TABLES;
 
 
-insert into `user` values ('1', 'admin1', 'admin1', 'admin1234', 'admin1234');
-insert into `user` values ('2', 'employee1', 'employee1', 'empl1234', 'empl1234');
-insert into `user` values ('3', 'customer1', 'customer1', 'cust1234', 'cust1234');
+insert into `user` values ('1', 'admin1', 'admin1', 'admin1234@xyz.com', '$2a$11$PHZUahDIpGGD/UJhHizjnuhSt4r60a580nsHIhn3y4.nMiFnZzC0W');
+insert into `user` values ('2', 'employee1', 'employee1', 'empl1234@xyz.com', '$2a$11$ZpaxTgSkKsW0MfJTNmVeKOkeLdc/RnKYgDF5udyCoy3W5lMhIrF6G');
+insert into `user` values ('3', 'customer1', 'customer1', 'cust1234@xyz.com', '$2a$11$lwcI6HZJRV2W6XEdYaL4duQYgG9ce70ldOkSIVHW67TUbWIBelTJm');
 
 insert into `user_role` values ('1', '1');
 insert into `user_role` values ('2', '2');
