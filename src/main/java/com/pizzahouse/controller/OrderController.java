@@ -29,7 +29,7 @@ public class OrderController extends AbstractController {
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public String ordersAll(Model model) {
         model.addAttribute("orders", orderService.findAll());
-        return "pages/orders";
+        return "pages/products/orders";
     }
 
 

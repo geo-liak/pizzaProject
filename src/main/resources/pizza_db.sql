@@ -186,5 +186,6 @@ INSERT INTO `pizza_project`.`addresses_per_user` (`id`, `fk_address`, `fk_user`)
 INSERT INTO `pizza_project`.`order` (`id`, `price`, `fk_addresses_per_user`, `date`, `status`) VALUES ('1', '10', '1', '2019-5-3', '1');
 INSERT INTO `pizza_project`.`order_product` (`id`, `product_id`, `quantity`, `order_id`) VALUES ('1', '1', '3', '1');
 INSERT INTO `pizza_project`.`order_product` (`id`, `product_id`, `quantity`, `order_id`) VALUES ('2', '2', '4', '1');
+INSERT INTO `pizza_project`.`order_product` (`id`, `product_id`, `quantity`, `order_id`) VALUES ('3', '6', '1', '1');
 
 
