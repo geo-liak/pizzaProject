@@ -76,13 +76,13 @@ public class ProductController extends AbstractController {
 
             return "pages/products/edit";
         } else {
-            return "redirect:pages/products/list";
+            return "redirect:/products/list";
         }
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public String delete(@RequestParam("id") Long id) throws ResourceNotFoundException {
         productService.delete(id);
-        return "redirect:pages/products/list";
+        return "redirect:/products/list";
     }
 }
