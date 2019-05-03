@@ -142,15 +142,15 @@ CREATE TABLE `order` (
 
 
 -- Table structure for table `order_description`
-DROP TABLE IF EXISTS `order_description`;
+DROP TABLE IF EXISTS `order_product`;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `order_description` (
+CREATE TABLE `order_product` (
   `id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_order_idx` (`fk_order`),
+  KEY `fk_order_idx` (`order_id`),
   CONSTRAINT `fk_order` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -178,3 +178,13 @@ INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients
 INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`) VALUES ('2', 'Pepperoni', 'Pizza pepperoni', 'Tomato, cheese, pepperoni', '12');
 INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`) VALUES ('3', 'Carbonara', 'Spaghetti Carbonara', 'Fresh cream, bacon', '15');
 INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`) VALUES ('4', 'Water 0.5l', 'Table water', 'water', '3');
+
+INSERT INTO `pizza_project`.`address` (`id`, `street`, `number`, `pc`, `floor`, `notes`, `fk_user`) VALUES ('1', '52nd Avenue', '456', '22908', '2', '0', '3');
+INSERT INTO `pizza_project`.`address` (`id`, `street`, `number`, `pc`, `floor`, `notes`, `fk_user`) VALUES ('2', '33rd street', '140', '22909', '3', '0', '3');
+INSERT INTO `pizza_project`.`addresses_per_user` (`id`, `fk_address`, `fk_user`) VALUES ('1', '1', '3');
+INSERT INTO `pizza_project`.`addresses_per_user` (`id`, `fk_address`, `fk_user`) VALUES ('2', '2', '3');
+INSERT INTO `pizza_project`.`order` (`id`, `price`, `fk_addresses_per_user`, `date`, `status`) VALUES ('1', '10', '1', '2019-5-3', '1');
+INSERT INTO `pizza_project`.`order_product` (`id`, `product_id`, `quantity`, `order_id`) VALUES ('1', '1', '3', '1');
+INSERT INTO `pizza_project`.`order_product` (`id`, `product_id`, `quantity`, `order_id`) VALUES ('2', '2', '4', '1');
+
+
