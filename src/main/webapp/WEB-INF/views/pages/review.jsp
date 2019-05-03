@@ -11,6 +11,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
         <!-- LOAD JQUERY ( $.ajax, etc. ) -->
         <script src="https://code.jquery.com/jquery-3.4.0.min.js"
         integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
@@ -78,58 +79,98 @@
         </div>
     </header>
 
-    <div class="jumbotron jumbotron-fluid mt-5 mb-0">
-        <div class="container text-muted p-3">
-            <p class="display-4 text-center font-weight-bolder bg-white rounded-pill shadow mt-2">Pizza Margherita</p>
+   <!--Order Review-->
+
          
-        </div>
-    </div>
-    <section data-spy="scroll" data-target="#navbartop" data-offset="0">
-
-        <!-- CAROUSEL -->
-
-        <!--Carousel Wrapper-->
-        <div id="carousel-example-1z" class="carousel slide carousel-fade conatainer shadow mt-1" data-ride="carousel">
-            <!--Indicators-->
-            <ol class="carousel-indicators">
-                <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-example-1z" data-slide-to="1"></li>
-                <li data-target="#carousel-example-1z" data-slide-to="2"></li>
-            </ol>
-            <!--/.Indicators-->
-            <!--Slides-->
-            <div class="carousel-inner" role="listbox">
-                <!--First slide-->
-                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="${contextPath}/resources/images/carousel1.jpeg" alt="First slide.">
+    <section class="container" id="order">
+            <h2>Review Order</h2>
+            <hr>
+            <div class="row">
+                <div class="col-8">
+                        <table class="table  ">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Product</th>
+                                    <th scope="col"></th>
+                                    <th scope="col">Qty</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Total</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th scope="row" class="" >
+                                           
+                                            <img src="${contextPath}/resources/images/MARGHERITA.jpg" alt="pizza Margherita" class="img-thumbnail">
+                                          
+                                           
+                                    </th>
+                                    <td>  Pizza Margherita </td>
+                                    <td>2</td>
+                                    <td>5 &euro;</td>
+                                    <td>10 &euro;</td>
+                                  </tr>
+                                  <tr>
+                                        <th scope="row">
+                                               
+                                                <img src="${contextPath}/resources/images/HAWAIIAN.jpg" alt="pizza HAWAIIAN" class="img-thumbnail" >
+                                               
+                                        </th>
+                                        <td>  Pizza Hawaiian </td>
+                                        <td>2</td>
+                                        <td>5 &euro;</td>
+                                        <td>10 &euro;</td>
+                                  </tr>
+                                  <tr>
+                                        <th scope="row">
+                                               
+                                                <img src="${contextPath}/resources/images/PEPPERONI-PIZZAZZ.jpg" alt="pizza Pepperoni" class="img-thumbnail"  >
+                                               
+                                        </th>
+                                        <td>  Pizza Pepperoni </td>
+                                        <td>2</td>
+                                        <td>5 &euro;</td>
+                                        <td>10 &euro;</td>
+                                  </tr>
+                                </tbody>
+                              </table>
                 </div>
-                <!--/First slide-->
-                <!--Second slide-->
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="${contextPath}/resources/images/carousel2.jpeg" alt="Second slide.">
+                <!-- TOTAL COST -->
+                <div class="col-4 border-rounded bg-white text-center">
+                    <h3>Total Cost</h3>
+                   <div style="font-size: 50pt">
+                       30 &euro;
+                   </div>
                 </div>
-                <!--/Second slide-->
-                <!--Third slide-->
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="${contextPath}/resources/images/carousel3.jpeg" alt="Third slide.">
-                </div>
-                <!--/Third slide-->
             </div>
-            <!--/.Slides-->
-            <!--Controls-->
-            <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-            <!--/.Controls-->
-        </div>
+         <hr>
+         <h2> Address </h2>
+         <br>
+            <select class="custom-select">
+                <option selected>Please select an address:</option>
+                <option value="Address 1">Patision 32, 11457, Athens</option>
+                <option value="New">Add new...</option>
+            </select>
+
+         <hr>
+         <h2> Payment </h2>
+       
+            <select class="custom-select">
+                    <option selected>Please select payment:  </option>
+                    <option value="PayPal">PayPal</option>
+                    <option value="Card 1">Card 1 4323 9889 0099 8989 0000</option>
+                    <option value="New">Add new...</option>
+            </select>
+       
+<hr>
+<!-- BUTTONS -->
+<div class="text-center">
+        <a class="btn btn-danger btn-lg" href="${contextPath}/menu" role="button">Back</a>
+
+        <a class="btn btn-success btn-lg" href="${contextPath}/home" role="button">Place Order</a>
+</div>
 
 
-      
 
 <!-- Contact Footer -->
 

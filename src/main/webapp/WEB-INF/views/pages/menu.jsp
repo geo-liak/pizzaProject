@@ -72,13 +72,13 @@
             </div>
         </header>
 
-   <div class="jumbotron jumbotron-fluid mt-5 mb-0">
-    <div class="container text-muted p-3">
-      <p class="display-4 text-center font-weight-bolder bg-white rounded-pill shadow mt-2">Pizza Margherita</p>
-      <!-- <p class="lead text-center bg-white rounded-pill">This is a modified jumbotron that occupies the entire horizontal space of its
-                    parent.</p> -->
-    </div>
-  </div>
+        <div class="jumbotron jumbotron-fluid mt-5 mb-0">
+            <div class="container text-muted p-3">
+                <p class="display-4 text-center font-weight-bolder bg-white rounded-pill shadow mt-2">Pizza Margherita</p>
+                <!-- <p class="lead text-center bg-white rounded-pill">This is a modified jumbotron that occupies the entire horizontal space of its
+                              parent.</p> -->
+            </div>
+        </div>
   <section data-spy="scroll" data-target="#navbartop" data-offset="0">
  <!-- MENU CARDS!!! -->
     <section id="Menu" class="container mt-2">
@@ -177,15 +177,16 @@
         </div>
 
       </div>
-      <button type="button" class="btn btn-success offset-9 col-2 my-3 m"><i class="fas fa-shopping-basket fa-pulse"></i> Checkout</button>
+            <a class="btn btn-success offset-9 col-2 my-3 m" href="${contextPath}/review" role="button"><i class="fas fa-shopping-basket fa-pulse"></i>Checkout</a>
     </section>
    
     <!-- Contact Footer -->
 
-    <div id="Contact">
-
-
-    </div>
+   <footer id="Contact" class="py-4 mt-1 bg-dark text-white-50">
+        <div class="container text-center">
+          <small>Copyright &copy; Your Website</small>
+        </div>
+      </footer>
 
   </section>
 
