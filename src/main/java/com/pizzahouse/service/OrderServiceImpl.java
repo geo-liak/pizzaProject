@@ -7,7 +7,6 @@ package com.pizzahouse.service;
 
 import com.pizzahouse.exceptions.ResourceNotFoundException;
 import com.pizzahouse.model.Order;
-import com.pizzahouse.model.Product;
 import com.pizzahouse.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specifications;

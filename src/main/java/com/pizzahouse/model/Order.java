@@ -13,7 +13,7 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table (name = "order")
+@Table (name = "order_product")
 public class Order {
     
     @Id
@@ -21,29 +21,29 @@ public class Order {
     @Column(name="id")
     private Long id;
     
-    @Column(name="item")
-    private Long item;
+    @Column(name="product_id")
+    private Long productId;
     
     @Column(name="quantity")
     private Long quantity;
     
-    @Column(name="fk_order")
-    private Long fk_order;
+    @Column(name="order_id")
+    private Long orderId;
 
     public Order() {
     }
 
-    public Order(Long item, Long quantity, Long fk_order) {
-        this.item = item;
+    public Order(Long productId, Long quantity, Long orderId) {
+        this.productId = productId;
         this.quantity = quantity;
-        this.fk_order = fk_order;
+        this.orderId = orderId;
     }
 
-    public Order(Long id, Long item, Long quantity, Long fk_order) {
+    public Order(Long id, Long productId, Long quantity, Long orderId) {
         this.id = id;
-        this.item = item;
+        this.productId = productId;
         this.quantity = quantity;
-        this.fk_order = fk_order;
+        this.orderId = orderId;
     }
 
     public Long getId() {
@@ -54,12 +54,12 @@ public class Order {
         this.id = id;
     }
 
-    public Long getItem() {
-        return item;
+    public Long getProductId() {
+        return productId;
     }
 
-    public void setItem(Long item) {
-        this.item = item;
+    public void setProductId(Long productId) {
+        this.productId = productId;
     }
 
     public Long getQuantity() {
@@ -70,19 +70,20 @@ public class Order {
         this.quantity = quantity;
     }
 
-    public Long getFk_order() {
-        return fk_order;
+    public Long getOrderId() {
+        return orderId;
     }
 
-    public void setFk_order(Long fk_order) {
-        this.fk_order = fk_order;
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 
     @Override
     public String toString() {
-        return "Order{" + "id=" + id + ", item=" + item + ", quantity=" + quantity + ", fk_order=" + fk_order + '}';
+        return "Order{" + "id=" + id + ", productId=" + productId + ", quantity=" + quantity + ", orderId=" + orderId + '}';
     }
-    
+
+
     
     
 }
