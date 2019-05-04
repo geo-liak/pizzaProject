@@ -6,7 +6,7 @@
 package com.pizzahouse.service;
 
 import com.pizzahouse.exceptions.ResourceNotFoundException;
-import com.pizzahouse.model.Order;
+import com.pizzahouse.model.OrderProduct;
 import org.springframework.data.jpa.domain.Specifications;
 
 import java.util.List;
@@ -14,16 +14,20 @@ import java.util.List;
 /**
  * @author stargazer
  */
-public interface OrderService {
+public interface OrderProductService {
 
-    List<Order> findAll();
+    List<OrderProduct> findAll();
 
-    List<Order> findAll(Specifications specifications);
+    List<OrderProduct> findAll(Specifications specifications);
 
-    Order find(Long id);
+    OrderProduct find(Long id);
+    
+    OrderProduct findByOrderIdAndProductId(Long orderId, Long productId);
+    
+    List<OrderProduct> findByOrderId(Long orderId);
 
     void delete(Long id) throws ResourceNotFoundException;
 
-    Order save(Order orderInfo) throws ResourceNotFoundException;
+    OrderProduct save(OrderProduct order) throws ResourceNotFoundException;
 
 }

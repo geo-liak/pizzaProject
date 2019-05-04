@@ -10,6 +10,7 @@ import com.pizzahouse.model.Product;
 import org.springframework.data.jpa.domain.Specifications;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author stargazer
@@ -19,6 +20,8 @@ public interface ProductService {
     List<Product> findAll();
 
     List<Product> findAll(Specifications specifications);
+    
+    Map<Long, Product> asMap();
 
     Product find(Long id);
 

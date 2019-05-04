@@ -2,8 +2,9 @@ package com.pizzahouse.controller;
 
 import com.pizzahouse.exceptions.ResourceNotFoundException;
 import com.pizzahouse.model.Order;
+import com.pizzahouse.model.OrderProduct;
 import com.pizzahouse.model.specifications.OrderSpecification;
-import com.pizzahouse.service.OrderService;
+import com.pizzahouse.service.OrderProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specifications;
 import org.springframework.stereotype.Controller;
@@ -14,28 +15,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.validation.Valid; 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
+import com.pizzahouse.service.OrderService;
+import com.pizzahouse.service.ProductService;
 
 @Controller
 @RequestMapping(value = "/orders")
 public class OrderController extends AbstractController {
 
     @Autowired
-    OrderService orderService;
+    private OrderService orderService;
 
+    @Autowired
+    private OrderProductService orderProductService;
+    
+    @Autowired
+    private ProductService productService;
 
-    @RequestMapping(value = "/all", method = RequestMethod.GET)
-    public String ordersAll(Model model) {
-        model.addAttribute("orders", orderService.findAll());
-        return "pages/orders/list";
-    }
-
-
+    
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model,
-			@RequestParam(value = "query", required = false, defaultValue = "") String query) {
+            @RequestParam(value = "query", required = false, defaultValue = "") String query) {
 
         if (query != null && query.trim().length() > 0) {
             model.addAttribute("orders", orderService.findAll(Specifications.where(OrderSpecification.containsText(query))));
@@ -46,14 +48,16 @@ public class OrderController extends AbstractController {
         return "pages/orders/list";
     }
 
-
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public String edit(Model theModel, @RequestParam(name = "id", required = false) Long id) {
         if (id == null) {
             theModel.addAttribute("order", new Order());
         } else {
             Order order = orderService.find(id);
+            List<OrderProduct> orderProducts = orderProductService.findByOrderId(order.getId());
             theModel.addAttribute("order", order);
+            theModel.addAttribute("orderProducts", orderProducts);
+            theModel.addAttribute("productsMap", productService.asMap());
         }
         return "pages/orders/edit";
     }
@@ -70,16 +74,21 @@ public class OrderController extends AbstractController {
 
         if (bindingResult.hasErrors()) {
             theModel.addAttribute("order", order);
-
+            
+            if (order.getId() != null) {
+                List<OrderProduct> orderProducts = orderProductService.findByOrderId(order.getId());
+                theModel.addAttribute("orderProducts", orderProducts);
+                theModel.addAttribute("productsMap", productService.asMap());
+            }
             return "pages/orders/edit";
         } else {
-            return "redirect:pages/orders/list";
+            return "redirect:/orders/list";
         }
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public String delete(@RequestParam("id") Long id) throws ResourceNotFoundException {
         orderService.delete(id);
-        return "redirect:pages/orders/list";
+        return "redirect:/orders/list";
     }
 }

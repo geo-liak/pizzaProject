@@ -1,9 +1,11 @@
 
 package com.pizzahouse.model;
 
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,39 +15,46 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table (name = "order_product")
+@Table(name="orders")
 public class Order {
     
-    @Id
-    @GeneratedValue
-    @Column(name="id")
     private Long id;
     
-    @Column(name="product_id")
-    private Long productId;
+    private Double price;
     
-    @Column(name="quantity")
-    private Long quantity;
+    private Long userId;
     
-    @Column(name="order_id")
-    private Long orderId;
+    private Long addressId;
+    
+    private Date orderDate;
+    
+    private Integer progress;
 
     public Order() {
     }
 
-    public Order(Long productId, Long quantity, Long orderId) {
-        this.productId = productId;
-        this.quantity = quantity;
-        this.orderId = orderId;
+    public Order(Double price, Long userId, Long addressId, Date orderDate, Integer progress) {
+        this.price = price;
+        this.userId = userId;
+        this.addressId = addressId;
+        this.orderDate = orderDate;
+        this.progress = progress;
     }
 
-    public Order(Long id, Long productId, Long quantity, Long orderId) {
+    public Order(Long id, Double price, Long userId, Long addressId, Date orderDate, Integer progress) {
         this.id = id;
-        this.productId = productId;
-        this.quantity = quantity;
-        this.orderId = orderId;
+        this.price = price;
+        this.userId = userId;
+        this.addressId = addressId;
+        this.orderDate = orderDate;
+        this.progress = progress;
     }
 
+    
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id")
     public Long getId() {
         return id;
     }
@@ -54,36 +63,58 @@ public class Order {
         this.id = id;
     }
 
-    public Long getProductId() {
-        return productId;
+    @Column(name="price")
+    public Double getPrice() {
+        return price;
     }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
-    public Long getQuantity() {
-        return quantity;
+    @Column(name="user_id")
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setQuantity(Long quantity) {
-        this.quantity = quantity;
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+    
+    @Column(name="address_id")
+    public Long getAddressId() {
+        return addressId;
     }
 
-    public Long getOrderId() {
-        return orderId;
+    public void setAddressId(Long addressId) {
+        this.addressId = addressId;
     }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
+    @Column(name="order_date")
+    public Date getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    @Column(name="progress")
+    public Integer getProgress() {
+        return progress;
+    }
+
+    public void setProgress(Integer progress) {
+        this.progress = progress;
     }
 
     @Override
     public String toString() {
-        return "Order{" + "id=" + id + ", productId=" + productId + ", quantity=" + quantity + ", orderId=" + orderId + '}';
+        return "Order{" + "id=" + id + ", price=" + price + ", userId=" + userId + ", addressId=" + addressId + ", orderDate=" + orderDate + ", progress=" + progress + '}';
     }
 
-
+ 
+    
     
     
 }

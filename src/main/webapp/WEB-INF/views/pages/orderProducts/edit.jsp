@@ -54,89 +54,44 @@
 
         <div class="container">
 
-            <form:form method="POST" action="./update" modelAttribute="order" class="form-signin">
-                <h2 class="form-signin-heading">Order information</h2>
+            <form:form method="POST" action="./update" modelAttribute="orderProduct" class="form-signin">
+                <h2 class="form-signin-heading">Order ${orderProduct.orderId} : OrderProduct ${orderProduct.id}</h2>
 
                 <form:input type="hidden" path="id"></form:input>
-
-                <spring:bind path="price">
+                <form:input type="hidden" path="orderId"></form:input>
+                
+                <spring:bind path="productId">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="text" path="price" class="form-control" placeholder="Price"
-                                    autofocus="true"></form:input>
-                        <form:errors path="price"></form:errors>
+                        <label for="productId">Product id</label>
+                        
+                        <form:select path="productId" class="form-control">
+                            <form:options items="${products}" itemValue="id" itemLabel="name" />                    
+                        </form:select>
+                        
+                        <form:errors path="productId"></form:errors>
                     </div>
                 </spring:bind>
-                <spring:bind path="userId">
+                <spring:bind path="quantity">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="text" path="userId" class="form-control" placeholder="User Id"
+                        <label for="quantity">Quantity</label>
+                        <form:input type="number" path="quantity" class="form-control" placeholder="Quantity"
                                     autofocus="true"></form:input>
-                        <form:errors path="userId"></form:errors>
-                    </div>
-                </spring:bind>
-                <spring:bind path="addressId">
-                    <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="text" path="addressId" class="form-control" placeholder="Address"
-                                    autofocus="true"></form:input>
-                        <form:errors path="addressId"></form:errors>
-                    </div>
-                </spring:bind>
-                <spring:bind path="orderDate">
-                    <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="text" path="orderDate" class="form-control" placeholder="Date"
-                                    autofocus="true"></form:input>
-                        <form:errors path="orderDate"></form:errors>
+                        <form:errors path="quantity"></form:errors>
                     </div>
                 </spring:bind>
 
-                <spring:bind path="progress">
-                    <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="text" path="progress" class="form-control" placeholder="Price"
-                                    autofocus="true"></form:input>
-                        <form:errors path="progress"></form:errors>
-                    </div>
-                </spring:bind>
 
 
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
                 <br />
-                <a class="btn btn-lg btn-dark btn-block" href="./list">Back</a>
+                <a class="btn btn-lg btn-dark btn-block" href="${contextPath}/orders/edit?id=${orderProduct.orderId}">Back</a>
             </form:form>
 
 
-            <c:if test="${not empty orderProducts}">
-                <div class="panel panel-primary">
-                    <div class="panel-body">
-                        <div class="table-responsive-sm">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Product Id</th>
-                                        <th>Quantity</th>
-                                        <th colspan="2">Operations</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <c:forEach items="${orderProducts}" var="result">
-                                        <tr th:each="result,iter : ${templatePage.content}" >
-                                            <td>${result.id}</td>
-                                            <td>${productsMap[result.productId].name}</td>
-                                            <td>${result.quantity}</td>
-                                            <td><a class="btn btn-success" href="../orderproducts/${result.orderId}/edit?id=${result.id}">Edit</a></td>
-                                            <td><a class="btn btn-danger" href="../orderproducts/delete?id=${result.id}">Delete</a></td>
-                                        </tr>
-                                    </c:forEach>
-                                </tbody>
-                            </table>
-                            <a class="btn btn-success" href="../orderproducts/${order.id}/edit">Add Product</a>
-                        </div>
-                    </div>
-                </div>
-            </c:if>
-                
-                
         </div>
         <!-- /container -->
+
+
 
 
         <!-- FINAL IMPORTS -->

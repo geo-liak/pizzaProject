@@ -52,14 +52,14 @@ public class UserController {
         userValidator.validate(userForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
-            return "registration";
+            return "/pages/registration";
         }
 
         userService.save(userForm);
 
         securityService.autologin(userForm.getUsername(), userForm.getPasswordConfirm());
 
-        return "redirect:/pages/welcome";
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -86,15 +86,15 @@ public class UserController {
         }
 
         if (principal != null) {
-            return "welcome";
+            return "/pages/welcome";
         } else {
-            return "home";
+            return "/home";
         }
         
     }
 
     @RequestMapping(value = "/welcome", method = RequestMethod.GET)
     public String welcome(Model model) {
-        return "pages/welcome";
+        return "/pages/welcome";
     }
 }

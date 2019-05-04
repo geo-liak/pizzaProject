@@ -33,7 +33,7 @@ public class Product {
     private String ingredients;
 
     @Column(name = "price")
-    private float price;
+    private Double price;
 
     @Column(name = "imagePath")
     private String imagePath;
@@ -41,7 +41,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(String name, String description, String ingredients, float price, String imagePath) {
+    public Product(String name, String description, String ingredients, Double price, String imagePath) {
         this.name = name;
         this.description = description;
         this.ingredients = ingredients;
@@ -49,7 +49,7 @@ public class Product {
         this.imagePath = imagePath;
     }
 
-    public Product(Long id, String name, String description, String ingredients, float price, String imagePath) {
+    public Product(Long id, String name, String description, String ingredients, Double price, String imagePath) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -92,11 +92,11 @@ public class Product {
         this.ingredients = ingredients;
     }
 
-    public float getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

@@ -26,7 +26,7 @@ import java.util.List;
 public class ProductController extends AbstractController {
 
     @Autowired
-    ProductService productService;
+    private ProductService productService;
 
 
     @RequestMapping(value = "/menu", method = RequestMethod.GET)

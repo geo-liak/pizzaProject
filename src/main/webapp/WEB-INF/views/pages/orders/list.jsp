@@ -12,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <!-- LOAD BOOTSTRAP 4 ( Building our interface and page layout -quickyl & easily- ) -->
+        <!-- LOAD BOOTSTRAP 4 ( Building our interface and page layout -quickly & easily- ) -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!-- FONT AWESOME ( Icons ) -->
@@ -53,11 +53,11 @@
         <br />
         <div class="container">
 
-
+            <jsp:include page="../search.jsp" />
 
             <br />
 
-            <h2>Orders list</h2>
+            <h2>Orders</h2>
 
             <div class="panel panel-default">
                 <div class="btn-group" role="group">
@@ -72,25 +72,29 @@
                     <div class="table-responsive-sm">
                         <table class="table table-hover">
                             <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Product Id</th>
-                                    <th>Quantity</th>
-                                    <th>Order Id</th>
-                                    <th colspan="2">Operations</th>
-                                </tr>
+                            <tr>
+                                <th>Id</th>
+                                <th>Price</th>
+                                <th>Customer</th>
+                                <th>Address</th>
+                                <th>Order time</th>
+                                <th>Progress</th>
+                                <th colspan="2">Operations</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                <c:forEach items="${orders}" var="result">
-                                    <tr th:each="result,iter : ${templatePage.content}" >
+                            <c:forEach items="${orders}" var="result">
+                                <tr th:each="result,iter : ${templatePage.content}" >
                                         <td>${result.id}</td>
-                                        <td>${result.productId}</td>
-                                        <td>${result.quantity}</td>
-                                        <td>${result.orderId}</td>
-                                        <td><a class="btn btn-success" href="./edit?id=${result.id}">Edit</a></td>
-                                        <td><a class="btn btn-danger" href="./delete?id=${result.id}">Delete</a></td>
-                                    </tr>
-                                </c:forEach>
+                                        <td>${result.price}</td>
+                                        <td>${result.userId}</td>
+                                        <td>${result.addressId}</td>
+                                        <td>${result.orderDate}</td>
+                                        <td>${result.progress}</td>
+                                    <td><a class="btn btn-success" href="./edit?id=${result.id}">Edit</a></td>
+                                    <td><a class="btn btn-danger" href="./delete?id=${result.id}">Delete</a></td>
+                                </tr>
+                            </c:forEach>
                             </tbody>
 
                         </table>
@@ -117,11 +121,11 @@
         </script>
         <script src="home.js"></script>
         <script type="text/javascript">
-
-                    $(document).ready(function () {
-
-                        //CUSTOM JAVASCRIPT
-                    });
+            
+        $( document ).ready(function() {
+            
+            //CUSTOM JAVASCRIPT
+        });
         </script>
     </body>
 
