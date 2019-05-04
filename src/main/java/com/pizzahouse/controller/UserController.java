@@ -36,7 +36,7 @@ public class UserController {
     public String menu(Model model) {
         return "pages/menu";
     }
-    // I added this controller for testing
+   
        @RequestMapping(value = "/review", method = RequestMethod.GET)
     public String review(Model model) {
         return "pages/review";
