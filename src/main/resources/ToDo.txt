@@ -4,8 +4,8 @@ ToDo - List of things that need to be done
 
 - sessionStorage and localStorage
 
-- Orders: Η ημερομηνία δεν αποθηκεύεται στη βάση
+- Orders: field date is not saved in db.
 
-- Σε όλες τις φόρμες θα πρέπει να βάλουμε περιγραφή πεδίων όπως έκανα στο /orderproducts/1/edit?id=1
+- In all the forms we will have to describe the fields, as I did in /orderproducts/1/edit?id=1
 
-- Να αντικαταστήσουμε τα προϊόντα μόνο με πίτσες
+- We should replace all the products with pizzas only.
