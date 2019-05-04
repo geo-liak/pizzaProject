@@ -11,3 +11,11 @@ ToDo - List of things that need to be done
 - We should replace all the products with pizzas only.
 
 - In the registration form, when there are errors we don't get the messages with red color.
+
+- Unify style across all pages of the site.
+
+- CRUD Users
+
+
+
+
