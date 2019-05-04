@@ -222,7 +222,7 @@
                     <div class="card-body p-5" id="newCardForm"  >
 
                         <form>
-                                <h3>Add new address</h3>
+                                <h3>Add new credit card</h3>
                             <div class="form-group" >
                                 <label for="username">Full name (on the card)</label>
                                 <input type="text" class="form-control" name="username" placeholder="" required="">
