@@ -61,34 +61,19 @@ CREATE TABLE `address`
 (
  `id`      int(11) NOT NULL AUTO_INCREMENT,
  `street`  varchar(45) NOT NULL ,
- `number`  int(3) NOT NULL ,
- `pc`      int(5) NOT NULL ,
- `floor`   int(2) NOT NULL ,
- `notes`   varchar(140) NOT NULL ,
- `fk_user` int(11) NOT NULL ,
+ `number`  int(3) NULL ,
+ `postal_code` varchar(45) NULL ,
+ `floor`   int(2) NULL ,
+ `notes`   varchar(140) NULL ,
+ `telephone`   varchar(140) NULL ,
+ `user_id` int(11) NOT NULL ,
 PRIMARY KEY (`id`),
-KEY `fkIdx_259` (`fk_user`),
-CONSTRAINT `FK_259` FOREIGN KEY `fkIdx_259` (`fk_user`) REFERENCES `user` (`id`)
+CONSTRAINT `FK_259` FOREIGN KEY `fkIdx_259` (`user_id`) REFERENCES `user` (`id`)
 ON DELETE CASCADE
 ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
-
---  `contact table`
-CREATE TABLE `contact`
-(
- `id`        int(11) NOT NULL AUTO_INCREMENT,
- `telephone` int(20) NOT NULL ,
- `dob`       date NOT NULL ,
- `fk_user`   int(11) NOT NULL ,
-PRIMARY KEY (`id`),
-KEY `fkIdx_268` (`fk_user`),
-CONSTRAINT `FK_268` FOREIGN KEY `fkIdx_268` (`fk_user`) REFERENCES `user` (`id`)
-ON DELETE CASCADE
-ON UPDATE CASCADE)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
 
 -- products table
 create table if not exists `product` (
@@ -102,57 +87,33 @@ primary key (`id`))
 engine = InnoDB
 default character set = utf8mb4;
 
-DROP TABLE IF EXISTS `addresses_per_user`;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `addresses_per_user` (
-  `id` int(11) NOT NULL,
-  `fk_address` int(11) NOT NULL,
-  `fk_user` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_address_idx` (`fk_address`),
-  KEY `fk_user_idx` (`fk_user`),
-  KEY `fk_userpp_idx` (`id`,`fk_user`),
-  CONSTRAINT `fk_address` FOREIGN KEY (`fk_address`) REFERENCES `address` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_userpp` FOREIGN KEY (`fk_user`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Table structure for table `menu`
-DROP TABLE IF EXISTS `menu`;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `menu` (
-  `id` int(11) NOT NULL,
-  `itemName` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `price` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- Table structure for table `order`
-DROP TABLE IF EXISTS `order`;
-SET character_set_client = utf8mb4 ;
-CREATE TABLE `order` (
-  `id` int(11) NOT NULL,
-  `price` int(11) NOT NULL,
-  `fk_addresses_per_user` int(11) NOT NULL,
-  `date` timestamp NOT NULL,
-  `status` int(1) NOT NULL,
+-- Table structure for table `orders`
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL auto_increment,
+  `price` decimal (5,2),
+  `user_id` int(11),
+  `address_id` int(11),
+  `order_date` timestamp,
+  `progress` int(11),
   PRIMARY KEY (`id`),
-  KEY `fk_addresses_per_user_idx_idx` (`fk_addresses_per_user`),
-  CONSTRAINT `fk_addresses_per_user_idx` FOREIGN KEY (`fk_addresses_per_user`) REFERENCES `addresses_per_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  CONSTRAINT `fk_user_idx` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_address_idx` FOREIGN KEY (`address_id`) REFERENCES `address` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 -- Table structure for table `order_description`
 DROP TABLE IF EXISTS `order_product`;
- SET character_set_client = utf8mb4 ;
 CREATE TABLE `order_product` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL auto_increment,
   `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_order_idx` (`order_id`),
-  CONSTRAINT `fk_order` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  CONSTRAINT `fk_order` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
@@ -179,11 +140,9 @@ INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients
 INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`) VALUES ('3', 'Carbonara', 'Spaghetti Carbonara', 'Fresh cream, bacon', '15');
 INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`) VALUES ('4', 'Water 0.5l', 'Table water', 'water', '3');
 
-INSERT INTO `pizza_project`.`address` (`id`, `street`, `number`, `pc`, `floor`, `notes`, `fk_user`) VALUES ('1', '52nd Avenue', '456', '22908', '2', '0', '3');
-INSERT INTO `pizza_project`.`address` (`id`, `street`, `number`, `pc`, `floor`, `notes`, `fk_user`) VALUES ('2', '33rd street', '140', '22909', '3', '0', '3');
-INSERT INTO `pizza_project`.`addresses_per_user` (`id`, `fk_address`, `fk_user`) VALUES ('1', '1', '3');
-INSERT INTO `pizza_project`.`addresses_per_user` (`id`, `fk_address`, `fk_user`) VALUES ('2', '2', '3');
-INSERT INTO `pizza_project`.`order` (`id`, `price`, `fk_addresses_per_user`, `date`, `status`) VALUES ('1', '10', '1', '2019-5-3', '1');
+INSERT INTO `pizza_project`.`address` (`id`, `street`, `number`, `postal_code`, `floor`, `notes`, `user_id`) VALUES ('1', '52nd Avenue', '456', '22908', '2', '0', '3');
+INSERT INTO `pizza_project`.`address` (`id`, `street`, `number`, `postal_code`, `floor`, `notes`, `user_id`) VALUES ('2', '33rd street', '140', '22909', '3', '0', '3');
+INSERT INTO `pizza_project`.`orders` (`id`, `price`, `user_id`, `address_id`, `order_date`, `progress`) VALUES ('1', '10', '3', '1', '2019-05-03', '1');
 INSERT INTO `pizza_project`.`order_product` (`id`, `product_id`, `quantity`, `order_id`) VALUES ('1', '1', '3', '1');
 INSERT INTO `pizza_project`.`order_product` (`id`, `product_id`, `quantity`, `order_id`) VALUES ('2', '2', '4', '1');
 INSERT INTO `pizza_project`.`order_product` (`id`, `product_id`, `quantity`, `order_id`) VALUES ('3', '6', '1', '1');
