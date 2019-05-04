@@ -33,7 +33,9 @@ hr {
 }
 
 
-
+#order {
+    margin-top: 100px;
+}
 
 
 
@@ -46,8 +48,8 @@ hr {
 
 
 
-#Contact {
- 
+footer {
+  display: block;
 }
 
 #ex4 .p1[data-count]:after{
@@ -65,4 +67,10 @@ hr {
   text-align:center;
   min-width: 1em;
   font-weight:bold;
+}
+
+/* REVIEW PAGE HIDE NEW CARD AND ADDRESS MENU */
+
+#newAddForm, #newCardForm  {
+  display: none;
 }

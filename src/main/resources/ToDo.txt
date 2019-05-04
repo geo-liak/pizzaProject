@@ -1,0 +1,5 @@
+ToDo - List of things that need to be done
+
+- in login page change the input type from "text" to "email"
+
+- sessionStorage and localStorage

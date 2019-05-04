@@ -83,6 +83,7 @@
 
          
     <section class="container" id="order">
+      
             <h2>Review Order</h2>
             <hr>
             <div class="row">
@@ -144,23 +145,151 @@
                 </div>
             </div>
          <hr>
-         <h2> Address </h2>
-         <br>
-            <select class="custom-select">
-                <option selected>Please select an address:</option>
-                <option value="Address 1">Patision 32, 11457, Athens</option>
-                <option value="New">Add new...</option>
-            </select>
+          <!-- ADDRESS -->
+        <h2> Address </h2>
 
-         <hr>
-         <h2> Payment </h2>
-       
-            <select class="custom-select">
-                    <option selected>Please select payment:  </option>
-                    <option value="PayPal">PayPal</option>
-                    <option value="Card 1">Card 1 4323 9889 0099 8989 0000</option>
-                    <option value="New">Add new...</option>
-            </select>
+        <!-- DROPDOWN MENU -->
+        <select class="custom-select mb-4" >
+            <option selected>Please select an address:</option>
+            <option value="Address 1">Patision 32, 11457, Athens</option>
+        </select>
+
+        Add new: <input type="checkbox" id="myCheck">
+        <!-- NEW ADDRESS FORM -->
+        <div class="row d-flex justify-content-center">
+            <aside class="col-sm-8 ">
+                <article class="card mt-3 border-0 shadow">
+                    <div class="card-body p-5" id="newAddForm">
+                        <form>
+                            <h3>Add new address</h3>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="inputAddress">Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Home address">
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-9">
+                                    <label for="inputAddress">Street</label>
+                                    <input type="text" class="form-control" id="street" placeholder="Street">
+                                </div>
+                                <div class="form-group col-3">
+                                    <label for="inputAddress2">Number</label>
+                                    <input type="text" class="form-control" id="number" placeholder="no.">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <label for="inputCity">Floor</label>
+                                    <input type="text" class="form-control" id="floor">
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="inputZip">Post Code</label>
+                                    <input type="text" class="form-control" id="postcode">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputCity">Notes</label>
+                                    <input type="text" class="form-control" id="notes">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-secondary">Add new Address</button>
+                        </form>
+                    </div>
+                </article>
+            </aside>
+        </div>
+        <hr>
+        <!-- PAYMENT -->
+        <h2> Payment </h2>
+        <!-- DROP DOWN MENU -->
+        <select class="custom-select mb-4">
+            <option selected>Please select payment: </option>
+            <option value="PayPal">PayPal</option>
+            <option value="Card 1">Card 1 4323 9889 0099 8989 0000</option>
+            <option value="New">Add new...</option>
+        </select>
+        Add new: <input type="checkbox" id="myCheck2">
+
+        <div class="row d-flex justify-content-center" >
+            <aside class="col-sm-8 ">
+
+
+                <article class="card mt-3 border-0 shadow">
+                    <div class="card-body p-5" id="newCardForm"  >
+
+                        <form>
+                                <h3>Add new address</h3>
+                            <div class="form-group" >
+                                <label for="username">Full name (on the card)</label>
+                                <input type="text" class="form-control" name="username" placeholder="" required="">
+                            </div> <!-- form-group.// -->
+
+                            <div class="form-group">
+                                <label for="cardNumber">Card number</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="cardNumber" placeholder="">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text text-muted">
+                                            <i class="fab fa-cc-visa"></i>   <i class="fab fa-cc-amex"></i>  
+                                            <i class="fab fa-cc-mastercard"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div> <!-- form-group.// -->
+
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <label><span class="hidden-xs">Expiration</span> </label>
+                                        <div class="input-group">
+                                            <select class="form-control">
+                                                <option value="01">January</option>
+                                                <option value="02">February </option>
+                                                <option value="03">March</option>
+                                                <option value="04">April</option>
+                                                <option value="05">May</option>
+                                                <option value="06">June</option>
+                                                <option value="07">July</option>
+                                                <option value="08">August</option>
+                                                <option value="09">September</option>
+                                                <option value="10">October</option>
+                                                <option value="11">November</option>
+                                                <option value="12">December</option>
+                                            </select>
+                                            <select class="form-control">
+                                                <option value="2019">2019</option>
+                                                <option value="2020">2020</option>
+                                                <option value="2021">2021</option>
+                                                <option value="2022">2022</option>
+                                                <option value="2023">2023</option>
+                                                <option value="2024">2024</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label data-toggle="tooltip" title=""
+                                            data-original-title="3 digits code on back side of the card">CVV <i
+                                                class="fa fa-question-circle"></i></label>
+                                        <input type="number" class="form-control" required="">
+                                    </div> <!-- form-group.// -->
+                                </div>
+                            </div> <!-- row.// -->
+                            <button class="subscribe btn btn-secondary" type="button"> Confirm </button>
+                        </form>
+
+                    </div> <!-- card-body.// -->
+                </article> <!-- card.// -->
+
+
+            </aside>
+
+        </div>
        
 <hr>
 <!-- BUTTONS -->
@@ -197,7 +326,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
 
-    <script src="${contextPath}/resources/js/home.js"></script>
+    <script src="${contextPath}/resources/js/menu.js"></script>
 
     </body>
 
