@@ -93,16 +93,16 @@
 							</c:if>
                             <div class="form-group">
                                     <label for="exampleInputEmail1">Email address</label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                    <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
+                                    <input name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                                   </div>
                                   <div class="form-group">
                                     <label for="exampleInputPassword1">Password</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                    <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                                   </div>
                                   <div>
                                     <button type="submit" class="btn btn-success btn-block">Submit</button>
                                   </div>
-                                    <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
 
                                   <h6 class="text-center mt-2"><a href="${contextPath}/registration">Create an account</a></h6>
                     </form>

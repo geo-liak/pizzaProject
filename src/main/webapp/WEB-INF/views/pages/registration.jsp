@@ -96,7 +96,7 @@
         </spring:bind>
         <spring:bind path="username">
             <div class="form-group ${status.error ? 'has-error' : ''}">
-                <form:input type="text" path="username" class="form-control" placeholder="Username"
+                <form:input type="text" path="username" class="form-control" placeholder="Email"
                             autofocus="true"></form:input>
                 <form:errors path="username"></form:errors>
             </div>
