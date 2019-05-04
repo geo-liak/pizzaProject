@@ -9,3 +9,5 @@ ToDo - List of things that need to be done
 - In all the forms we will have to describe the fields, as I did in /orderproducts/1/edit?id=1
 
 - We should replace all the products with pizzas only.
+
+- In the registration form, when there are errors we don't get the messages with red color.

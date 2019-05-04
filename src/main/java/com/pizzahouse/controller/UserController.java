@@ -1,6 +1,7 @@
 package com.pizzahouse.controller;
 
 import com.pizzahouse.model.User;
+import com.pizzahouse.service.ProductService;
 import com.pizzahouse.service.SecurityService;
 import com.pizzahouse.service.UserService;
 import com.pizzahouse.validator.UserValidator;
@@ -25,24 +26,28 @@ public class UserController {
     @Autowired
     private UserValidator userValidator;
 
+    @Autowired
+    private ProductService productService;
+
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
         model.addAttribute("userForm", new User());
 
         return "pages/registration";
     }
-    
-      @RequestMapping(value = "/menu", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/menu", method = RequestMethod.GET)
     public String menu(Model model) {
         return "pages/menu";
     }
-   
-       @RequestMapping(value = "/review", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/review", method = RequestMethod.GET)
     public String review(Model model) {
+        model.addAttribute("menuItems", productService.findAll());
         return "pages/review";
     }
-    
-      @RequestMapping(value = "/contact", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/contact", method = RequestMethod.GET)
     public String contact(Model model) {
         return "pages/contact";
     }
@@ -75,7 +80,7 @@ public class UserController {
         return "/pages/login";
     }
 
-    @RequestMapping(value = {"/","home"} , method = RequestMethod.GET)
+    @RequestMapping(value = {"/", "home"}, method = RequestMethod.GET)
     public String home(Principal principal, Model model, String error, String logout) {
         if (error != null) {
             model.addAttribute("error", "Your username and password is invalid.");
@@ -90,7 +95,7 @@ public class UserController {
         } else {
             return "/home";
         }
-        
+
     }
 
     @RequestMapping(value = "/welcome", method = RequestMethod.GET)
