@@ -1,11 +1,14 @@
 package com.pizzahouse.controller;
 
+import com.pizzahouse.model.OrderProduct;
 import com.pizzahouse.model.User;
 import com.pizzahouse.service.ProductService;
 import com.pizzahouse.service.SecurityService;
 import com.pizzahouse.service.UserService;
 import com.pizzahouse.validator.UserValidator;
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,6 +42,10 @@ public class UserController {
     @RequestMapping(value = "/menu", method = RequestMethod.GET)
     public String menu(Model model) {
         model.addAttribute("menuItems", productService.findAll());
+        List<OrderProduct> orderProductList = new ArrayList<OrderProduct>();
+        model.addAttribute("orderProductList", orderProductList);
+        OrderProduct orderProduct = new OrderProduct();
+        model.addAttribute("orderProduct", orderProduct);
         return "pages/menu";
     }
 
