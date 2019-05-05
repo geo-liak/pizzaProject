@@ -28,49 +28,7 @@
 <body>
     <!-- HEADER -->
 
-    <header class="navbar navbar-expand-lg navbar-dark bg-success fixed-top shadow" id="navbartop">
-            <a class="navbar-brand" href="#Home">Pizza Margherita</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-left" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                          <a class="nav-link" href="${contextPath}/home">Home </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="${contextPath}/menu">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#Contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-          
-            <div class="collapse navbar-collapse justify-content-end">
-                <ul class="navbar-nav">
-             <!-- CART -->
-                    <li class="nav-item">
-                        <a class="nav-link mr-3" href="#Cart">
-                                <div id="ex4">
-                                        <span class="p1 fa-stack fa-1x has-badge" data-count="4">
-                                          <!-- <i class="p2 fa fa-circle fa-stack-2x"></i> -->
-                                          <i class="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse" data-count="4"></i>
-                                        </span>
-                                      </div>
-                              </a>
-                    </li>
-             <!-- LOGIN BUTTON -->
-                    <li class="nav-item">
-                        <a href="login.html" id="login_btn" class="btn btn-outline-light my-2 my-sm-0">
-                            Login
-                        </a>
-                    </li>
-                </ul>
-    
-            </div>
-        </header>
+    <%@include file = "/resources/jsp/header.jsp"  %>
 
         <div class="jumbotron jumbotron-fluid mt-5 mb-0">
             <div class="container text-muted p-3">
@@ -85,96 +43,25 @@
 
 
       <div class="row mx-2 align-items-center d-flex justify-content-center ">
-        <div class="card p-2 m-2 col-3">
-          <img class="card-img-top" src="${contextPath}/resources/images/PEPPERONI-PIZZAZZ.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Pepperoni Classic</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-              the card's content.</p>
-            <div class="card-footer align-items-center d-flex justify-content-center">
-              <div class="input-group"><span class="input-group-btn"><button type="button"
-                    class="btn btn-danger">-</button></span><input id="colorful" class="form-control" type="text"
-                  value="1" min="0" max="10" style="text-align: center;"><span class="input-group-btn"><button
-                    type="button" class="btn btn-success">+</button></span></div>
-            </div>
-          </div>
-        </div>
+
+          <c:forEach items="${menuItems}" var="result">
+              <div class="card p-2 m-2 col-3">
+                  <img class="card-img-top" src="${contextPath}/resources/images/${result.imagePath}.jpg" alt="Card image cap">
+                  <div class="card-body">
+                      <h5 class="card-title">${result.name}</h5>
+                      <p class="card-text">${result.description}</p>
+                      <div class="card-footer align-items-center d-flex justify-content-center">
+                          <div class="input-group"><span class="input-group-btn"><button type="button"
+                                                                                         class="btn btn-danger">-</button></span><input id="colorful" class="form-control" type="text"
+                                                                             value="1" min="0" max="10" style="text-align: center;"><span class="input-group-btn"><button
+                                      type="button" class="btn btn-success">+</button></span></div>
+                      </div>
+                  </div>
+              </div>
+
+          </c:forEach>
 
 
-
-        <div class="card p-2 m-2 col-3">
-          <img class="card-img-top" src="${contextPath}/resources/images/MARGHERITA.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Margherita</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-              the card's content.</p>
-            <div class="card-footer align-items-center d-flex justify-content-center">
-              <div class="input-group"><span class="input-group-btn"><button type="button"
-                    class="btn btn-danger">-</button></span><input id="colorful" class="form-control rounded-0"
-                  type="text" value="1" min="0" max="10" style="text-align: center;"><span
-                  class="input-group-btn"><button type="button" class="btn btn-success">+</button></span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card p-2 m-2 col-3">
-          <img class="card-img-top" src="${contextPath}/resources/images/HAWAIIAN.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Hawaiian</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-              the card's content.</p>
-            <div class="card-footer align-items-center d-flex justify-content-center">
-              <div class="input-group"><span class="input-group-btn"><button type="button"
-                    class="btn btn-danger">-</button></span><input id="colorful" class="form-control rounded-0"
-                  type="text" value="1" min="0" max="10" style="text-align: center;"><span
-                  class="input-group-btn"><button type="button" class="btn btn-success">+</button></span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card p-2 m-2 col-3">
-          <img class="card-img-top" src="..." alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-              the card's content.</p>
-            <div class="card-footer align-items-center d-flex justify-content-center">
-              <div class="input-group"><span class="input-group-btn"><button type="button"
-                    class="btn btn-danger">-</button></span><input id="colorful" class="form-control rounded-0"
-                  type="text" value="1" min="1" max="10" style="text-align: center;"><span
-                  class="input-group-btn"><button type="button" class="btn btn-success">+</button></span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card p-2 m-2 col-3">
-          <img class="card-img-top" src="..." alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-              the card's content.</p>
-            <div class="card-footer align-items-center d-flex justify-content-center">
-                <div class="input-group">
-                     <button type="button" class="btn btn-success btn-block">Add to Cart</button> 
-                </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card p-2 m-2 col-3">
-          <img class="card-img-top" src="..." alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-              the card's content.</p>
-            <div class="card-footer align-items-center d-flex justify-content-center">
-              <div class="input-group"><span class="input-group-btn"><button type="button"
-                    class="btn btn-danger">-</button></span><input id="colorful" class="form-control rounded-0"
-                  type="number" value="1" min="1" max="10" style="text-align: center;"><span
-                  class="input-group-btn"><button type="button" class="btn btn-success">+</button></span></div>
-            </div>
-          </div>
-        </div>
 
       </div>
             <a class="btn btn-success offset-9 col-2 my-3 m" href="${contextPath}/review" role="button"><i class="fas fa-shopping-basket fa-pulse"></i>Checkout</a>
@@ -182,11 +69,7 @@
    
     <!-- Contact Footer -->
 
-   <footer id="Contact" class="py-4 mt-1 bg-dark text-white-50">
-        <div class="container text-center">
-          <small>Copyright &copy; Your Website</small>
-        </div>
-      </footer>
+    <%@include file = "/resources/jsp/footer.jsp"  %>
 
   </section>
 

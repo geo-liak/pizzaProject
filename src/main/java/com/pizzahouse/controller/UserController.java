@@ -38,6 +38,7 @@ public class UserController {
 
     @RequestMapping(value = "/menu", method = RequestMethod.GET)
     public String menu(Model model) {
+        model.addAttribute("menuItems", productService.findAll());
         return "pages/menu";
     }
 

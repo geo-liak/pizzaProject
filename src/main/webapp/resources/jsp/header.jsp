@@ -1,12 +1,5 @@
-<%-- 
-    Document   : header
-    Created on : May 3, 2019, 1:32:09 PM
-    Author     : Home
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-
- <header class="navbar navbar-expand-lg navbar-dark bg-success fixed-top shadow" id="navbartop">
+        <!-- HEADER -->
+    <header class="navbar navbar-expand-lg navbar-dark bg-success fixed-top shadow border-bottom border-secondary" id="navbartop">
         <a class="navbar-brand" href="#Home">Pizza Margherita</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,7 +8,7 @@
         <div class="collapse navbar-collapse justify-content-left" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="${contextPath}/home">Home </a>
+                    <a  class="nav-link " href="${contextPath}/home">Home </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="${contextPath}/menu">Menu</a>
@@ -25,27 +18,51 @@
                 </li>
             </ul>
         </div>
-      
+      <!--ACCOUNT-->
         <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
-         <!-- CART -->
+                 <!-- Account -->
+                 <c:choose>
+                     <c:when test="${edit}">
+                         <li class="nav-item">
+                             <a class="nav-link" href="${contextPath}/personalinfo">Account</a>
+                         </li>
+                     </c:when>
+                </c:choose>
+                
+          <!--CART--> 
                 <li class="nav-item">
                     <a class="nav-link mr-3" href="#Cart">
                             <div id="ex4">
-                                    <span class="p1 fa-stack fa-1x has-badge" data-count="4">
-                                      <!-- <i class="p2 fa fa-circle fa-stack-2x"></i> -->
+                                    <span class="p1 fa-stack fa-1x has-badge" data-count="0">
+                                     
                                       <i class="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse" data-count="4"></i>
                                     </span>
                                   </div>
                           </a>
                 </li>
-         <!-- LOGIN BUTTON -->
+          <!--LOGIN BUTTON--> 
                 <li class="nav-item">
-                    <a href="${contextPath}/login" id="login_btn" class="btn btn-outline-light my-2 my-sm-0">
-                        Login
-                    </a>
+                <c:choose>
+                    <c:when test="${edit}">
+                        <a href="${contextPath}/logout" id="logout_btn" class="btn btn-outline-light my-2 my-sm-0">
+                            Logout
+                        </a>
+                    </c:when>
+                    <c:otherwise>
+                        <a href="${contextPath}/login" id="login_btn" class="btn btn-outline-light my-2 my-sm-0">
+                            Login
+                        </a>
+                    </c:otherwise>
+                </c:choose>
                 </li>
             </ul>
 
         </div>
     </header>
+                        
+<!--                    <li class="nav-item">
+                        <a href="${contextPath}/login" id="login_btn" class="btn btn-outline-light my-2 my-sm-0">
+                            Login
+                        </a>
+                    </li>-->
