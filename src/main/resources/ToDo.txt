@@ -1,10 +1,10 @@
 ToDo - List of things that need to be done
 
-- in login page change the input type from "text" to "email"
+- in login page change the input type from "text" to "email" ==> Do we really need the username to be email?
 
 - sessionStorage and localStorage
 
-- Orders: field date is not saved in db.
+- Orders: field date is not saved in db. ==> Check if fixed.
 
 - In all the forms we will have to describe the fields, as I did in /orderproducts/1/edit?id=1
 
@@ -14,8 +14,18 @@ ToDo - List of things that need to be done
 
 - Unify style across all pages of the site.
 
-- CRUD Users
+- CRUD Users ==> Update still has problems & user roles.
+
+- Address CRUD???????
+
+- Customer change password
 
 
+SOS: If user has proceeds to checkout but he is not logged in, we should redirect him to /login first and then to /review.
+
+
+CHAT
+
+PAYPAL
 
 
