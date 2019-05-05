@@ -52,6 +52,7 @@ public class UserController {
     @RequestMapping(value = "/review", method = RequestMethod.GET)
     public String review(Model model) {
         model.addAttribute("menuItems", productService.findAll());
+//        model.addAttribute("", onomaListas);
         return "pages/review";
     }
 
