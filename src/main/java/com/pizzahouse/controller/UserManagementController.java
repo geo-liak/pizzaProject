@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Controller
 @RequestMapping(value = "/users")
@@ -28,6 +29,11 @@ public class UserManagementController extends AbstractController {
     
     @Autowired
     private RoleRepository roleRepository;
+    
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+    
+    
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model,
@@ -68,6 +74,7 @@ public class UserManagementController extends AbstractController {
         } else {
             try {
                 user = userManagementService.saveNew(user);
+                user.setPassword(passwordEncoder.encode("test"));
             } catch (Exception exc) {
                 System.out.println(exc.getMessage());
             }
