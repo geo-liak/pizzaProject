@@ -40,19 +40,19 @@
                     <form action="${loginUrl}" method="post" class="form-horizontal">
                           <h2 class="form-signin-heading">Log-in</h2>
                         <c:if test="${param.error != null}">
-								<div class="alert alert-danger">
-									<p>Invalid username and password.</p>
-								</div>
-							</c:if>
-							<c:if test="${param.logout != null}">
-								<div class="alert alert-success">
-									<p>You have been logged out successfully.</p>
-								</div>
-							</c:if>
+                                    <div class="alert alert-danger">
+                                        <p>Invalid username and password.</p>
+                                    </div>
+                                </c:if>
+                                <c:if test="${param.logout != null}">
+                                    <div class="alert alert-success">
+                                        <p>You have been logged out successfully.</p>
+                                    </div>
+                        </c:if>
                             <div class="form-group">
                                     <label for="exampleInputEmail1">Email address</label>
                                     <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
-                                    <input name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                    <input name="username" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                                   </div>
                                   <div class="form-group">
                                     <label for="exampleInputPassword1">Password</label>

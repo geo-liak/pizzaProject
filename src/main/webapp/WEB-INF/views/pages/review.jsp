@@ -280,7 +280,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
 
-    <script src="${contextPath}/resources/js/menu.js"></script>
+    <script src="${contextPath}/resources/js/review.js"></script>
 
     </body>
 

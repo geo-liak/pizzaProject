@@ -34,9 +34,9 @@
                 <li class="nav-item">
                     <a class="nav-link mr-3" href="#Cart">
                             <div id="ex4">
-                                    <span class="p1 fa-stack fa-1x has-badge" data-count="0">
+                                    <span class="p1 fa-stack fa-1x has-badge" data-count="">
                                      
-                                      <i class="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse" data-count="4"></i>
+                                      <i class="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse" ></i>
                                     </span>
                                   </div>
                           </a>
@@ -45,12 +45,12 @@
                 <li class="nav-item">
                 <c:choose>
                     <c:when test="${edit}">
-                        <a href="${contextPath}/logout" id="logout_btn" class="btn btn-outline-light my-2 my-sm-0">
+                        <a href="${contextPath}/logout" id="logout_btn" class="btn btn-outline-light mt-1">
                             Logout
                         </a>
                     </c:when>
                     <c:otherwise>
-                        <a href="${contextPath}/login" id="login_btn" class="btn btn-outline-light my-2 my-sm-0">
+                        <a href="${contextPath}/login" id="login_btn" class="btn btn-outline-light mt-1">
                             Login
                         </a>
                     </c:otherwise>
@@ -60,9 +60,4 @@
 
         </div>
     </header>
-                        
-<!--                    <li class="nav-item">
-                        <a href="${contextPath}/login" id="login_btn" class="btn btn-outline-light my-2 my-sm-0">
-                            Login
-                        </a>
-                    </li>-->
+                      

@@ -2,39 +2,34 @@ jQuery(init);
 
 function init($){
 
-let $check = document.querySelector( "#myCheck");
-$check.addEventListener("click", showHide );
+
+ let items = document.querySelectorAll(".menuItems");
 
 
-let $check2 = document.querySelector( "#myCheck2");
-$check2.addEventListener("click", showHide2 );
+items.forEach((it) => {
+    it.addEventListener('click', () => {
+        updateCart();
+      });
+});
 
-
-
-function showHide( ){
-    let x = this.checked;
- 
-    if ( x == false ){
-        $("#newAddForm").hide();
-    } else {
-     $("#newAddForm").show();
-    }
-    
- };
+function updateCart(){
+    let count = [];
+    items.forEach((item) => {
+        count.push(parseInt(item.value));
+      });
+      
+    let sum = count.reduce(getSum);
+      
+    function getSum(total, num) {
+        return total + num;
+      }
   
-
- function showHide2( ){
-    let x = this.checked;
-    console.log(x);
-    if ( x == false ){
-        $("#newCardForm").hide();
-    } else {
-     $("#newCardForm").show();
-    }
-    
- };
-
-
+  
+//      cart.setAttribute("data-count", sum);
+      $("#ex4 span").attr("data-count", sum);
+      
+      sessionStorage.setItem("sum", sum);
+}
 
 
 }
