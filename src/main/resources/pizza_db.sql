@@ -29,9 +29,10 @@ DEFAULT CHARACTER SET = utf8mb4;
 
 # DROP TABLE IF EXISTS `user_role`;
 CREATE TABLE if not exists `user_role` (
+  `id` int(11) not null auto_increment,
   `user_id` int(11) NOT NULL,
   `role_id` int(11) NOT NULL,
-  PRIMARY KEY (`user_id`,`role_id`),
+  PRIMARY KEY (`id`),
   KEY `fk_user_role_roleid_idx` (`role_id`),
   CONSTRAINT `fk_user_role_roleid` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_user_role_userid` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -131,9 +132,9 @@ insert into `user` values ('1', 'admin1', 'admin1', 'admin1234@xyz.com', '$2a$11
 insert into `user` values ('2', 'employee1', 'employee1', 'empl1234@xyz.com', '$2a$11$ZpaxTgSkKsW0MfJTNmVeKOkeLdc/RnKYgDF5udyCoy3W5lMhIrF6G');
 insert into `user` values ('3', 'customer1', 'customer1', 'cust1234@xyz.com', '$2a$11$lwcI6HZJRV2W6XEdYaL4duQYgG9ce70ldOkSIVHW67TUbWIBelTJm');
 
-insert into `user_role` values ('1', '1');
-insert into `user_role` values ('2', '2');
-insert into `user_role` values ('3', '3');
+insert into `user_role` values ('1', '1', '1');
+insert into `user_role` values ('2', '2', '2');
+insert into `user_role` values ('3', '3', '3');
 
 INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`) VALUES ('1', 'Margherita', 'Pizza margherita', 'Tomato, cheese', '10');
 INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`) VALUES ('2', 'Pepperoni', 'Pizza pepperoni', 'Tomato, cheese, pepperoni', '12');

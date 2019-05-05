@@ -6,6 +6,7 @@
 package com.pizzahouse.service;
 
 import com.pizzahouse.exceptions.ResourceNotFoundException;
+import com.pizzahouse.model.Role;
 import com.pizzahouse.model.User;
 import org.springframework.data.jpa.domain.Specifications;
 
@@ -22,11 +23,15 @@ public interface UserManagementService {
     List<User> findAll(Specifications specifications);
     
     Map<Long, User> asMap();
+    
+    Map<Long, Role> roleAsMap();
 
     User find(Long id);
 
     void delete(Long id) throws ResourceNotFoundException;
 
     User save(User user) throws ResourceNotFoundException;
+    
+    User saveNew(User user) throws ResourceNotFoundException;
 
 }

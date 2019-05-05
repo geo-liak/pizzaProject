@@ -55,21 +55,21 @@
         <div class="container">
 
             <form:form method="POST" action="./update" modelAttribute="orderProduct" class="form-signin">
-                <h2 class="form-signin-heading">Order ${orderProduct.orderId} : OrderProduct ${orderProduct.id}</h2>
+                <h2 class="form-signin-heading">Order ${orderProduct.orderId}: OrderProduct ${orderProduct.id}</h2>
 
                 <form:input type="hidden" path="id"></form:input>
                 <form:input type="hidden" path="orderId"></form:input>
-                
+
                 <spring:bind path="productId">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
                         <label for="productId">Product id</label>
-                        
+
                         <form:select path="productId" class="form-control">
                             <form:options items="${products}" itemValue="id" itemLabel="name" />                    
                         </form:select>
-                        
+
                         <form:errors path="productId"></form:errors>
-                    </div>
+                        </div>
                 </spring:bind>
                 <spring:bind path="quantity">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
@@ -77,7 +77,7 @@
                         <form:input type="number" path="quantity" class="form-control" placeholder="Quantity"
                                     autofocus="true"></form:input>
                         <form:errors path="quantity"></form:errors>
-                    </div>
+                        </div>
                 </spring:bind>
 
 
@@ -106,11 +106,11 @@
         </script>
         <script src="home.js"></script>
         <script type="text/javascript">
-            
-        $( document ).ready(function() {
-            
-            //CUSTOM JAVASCRIPT
-        });
+
+                    $(document).ready(function () {
+
+                        //CUSTOM JAVASCRIPT
+                    });
         </script>
     </body>
 

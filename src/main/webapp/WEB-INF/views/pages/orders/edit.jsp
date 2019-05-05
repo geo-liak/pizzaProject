@@ -64,36 +64,36 @@
                         <form:input type="text" path="price" class="form-control" placeholder="Price"
                                     autofocus="true"></form:input>
                         <form:errors path="price"></form:errors>
-                    </div>
+                        </div>
                 </spring:bind>
                 <spring:bind path="userId">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
                         <form:input type="text" path="userId" class="form-control" placeholder="User Id"
                                     autofocus="true"></form:input>
                         <form:errors path="userId"></form:errors>
-                    </div>
+                        </div>
                 </spring:bind>
                 <spring:bind path="addressId">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
                         <form:input type="text" path="addressId" class="form-control" placeholder="Address"
                                     autofocus="true"></form:input>
                         <form:errors path="addressId"></form:errors>
-                    </div>
+                        </div>
                 </spring:bind>
                 <spring:bind path="orderDate">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
                         <form:input type="text" path="orderDate" class="form-control" placeholder="Date"
                                     autofocus="true"></form:input>
                         <form:errors path="orderDate"></form:errors>
-                    </div>
+                        </div>
                 </spring:bind>
 
                 <spring:bind path="progress">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="text" path="progress" class="form-control" placeholder="Price"
+                        <form:input type="text" path="progress" class="form-control" placeholder="Status"
                                     autofocus="true"></form:input>
                         <form:errors path="progress"></form:errors>
-                    </div>
+                        </div>
                 </spring:bind>
 
 
@@ -133,8 +133,9 @@
                     </div>
                 </div>
             </c:if>
-                
-                
+
+         
+
         </div>
         <!-- /container -->
 
@@ -151,11 +152,11 @@
         </script>
         <script src="home.js"></script>
         <script type="text/javascript">
-            
-        $( document ).ready(function() {
-            
-            //CUSTOM JAVASCRIPT
-        });
+
+                    $(document).ready(function () {
+
+                        //CUSTOM JAVASCRIPT
+                    });
         </script>
     </body>
 

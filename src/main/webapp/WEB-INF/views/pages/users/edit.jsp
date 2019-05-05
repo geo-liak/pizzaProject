@@ -54,48 +54,46 @@
 
         <div class="container">
 
-            <form:form method="POST" action="./update" modelAttribute="order" class="form-signin">
-                <h2 class="form-signin-heading">Order information</h2>
+            <form:form method="POST" action="./update" modelAttribute="user" class="form-signin">
+                <h2 class="form-signin-heading">User Details</h2>
 
                 <form:input type="hidden" path="id"></form:input>
 
-                <spring:bind path="price">
+                <spring:bind path="firstName">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="text" path="price" class="form-control" placeholder="Price"
+                        <form:input type="text" path="firstName" class="form-control" placeholder="First Name"
                                     autofocus="true"></form:input>
-                        <form:errors path="price"></form:errors>
-                    </div>
+                        <form:errors path="firstName"></form:errors>
+                        </div>
                 </spring:bind>
-                <spring:bind path="userId">
+                <spring:bind path="lastName">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="text" path="userId" class="form-control" placeholder="User Id"
+                        <form:input type="text" path="lastName" class="form-control" placeholder="Last Name"
                                     autofocus="true"></form:input>
-                        <form:errors path="userId"></form:errors>
-                    </div>
+                        <form:errors path="lastName"></form:errors>
+                        </div>
                 </spring:bind>
-                <spring:bind path="addressId">
+                <spring:bind path="username">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="text" path="addressId" class="form-control" placeholder="Address"
+                        <form:input type="text" path="username" class="form-control" placeholder="username (email)"
                                     autofocus="true"></form:input>
-                        <form:errors path="addressId"></form:errors>
-                    </div>
+                        <form:errors path="username"></form:errors>
+                        </div>
                 </spring:bind>
-                <spring:bind path="orderDate">
+                <spring:bind path="password">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="text" path="orderDate" class="form-control" placeholder="Date"
+                        <form:input type="text" path="password" class="form-control" placeholder="password"
                                     autofocus="true"></form:input>
-                        <form:errors path="orderDate"></form:errors>
-                    </div>
-                </spring:bind>
-
-                <spring:bind path="progress">
-                    <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="text" path="progress" class="form-control" placeholder="Price"
-                                    autofocus="true"></form:input>
-                        <form:errors path="progress"></form:errors>
-                    </div>
+                        <form:errors path="password"></form:errors>
+                        </div>
                 </spring:bind>
 
+
+                <select class="mdb-select md-form form-control" multiple>
+                    <c:forEach items = "${roles}" var="result" >
+                        <option value="${result.id}">${result.name}</option>
+                    </c:forEach>
+                </select>
 
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
                 <br />
@@ -133,8 +131,8 @@
                     </div>
                 </div>
             </c:if>
-                
-                
+
+
         </div>
         <!-- /container -->
 
@@ -151,11 +149,11 @@
         </script>
         <script src="home.js"></script>
         <script type="text/javascript">
-            
-        $( document ).ready(function() {
-            
-            //CUSTOM JAVASCRIPT
-        });
+
+                    $(document).ready(function () {
+
+                        //CUSTOM JAVASCRIPT
+                    });
         </script>
     </body>
 
