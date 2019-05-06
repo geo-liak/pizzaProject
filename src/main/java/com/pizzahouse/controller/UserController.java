@@ -30,8 +30,6 @@ public class UserController {
     @Autowired
     private UserValidator userValidator;
 
-    @Autowired
-    private ProductService productService;
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
@@ -40,22 +38,6 @@ public class UserController {
         return "pages/registration";
     }
 
-    @RequestMapping(value = "/menu", method = RequestMethod.GET)
-    public String menu(Model model) {
-        model.addAttribute("menuItems", productService.findAll());
-        OrderProductListContainer orderProductList = new OrderProductListContainer();
-        model.addAttribute("orderProductList", orderProductList);
-        OrderProduct orderProduct = new OrderProduct();
-        model.addAttribute("orderProduct", orderProduct);
-        return "pages/menu";
-    }
-
-    @RequestMapping(value = "/review", method = RequestMethod.GET)
-    public String review(Model model) {
-        model.addAttribute("menuItems", productService.findAll());
-//        model.addAttribute("", onomaListas);
-        return "pages/review";
-    }
 
     @RequestMapping(value = "/contact", method = RequestMethod.GET)
     public String contact(Model model) {
