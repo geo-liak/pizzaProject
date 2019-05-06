@@ -34,7 +34,7 @@
                 <li class="nav-item">
                     <a class="nav-link mr-3" href="#Cart">
                             <div id="ex4">
-                                    <span class="p1 fa-stack fa-1x has-badge" data-count="">
+                                    <span class="p1 fa-stack fa-1x has-badge" data-count="0">
                                      
                                       <i class="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse" ></i>
                                     </span>

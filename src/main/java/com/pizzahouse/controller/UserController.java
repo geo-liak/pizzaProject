@@ -1,6 +1,7 @@
 package com.pizzahouse.controller;
 
 import com.pizzahouse.model.OrderProduct;
+import com.pizzahouse.model.OrderProductListContainer;
 import com.pizzahouse.model.User;
 import com.pizzahouse.service.ProductService;
 import com.pizzahouse.service.SecurityService;
@@ -42,7 +43,7 @@ public class UserController {
     @RequestMapping(value = "/menu", method = RequestMethod.GET)
     public String menu(Model model) {
         model.addAttribute("menuItems", productService.findAll());
-        List<OrderProduct> orderProductList = new ArrayList<OrderProduct>();
+        OrderProductListContainer orderProductList = new OrderProductListContainer();
         model.addAttribute("orderProductList", orderProductList);
         OrderProduct orderProduct = new OrderProduct();
         model.addAttribute("orderProduct", orderProduct);

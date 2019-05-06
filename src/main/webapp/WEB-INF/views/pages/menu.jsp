@@ -46,20 +46,21 @@
 
 
       <div class="row mx-2 align-items-center d-flex justify-content-center ">
-
-          <c:forEach items="${menuItems}" var="result">
+   
+          <c:forEach items="${menuItems}" var="result">             
               <div class="card p-2 m-2 col-3">
                   <img class="card-img-top" src="${contextPath}/resources/images/${result.imagePath}.jpg" alt="Card image cap">
                   <div class="card-body">
                       <h5 class="card-title">${result.name}</h5>
                       <p class="card-text">${result.description}</p>
                       <div class="card-footer align-items-center d-flex justify-content-center bg-white">
-                          <div class="input-group">
+                          <div class="input-group inputs">
+                       
+                         <input class="form-control productId" type="hidden" name="id" value="${result.id}">
+                         <input class="form-control menuItems bg-warning font-weight-bold" type="number" value="0" min="0" max="10" style="text-align: center;">
                  
-                         <input class="form-control menuItems  bg-warning font-weight-bold" type="number" value="0" min="0" max="10" style="text-align: center;">
-                 
-                </div>
-              </div>
+                          </div>
+                      </div>
                   </div>
               </div>
 
@@ -68,7 +69,7 @@
 
 
       </div>
-            <a class="btn btn-success offset-9 col-2 my-3 m" href="${contextPath}/review" role="button"><i class="fas fa-shopping-basket fa-pulse"></i>Checkout</a>
+            <a id="checkout" class="btn btn-success offset-9 col-2 my-3 m" href="${contextPath}/review" role="button"><i class="fas fa-shopping-basket fa-pulse"></i>Checkout</a>
     </section>
    
     <!-- Contact Footer -->
@@ -82,8 +83,10 @@
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.4.0.min.js"
-        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+         <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
             integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
         </script>
