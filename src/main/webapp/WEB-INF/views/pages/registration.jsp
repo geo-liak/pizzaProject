@@ -26,7 +26,7 @@
 
 <body>
 
-     <%@include file = "/resources/jsp/header.jsp"  %>
+     <jsp:include page= "../pages/jsp/header.jsp" />
     
     
      <div id="mainWrapper">
@@ -83,7 +83,7 @@
         </div>
     </div>
    
-   <%@include file = "/resources/jsp/footer.jsp"  %>
+   <jsp:include page= "../pages/jsp/footer.jsp" />
    <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
