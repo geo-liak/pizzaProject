@@ -31,7 +31,7 @@
 <body>
     <!-- HEADER -->
 
-    <%@include file = "/resources/jsp/header.jsp"  %>
+    <jsp:include page= "../pages/jsp/header.jsp" />
 
         <div class="jumbotron jumbotron-fluid mt-5 mb-0">
             <div class="container text-muted p-3">
@@ -74,7 +74,7 @@
    
     <!-- Contact Footer -->
 
-    <%@include file = "/resources/jsp/footer.jsp"  %>
+    <jsp:include page= "../pages/jsp/footer.jsp" />
 
   </section>
 

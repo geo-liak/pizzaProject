@@ -31,6 +31,7 @@
                 </c:choose>
                 
                          <!--CART-->
+                         ${pageContext.request.userPrincipal.name}
                 <li class="nav-item">
                     <a class="nav-link mr-3" href="#Cart">
                             <div id="ex4">
