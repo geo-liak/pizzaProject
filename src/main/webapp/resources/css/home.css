@@ -69,8 +69,5 @@ footer {
   font-weight:bold;
 }
 
-/* REVIEW PAGE HIDE NEW CARD AND ADDRESS MENU */
 
-#newAddForm, #newCardForm  {
-  display: none;
-}
+

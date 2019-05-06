@@ -28,7 +28,7 @@
               integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <!-- Style css -->
         <link href="${contextPath}/resources/css/home.css" rel="stylesheet">
-        <title>Home Page</title>
+        <title>Review Order</title>
     </head>
 
 
@@ -111,12 +111,12 @@
             <option value="Address 1">Patision 32, 11457, Athens</option>
         </select>
 
-        Add new: <input type="checkbox" id="myCheck">
+        <button type="button" class="btn  btn-outline-info" data-toggle="collapse" data-target="#newAddForm">Add new</button>
         <!-- NEW ADDRESS FORM -->
-        <div class="row d-flex justify-content-center">
+        <div  class="row d-flex justify-content-center" >
             <aside class="col-sm-8 ">
                 <article class="card mt-3 border-0 shadow">
-                    <div class="card-body p-5" id="newAddForm">
+                    <div id="newAddForm" class="card-body p-5 collapse" >
                         <form>
                             <h3>Add new address</h3>
                             <div class="form-row">
@@ -169,14 +169,15 @@
             <option value="Card 1">Card 1 4323 9889 0099 8989 0000</option>
             <option value="New">Add new...</option>
         </select>
-        Add new: <input type="checkbox" id="myCheck2">
-
+        <!--NEW CARD-->
+ <button type="button" class="btn  btn-outline-info" data-toggle="collapse" data-target="#newCardForm">Add new</button>
+ 
         <div class="row d-flex justify-content-center" >
             <aside class="col-sm-8 ">
 
 
                 <article class="card mt-3 border-0 shadow">
-                    <div class="card-body p-5" id="newCardForm"  >
+                    <div class="card-body p-5 collapse" id="newCardForm"  >
 
                         <form>
                                 <h3>Add new credit card</h3>
@@ -251,7 +252,7 @@
 <hr>
 <!-- BUTTONS -->
 <div class="text-center">
-        <a class="btn btn-danger btn-lg" href="${contextPath}/menu" role="button">Back</a>
+        <a class="btn btn-danger text-light btn-lg" id="back_btn" role="button"><i class="fas fa-chevron-left"></i>Back</a>
 
         <a class="btn btn-success btn-lg" href="${contextPath}/home" role="button">Place Order</a>
 </div>

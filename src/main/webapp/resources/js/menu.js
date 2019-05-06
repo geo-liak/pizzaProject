@@ -1,12 +1,15 @@
 jQuery(init);
 
 function init($) {
+    window.addEventListener('load', updateCart, false);
+    
 
     let inputs = document.querySelectorAll(".inputs");
     let items = document.querySelectorAll(".menuItems");
     
    let products = {};
    
+  
    
     items.forEach((it) => {
         it.addEventListener('click', () => {
@@ -56,7 +59,7 @@ function updateProducts(){
             contentType: 'application/json',
             data: JSON.stringify(products),
             success: function (result) {
-                alert("success" + result);
+                alert("ajax call OK");
             },
             error: function (result) {
                 alert("failure" + result);
