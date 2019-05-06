@@ -46,12 +46,12 @@
                 <li class="nav-item">
                 <c:choose>
                     <c:when test="${edit}">
-                        <a href="${contextPath}/logout" id="logout_btn" class="btn btn-outline-light mt-1">
+                        <a href="${contextPath}/restaurant/logout" id="logout_btn" class="btn btn-outline-light mt-1">
                             Logout
                         </a>
                     </c:when>
                     <c:otherwise>
-                        <a href="${contextPath}/login" id="login_btn" class="btn btn-outline-light mt-1">
+                        <a href="${contextPath}/restaurant/login" id="login_btn" class="btn btn-outline-light mt-1">
                             Login
                         </a>
                     </c:otherwise>

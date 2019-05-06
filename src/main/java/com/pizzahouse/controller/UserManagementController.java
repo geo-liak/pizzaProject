@@ -4,6 +4,7 @@ import com.pizzahouse.exceptions.ResourceNotFoundException;
 import com.pizzahouse.model.User;
 import com.pizzahouse.model.specifications.UserManagementSpecification;
 import com.pizzahouse.repository.RoleRepository;
+//import com.pizzahouse.repository.UserRoleRepository;
 import com.pizzahouse.service.UserManagementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specifications;
@@ -29,6 +30,9 @@ public class UserManagementController extends AbstractController {
     
     @Autowired
     private RoleRepository roleRepository;
+//    
+//    @Autowired
+//    private UserRoleRepository userRoleRepository;
     
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -55,6 +59,7 @@ public class UserManagementController extends AbstractController {
         } else {
             User user = userManagementService.find(id);
             theModel.addAttribute("user", user);
+//            theModel.addAttribute("roles", userRoleRepository.findAll());
         }
         theModel.addAttribute("roles", roleRepository.findAll());
         

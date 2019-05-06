@@ -38,10 +38,22 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order find(Long id) {
-        Order order = orderRepository.findById(id);
-        return order;
+        return orderRepository.findById(id);
     }
 
+    @Override
+    public Order findOrCreateCurrentOrder(Long userId) {
+        //null progress means it is a not submitted order
+        Order order = orderRepository.findByUserIdAndProgress(userId, null);
+        //if no current order is found create a new one
+        if (order == null) {
+            order = new Order();
+            order.setUserId(userId);
+            order = orderRepository.save(order);
+        }
+        return order;
+    }
+    
     @Override
     public void delete(Long id) throws ResourceNotFoundException {
         checkExisting(id);

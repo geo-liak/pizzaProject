@@ -19,6 +19,8 @@ import org.springframework.transaction.annotation.Transactional;
 public interface OrderRepository  extends JpaRepository<Order, Long>, JpaSpecificationExecutor<Order> {
 
     Order findById(Long id);
+    
+    Order findByUserIdAndProgress(Long userId, Integer progress);
 
     @Modifying
     @Transactional
