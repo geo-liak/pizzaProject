@@ -101,7 +101,7 @@ public class UserController {
         }
 
         if (principal != null) {
-            return "/pages/welcome";
+            return "/home";
         } else {
             return "/home";
         }
