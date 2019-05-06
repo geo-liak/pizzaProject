@@ -2,44 +2,14 @@ jQuery(init);
 
 function init($){
 
-let $check = document.querySelector( "#myCheck");
-$check.addEventListener("click", showHide );
-
-
-let $check2 = document.querySelector( "#myCheck2");
-$check2.addEventListener("click", showHide2 );
-
-
-
-function showHide( ){
-    let x = this.checked;
- 
-    if ( x === false ){
-        $("#newAddForm").hide();
-    } else {
-     $("#newAddForm").show();
-    }
-    
- };
-  
-
-    function showHide2( ) {
-        let x = this.checked;
-        console.log(x);
-        if (x === false) {
-            $("#newCardForm").hide();
-        } else {
-            $("#newCardForm").show();
-        }
-    };
-
-
-let $items = document.querySelector(".menuItems");
 
  $("#ex4 span").attr("data-count", sessionStorage.getItem("sum"));
 
 
-
+$('#back_btn').on('click', function(e){
+    e.preventDefault();
+    window.history.back();
+});
 
 
 

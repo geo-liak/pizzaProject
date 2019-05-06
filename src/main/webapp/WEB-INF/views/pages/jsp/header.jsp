@@ -1,15 +1,15 @@
         <!-- HEADER -->
     <header class="navbar navbar-expand-lg navbar-dark bg-success fixed-top shadow border-bottom border-secondary" id="navbartop">
-        <a class="navbar-brand" href="#Home">Pizza Margherita</a>
+        <a class="navbar-brand" href="${contextPath}/home">Pizza Margherita</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-left" id="navbarNavDropdown">
             <ul class="navbar-nav">
-                <li class="nav-item">
+<!--                <li class="nav-item">
                     <a  class="nav-link " href="${contextPath}/home">Home </a>
-                </li>
+                </li>-->
                 <li class="nav-item">
                     <a class="nav-link" href="${contextPath}/menu">Menu</a>
                 </li>
