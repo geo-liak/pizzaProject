@@ -111,7 +111,7 @@
             <option value="Address 1">Patision 32, 11457, Athens</option>
         </select>
 
-        <button type="button" class="btn  btn-outline-info" data-toggle="collapse" data-target="#newAddForm">Add new</button>
+        <button type="button" class="btn  btn-outline-info btn-sm" data-toggle="collapse" data-target="#newAddForm">Add new</button>
         <!-- NEW ADDRESS FORM -->
         <div  class="row d-flex justify-content-center" >
             <aside class="col-sm-8 ">
@@ -170,7 +170,7 @@
             <option value="New">Add new...</option>
         </select>
         <!--NEW CARD-->
- <button type="button" class="btn  btn-outline-info" data-toggle="collapse" data-target="#newCardForm">Add new</button>
+ <button type="button" class="btn  btn-outline-info btn-sm" data-toggle="collapse" data-target="#newCardForm">Add new</button>
  
         <div class="row d-flex justify-content-center" >
             <aside class="col-sm-8 ">
