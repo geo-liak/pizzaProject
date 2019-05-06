@@ -34,7 +34,7 @@
 
     <body>
         <!-- HEADER -->
-    <%@include file = "/resources/jsp/header.jsp"  %>
+    <jsp:include page= "/WEB-INF/views/pages/jsp/header.jsp" />
 
    <!--Order Review-->
 
@@ -261,7 +261,7 @@
 
 <!-- Contact Footer -->
 
-   <%@include file = "/resources/jsp/footer.jsp"  %>
+   <jsp:include page= "/WEB-INF/views/pages/jsp/footer.jsp" />
 
     </section>
 

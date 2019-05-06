@@ -28,7 +28,7 @@
 <body>
     <!-- HEADER -->
 
-    <%@include file = "/resources/jsp/header.jsp"  %>
+    <jsp:include page= "/WEB-INF/views/pages/jsp/header.jsp" />
 
     <div id="mainWrapper">
         <div class="login-container">
@@ -70,7 +70,7 @@
     </div>
 
 
- <%@include file = "/resources/jsp/footer.jsp"  %>
+ <jsp:include page= "/WEB-INF/views/pages/jsp/footer.jsp" />
 
 
         <!-- Optional JavaScript -->
