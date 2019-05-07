@@ -16,7 +16,10 @@ import java.util.List;
  */
 public interface AddressService {
 
+
     List<Address> findAll();
+
+    List<Address> findByUserId(Long userId);
 
     Address find(Long id);
 

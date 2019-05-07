@@ -3,6 +3,7 @@ package com.pizzahouse.controller;
 import com.pizzahouse.exceptions.ResourceNotFoundException;
 import com.pizzahouse.model.User;
 import com.pizzahouse.model.specifications.UserManagementSpecification;
+import com.pizzahouse.service.AddressService;
 import com.pizzahouse.service.RoleService;
 //import com.pizzahouse.repository.UserRoleRepository;
 import com.pizzahouse.service.UserManagementService;
@@ -36,6 +37,9 @@ public class UserManagementController extends AbstractController {
     private UserRoleService userRoleService;
     
     @Autowired
+    private AddressService addressService;
+    
+    @Autowired
     private PasswordEncoder passwordEncoder;
     
     
@@ -64,6 +68,7 @@ public class UserManagementController extends AbstractController {
         }
         theModel.addAttribute("userRoles", userRoleService.findByUserId(id));
         theModel.addAttribute("rolesMap", roleService.asMap());
+        theModel.addAttribute("addresses", addressService.findByUserId(id));
         
         return "pages/users/edit";
     }

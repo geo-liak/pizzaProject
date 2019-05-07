@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
@@ -22,9 +24,11 @@ public class Address implements Serializable {
 @Column(name="id")
 private Long id;
 
+@NotEmpty
 @Column(name="street")
 private String street;
 
+@NotNull
 @Column(name="number")
 private Integer number;
 
@@ -37,6 +41,7 @@ private Integer floor;
 @Column(name="notes")
 private String notes;
 
+@NotEmpty
 @Column(name="telephone")
 private String telephone;
 

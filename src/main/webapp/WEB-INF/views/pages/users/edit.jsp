@@ -82,10 +82,10 @@
                 </spring:bind>
                 <spring:bind path="password">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
-                            <form:input type="text" path="password" class="form-control" placeholder="password"
-                                        autofocus="true"></form:input>
-                            <form:errors path="password"></form:errors>                       
-                    </div>
+                        <form:input type="text" path="password" class="form-control" placeholder="password"
+                                    autofocus="true"></form:input>
+                        <form:errors path="password"></form:errors>                       
+                        </div>
                 </spring:bind>
 
 
@@ -94,7 +94,7 @@
                 <a class="btn btn-lg btn-dark btn-block" href="./list">Back</a>
             </form:form>
 
-
+            <!--USER ROLES-->
             <c:if test="${not empty user.id}">
                 <div class="panel panel-primary">
                     <div class="panel-body">
@@ -120,6 +120,47 @@
                     </div>
                 </div>
             </c:if>
+
+
+
+            <!--ADDRESSES-->
+            <c:if test="${not empty user.id}">
+                <div class="panel panel-primary">
+                    <div class="panel-body">
+                        <div class="table-responsive-sm">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Street</th>
+                                        <th>Number</th>
+                                        <th>Postal Code</th>
+                                        <th>Floor</th>
+                                        <th>Telephone</th>
+                                        <th colspan="2">Operations</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach items="${addresses}" var="result">
+                                        <tr th:each="result,iter : ${templatePage.content}" >
+                                            <td>${result.street}</td>
+                                            <td>${result.number}</td>
+                                            <td>${result.postalCode}</td>
+                                            <td>${result.floor}</td>
+                                            <td>${result.telephone}</td>
+                                            <td><a class="btn btn-success" href="../address/${user.id}/edit?id=${result.id}">Edit</a></td>
+                                            <td><a class="btn btn-danger" href="../address/delete?id=${result.id}">Delete</a></td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                            <a class="btn btn-success" href="../address/${user.id}/edit">Add Address</a>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+
+
+
 
 
         </div>
