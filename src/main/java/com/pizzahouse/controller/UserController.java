@@ -1,15 +1,12 @@
 package com.pizzahouse.controller;
 
-import com.pizzahouse.model.OrderProduct;
-import com.pizzahouse.model.OrderProductListContainer;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import com.pizzahouse.model.User;
-import com.pizzahouse.service.ProductService;
 import com.pizzahouse.service.SecurityService;
 import com.pizzahouse.service.UserService;
 import com.pizzahouse.validator.UserValidator;
 import java.security.Principal;
-import java.util.ArrayList;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -73,7 +70,7 @@ public class UserController {
     }
 
     @RequestMapping(value = {"/", "home"}, method = RequestMethod.GET)
-    public String home(Principal principal, Model model, String error, String logout) {
+    public String home(HttpServletResponse response, Principal principal, Model model, String error, String logout) {
         if (error != null) {
             model.addAttribute("error", "Your username and password is invalid.");
         }
@@ -83,8 +80,9 @@ public class UserController {
         }
 
         if (principal != null) {
-            return "/home";
+            return "redirect:/menu";
         } else {
+//            response.addCookie(new Cookie("sum", "0"));
             return "/home";
         }
 

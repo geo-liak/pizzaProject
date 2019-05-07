@@ -33,12 +33,12 @@ public class UserRole {
         this.userId = userId;
         this.roleId = roleId;
     }
-    
+
     public Long getId() {
         return id;
     }
-    
-    public void setId() {
+
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -63,7 +63,7 @@ public class UserRole {
         return "UserRole{" + "id=" + id + ", userId=" + userId + ", roleId=" + roleId + '}';
     }
 
-
+    
     
     
     
