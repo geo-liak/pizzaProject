@@ -21,9 +21,24 @@
       <!--ACCOUNT-->
         <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
-                 <li class="nav-item">
-                                <span class="text-light nav-link"> ${pageContext.request.userPrincipal.name}</span>
-                         </li>
+                
+                    <c:if test="${pageContext.request.userPrincipal != null}">
+                       <li class="nav-item">
+                            <div class="dropdown"> 
+                                <button type="button" class="btn dropdown-toggle btn btn-outline-light mt-1" data-toggle="dropdown">
+                                    ${pageContext.request.userPrincipal.name}
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="${contextPath}/userAccount">Account</a>
+                                    <a class="dropdown-item" href="#">Messages</a>
+
+                                </div>
+                            </div>
+                        </li>
+                    </c:if>
+               
+<!--                     <span class="text-light nav-link"> ${pageContext.request.userPrincipal.name}</span>
+                         </li>-->
                  <!-- Account -->
                  <c:choose>
                      <c:when test="$${pageContext.request.userPrincipal != null}">
@@ -49,18 +64,16 @@
                 <li class="nav-item">
                 <c:choose>
                     <c:when test="${pageContext.request.userPrincipal != null}">
+                        
                         <form id="logoutForm" method="POST" action="${contextPath}/logout">
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                       
                         <a  id="logout_btn" class="btn btn-outline-light text-light mt-1" onclick="document.forms['logoutForm'].submit()">Logout</a>
                           </form>
-                        <!--                       
-<a href="${contextPath}/logout" id="logout_btn" class="btn btn-outline-light mt-1">
-                            Logout
-                        </a>-->
+
                     </c:when>
                     <c:otherwise>
-                        <a href="${contextPath}/restaurant/login" id="login_btn" class="btn btn-outline-light mt-1">
+                        <a href="${contextPath}/login" id="login_btn" class="btn btn-outline-light mt-1">
                             Login
                         </a>
                     </c:otherwise>

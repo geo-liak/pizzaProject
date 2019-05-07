@@ -5,17 +5,12 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <!DOCTYPE html>
-<html lang="en">
-
- <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <!-- LOAD JQUERY ( $.ajax, etc. ) -->
         <script src="https://code.jquery.com/jquery-3.4.0.min.js"
         integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
-     
-
         <!-- LOAD BOOTSTRAP 4 ( Building our interface and page layout -quickly & easily- ) -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -25,7 +20,7 @@
         <!-- Style css -->
     <link rel="stylesheet" href="${contextPath}/resources/css/home.css">
     <title>Menu Page</title>
-</head>
+
 
 
 <body>
@@ -36,8 +31,6 @@
         <div class="jumbotron jumbotron-fluid mt-5 mb-0">
             <div class="container text-muted p-3">
                 <p class="display-4 text-center font-weight-bolder bg-white rounded-pill shadow mt-2">Pizza Margherita</p>
-                <!-- <p class="lead text-center bg-white rounded-pill">This is a modified jumbotron that occupies the entire horizontal space of its
-                              parent.</p> -->
             </div>
         </div>
   <section data-spy="scroll" data-target="#navbartop" data-offset="0">
@@ -109,4 +102,3 @@
         <script src="${contextPath}/resources/js/menu.js"></script>
 </body>
 
-</html>
