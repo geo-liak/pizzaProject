@@ -64,7 +64,6 @@ public class UserManagementController extends AbstractController {
         } else {
             User user = userManagementService.find(id);
             theModel.addAttribute("user", user);
-//            theModel.addAttribute("roles", userRoleRepository.findAll());
         }
         theModel.addAttribute("userRoles", userRoleService.findByUserId(id));
         theModel.addAttribute("rolesMap", roleService.asMap());
@@ -76,7 +75,6 @@ public class UserManagementController extends AbstractController {
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String save(Model theModel, @ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
 
-        List<String> errors = new ArrayList<>();
         if (user.getId() != null) {
             try {
                 user = userManagementService.save(user);

@@ -40,13 +40,10 @@ public class AddressController extends AbstractController {
 
     @RequestMapping(value = "/{user}/update", method = RequestMethod.POST)
     public String save(Model theModel, @PathVariable Long user, @ModelAttribute("address") @Valid Address address, BindingResult bindingResult) {
-
-        List<String> errors = new ArrayList<>();
+        
         try {
-//            Address existing = addressService.findByUserIdAndAddressId(user, address.getAddressId());
-//            if (existing == null) {
-                address = addressService.save(address);
-//            }
+            address = addressService.save(address);
+
         } catch (Exception exc) {
             System.out.println(exc.getMessage());
         }

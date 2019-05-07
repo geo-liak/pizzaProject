@@ -2,6 +2,7 @@ package com.pizzahouse.model;
 
 import javax.persistence.*;
 import java.util.Set;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "user")
@@ -43,6 +44,7 @@ public class User {
         this.lastName = lastName;
     }
 
+    @NotEmpty
     @Column(name = "username", nullable = false)
     public String getUsername() {
         return username;

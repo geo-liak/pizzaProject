@@ -136,10 +136,10 @@ insert into `user_role` values ('1', '1', '1');
 insert into `user_role` values ('2', '2', '2');
 insert into `user_role` values ('3', '3', '3');
 
-INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`, `imagePath`) VALUES ('1', 'Margherita', 'Pizza margherita', 'Tomato, cheese', '10', 'MARGHERITA');
-INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`, `imagePath`) VALUES ('2', 'Pepperoni', 'Pizza pepperoni', 'Tomato, cheese, pepperoni', '12','PEPPERONI');
-INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`, `imagePath`) VALUES ('3', 'Carbonara', 'Spaghetti Carbonara', 'Fresh cream, bacon', '15','CARBONARA');
-INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`, `imagePath`) VALUES ('4', 'Water 0.5l', 'Table water', 'water', '3','WATER');
+INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`, `imagePath`) VALUES ('1', 'Margherita', 'Pizza margherita', 'Tomato, cheese', '10', 'MARGHERITA.jpg');
+INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`, `imagePath`) VALUES ('2', 'Pepperoni', 'Pizza pepperoni', 'Tomato, cheese, pepperoni', '12','PEPPERONI.jpg');
+INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`, `imagePath`) VALUES ('3', 'Carbonara', 'Spaghetti Carbonara', 'Fresh cream, bacon', '15','CARBONARA.jpg');
+INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`, `imagePath`) VALUES ('4', 'Water 0.5l', 'Table water', 'water', '3','WATER.jpg');
 
 INSERT INTO `pizza_project`.`address` (`id`, `street`, `number`, `postal_code`, `floor`, `notes`, `user_id`) VALUES ('1', '52nd Avenue', '456', '22908', '2', '0', '3');
 INSERT INTO `pizza_project`.`address` (`id`, `street`, `number`, `postal_code`, `floor`, `notes`, `user_id`) VALUES ('2', '33rd street', '140', '22909', '3', '0', '3');
