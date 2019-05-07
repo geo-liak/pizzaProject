@@ -56,18 +56,22 @@
                                   </tr>
                                 </thead>
                                 <tbody>
+                                        <c:forEach items="${menuItems}" var="result">             
+
                                   <tr>
                                     <th scope="row" class="" >
                                            
-                                            <img src="${contextPath}/resources/images/MARGHERITA.jpg" alt="pizza Margherita" class="img-thumbnail">
+                                            <img src="${contextPath}/resources/images/${result.imagePath}.jpg" alt="${result.name}" class="img-thumbnail">
                                           
                                            
                                     </th>
-                                    <td>  Pizza Margherita </td>
+                                    <td>  ${result.name} </td>
                                     <td>2</td>
-                                    <td>5 &euro;</td>
-                                    <td>10 &euro;</td>
+                                    <td>${result.price} &euro;</td>
+                                    <td>  &euro;</td>
                                   </tr>
+                                  
+                                    </c:forEach>
                                   <tr>
                                         <th scope="row">
                                                
@@ -82,7 +86,7 @@
                                   <tr>
                                         <th scope="row">
                                                
-                                                <img src="${contextPath}/resources/images/PEPPERONI-PIZZAZZ.jpg" alt="pizza Pepperoni" class="img-thumbnail"  >
+                                                <img src="${contextPath}/resources/images/PEPPERONI.jpg" alt="pizza Pepperoni" class="img-thumbnail"  >
                                                
                                         </th>
                                         <td>  Pizza Pepperoni </td>
@@ -94,7 +98,7 @@
                               </table>
                 </div>
                 <!-- TOTAL COST -->
-                <div class="col-4 border-rounded bg-white text-center">
+                <div class="col-4 border-rounded bg-white md-2 text-center">
                     <h3>Total Cost</h3>
                    <div class="display-3">
                        30 &euro;
@@ -102,6 +106,7 @@
                 </div>
             </div>
          <hr>
+         
           <!-- ADDRESS -->
         <h2> Address </h2>
 
