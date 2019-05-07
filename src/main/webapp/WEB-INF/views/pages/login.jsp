@@ -28,7 +28,7 @@
 <body>
     <!-- HEADER -->
 
-    <jsp:include page= "/WEB-INF/views/pages/jsp/header.jsp" />
+      <%@include file = "/WEB-INF/views/pages/jsp/header.jsp" %>
 
     <div id="mainWrapper">
         <div class="login-container">
@@ -70,8 +70,7 @@
     </div>
 
 
- <jsp:include page= "/WEB-INF/views/pages/jsp/footer.jsp" />
-
+ <%@include file = "/WEB-INF/views/pages/jsp/footer.jsp" %>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

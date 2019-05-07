@@ -1,4 +1,4 @@
-        <!-- HEADER -->
+<!-- HEADER -->
     <header class="navbar navbar-expand-lg navbar-dark bg-success fixed-top shadow border-bottom border-secondary" id="navbartop">
         <a class="navbar-brand" href="${contextPath}/home">Pizza Margherita</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -21,17 +21,20 @@
       <!--ACCOUNT-->
         <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
+                 <li class="nav-item">
+                                <span class="text-light nav-link"> ${pageContext.request.userPrincipal.name}</span>
+                         </li>
                  <!-- Account -->
                  <c:choose>
-                     <c:when test="${edit}">
+                     <c:when test="$${pageContext.request.userPrincipal != null}">
                          <li class="nav-item">
-                             <a class="nav-link" href="${contextPath}/personalinfo">Account</a>
+                             <a class="nav-link" href="${contextPath}/userAccount">Account</a>
                          </li>
                      </c:when>
                 </c:choose>
                 
                          <!--CART-->
-                         ${pageContext.request.userPrincipal.name}
+                      
                 <li class="nav-item">
                     <a class="nav-link mr-3" href="#Cart">
                             <div id="ex4">
@@ -45,10 +48,16 @@
           <!--LOGIN BUTTON--> 
                 <li class="nav-item">
                 <c:choose>
-                    <c:when test="${edit}">
-                        <a href="${contextPath}/logout" id="logout_btn" class="btn btn-outline-light mt-1">
+                    <c:when test="${pageContext.request.userPrincipal != null}">
+                        <form id="logoutForm" method="POST" action="${contextPath}/logout">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                      
+                        <a  id="logout_btn" class="btn btn-outline-light text-light mt-1" onclick="document.forms['logoutForm'].submit()">Logout</a>
+                          </form>
+                        <!--                       
+<a href="${contextPath}/logout" id="logout_btn" class="btn btn-outline-light mt-1">
                             Logout
-                        </a>
+                        </a>-->
                     </c:when>
                     <c:otherwise>
                         <a href="${contextPath}/login" id="login_btn" class="btn btn-outline-light mt-1">
@@ -61,4 +70,3 @@
 
         </div>
     </header>
-                      

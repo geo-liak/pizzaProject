@@ -1,6 +1,5 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
@@ -32,12 +31,13 @@
 
 
     <body>
-        <jsp:include page= "/WEB-INF/views/pages/jsp/header.jsp" />
+       <%@include file = "/WEB-INF/views/pages/jsp/header.jsp" %>
 
+                      
     <div class="jumbotron jumbotron-fluid mt-5 mb-0 border-bottom border-danger">
         <div class="container text-muted p-3">
             <p class="display-4 text-center font-weight-bolder bg-white rounded-pill shadow mt-2">Pizza Margherita</p>
-         
+            
         </div>
     </div>
     <section data-spy="scroll" data-target="#navbartop" data-offset="0">
@@ -89,7 +89,7 @@
 
 <!-- Contact Footer -->
 
-   <jsp:include page= "/WEB-INF/views/pages/jsp/footer.jsp" />
+      <%@include file = "/WEB-INF/views/pages/jsp/footer.jsp" %>
 
 
  </section>

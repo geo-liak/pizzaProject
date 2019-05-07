@@ -34,7 +34,7 @@
 
     <body>
         <!-- HEADER -->
-    <jsp:include page= "/WEB-INF/views/pages/jsp/header.jsp" />
+     <%@include file = "/WEB-INF/views/pages/jsp/header.jsp" %>
 
    <!--Order Review-->
 
