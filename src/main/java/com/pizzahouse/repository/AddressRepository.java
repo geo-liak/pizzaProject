@@ -5,8 +5,7 @@
  */
 package com.pizzahouse.repository;
 
-import com.pizzahouse.model.UserRole;
-import java.util.List;
+import com.pizzahouse.model.Address;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
@@ -17,14 +16,10 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author stargazer
  */
-public interface UserRoleRepository  extends JpaRepository<UserRole, Long>, JpaSpecificationExecutor<UserRole> {
+public interface AddressRepository  extends JpaRepository<Address, Long>, JpaSpecificationExecutor<Address> {
 
-    UserRole findById(Long id);
-    
-    List<UserRole> findByUserId(Long userId);
-    
-    UserRole findByUserIdAndRoleId(Long userId, Long roleId);
-    
+    Address findById(Long id);
+
     @Modifying
     @Transactional
     void deleteById(Long id);

@@ -8,6 +8,7 @@ package com.pizzahouse.service;
 import com.pizzahouse.model.Role;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author stargazer
@@ -16,4 +17,5 @@ public interface RoleService {
 
     List<Role> findAll();
 
+    Map<Long, Role> asMap();
 }

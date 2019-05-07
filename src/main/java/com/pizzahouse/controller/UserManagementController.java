@@ -3,9 +3,10 @@ package com.pizzahouse.controller;
 import com.pizzahouse.exceptions.ResourceNotFoundException;
 import com.pizzahouse.model.User;
 import com.pizzahouse.model.specifications.UserManagementSpecification;
-import com.pizzahouse.repository.RoleRepository;
+import com.pizzahouse.service.RoleService;
 //import com.pizzahouse.repository.UserRoleRepository;
 import com.pizzahouse.service.UserManagementService;
+import com.pizzahouse.service.UserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specifications;
 import org.springframework.stereotype.Controller;
@@ -29,10 +30,10 @@ public class UserManagementController extends AbstractController {
     private UserManagementService userManagementService;
     
     @Autowired
-    private RoleRepository roleRepository;
-//    
-//    @Autowired
-//    private UserRoleRepository userRoleRepository;
+    private RoleService roleService;
+    
+    @Autowired
+    private UserRoleService userRoleService;
     
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -61,7 +62,8 @@ public class UserManagementController extends AbstractController {
             theModel.addAttribute("user", user);
 //            theModel.addAttribute("roles", userRoleRepository.findAll());
         }
-        theModel.addAttribute("roles", roleRepository.findAll());
+        theModel.addAttribute("userRoles", userRoleService.findByUserId(id));
+        theModel.addAttribute("rolesMap", roleService.asMap());
         
         return "pages/users/edit";
     }

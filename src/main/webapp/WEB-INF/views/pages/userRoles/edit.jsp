@@ -54,76 +54,36 @@
 
         <div class="container">
 
-            <form:form method="POST" action="./update" modelAttribute="user" class="form-signin">
-                <h2 class="form-signin-heading">User Details</h2>
+            <form:form method="POST" action="./update" modelAttribute="userRole" class="form-signin">
+                <h2 class="form-signin-heading">User ${userRole.userId}: UserRole ${userRole.id}</h2>
 
                 <form:input type="hidden" path="id"></form:input>
+                <form:input type="hidden" path="userId"></form:input>
 
-                <spring:bind path="firstName">
+                <spring:bind path="roleId">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="text" path="firstName" class="form-control" placeholder="First Name"
-                                    autofocus="true"></form:input>
-                        <form:errors path="firstName"></form:errors>
+                        <label for="roleId">Role id</label>
+
+                        <form:select path="roleId" class="form-control">
+                            <form:options items="${roles}" itemValue="id" itemLabel="name" />                    
+                        </form:select>
+
+                        <form:errors path="roleId"></form:errors>
                         </div>
                 </spring:bind>
-                <spring:bind path="lastName">
-                    <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="text" path="lastName" class="form-control" placeholder="Last Name"
-                                    autofocus="true"></form:input>
-                        <form:errors path="lastName"></form:errors>
-                        </div>
-                </spring:bind>
-                <spring:bind path="username">
-                    <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="text" path="username" class="form-control" placeholder="username (email)"
-                                    autofocus="true"></form:input>
-                        <form:errors path="username"></form:errors>
-                        </div>
-                </spring:bind>
-                <spring:bind path="password">
-                    <div class="form-group ${status.error ? 'has-error' : ''}">
-                            <form:input type="text" path="password" class="form-control" placeholder="password"
-                                        autofocus="true"></form:input>
-                            <form:errors path="password"></form:errors>                       
-                    </div>
-                </spring:bind>
+
 
 
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
                 <br />
-                <a class="btn btn-lg btn-dark btn-block" href="./list">Back</a>
+                <a class="btn btn-lg btn-dark btn-block" href="${contextPath}/users/edit?id=${userRole.userId}">Back</a>
             </form:form>
-
-
-            <c:if test="${not empty user.id}">
-                <div class="panel panel-primary">
-                    <div class="panel-body">
-                        <div class="table-responsive-sm">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Role</th>
-                                        <th>Operations</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <c:forEach items="${userRoles}" var="result">
-                                        <tr th:each="result,iter : ${templatePage.content}" >
-                                            <td>${rolesMap[result.roleId].name}</td>
-                                            <td><a class="btn btn-danger" href="../userroles/delete?id=${result.id}">Delete</a></td>
-                                        </tr>
-                                    </c:forEach>
-                                </tbody>
-                            </table>
-                            <a class="btn btn-success" href="../userroles/${user.id}/edit">Add Role</a>
-                        </div>
-                    </div>
-                </div>
-            </c:if>
 
 
         </div>
         <!-- /container -->
+
+
 
 
         <!-- FINAL IMPORTS -->
