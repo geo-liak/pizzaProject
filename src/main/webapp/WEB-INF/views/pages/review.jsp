@@ -96,7 +96,7 @@
                 <!-- TOTAL COST -->
                 <div class="col-4 border-rounded bg-white text-center">
                     <h3>Total Cost</h3>
-                   <div style="font-size: 50pt">
+                   <div class="display-3">
                        30 &euro;
                    </div>
                 </div>
@@ -232,7 +232,7 @@
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label data-toggle="tooltip" title=""
-                                            data-original-title="3 digits code on back side of the card">CVV <i
+                                            data-original-title="3 digits code on back side of the card">CCV <i
                                                 class="fa fa-question-circle"></i></label>
                                         <input type="number" class="form-control" required="">
                                     </div> <!-- form-group.// -->
