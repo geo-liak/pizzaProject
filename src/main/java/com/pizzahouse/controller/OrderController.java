@@ -3,10 +3,7 @@ package com.pizzahouse.controller;
 import com.pizzahouse.exceptions.ResourceNotFoundException;
 import com.pizzahouse.model.Order;
 import com.pizzahouse.model.OrderProduct;
-import com.pizzahouse.model.specifications.OrderSpecification;
-import com.pizzahouse.service.OrderProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.domain.Specifications;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.pizzahouse.service.OrderService;
 import com.pizzahouse.service.ProductService;
+import com.pizzahouse.service.OrderProductService;
 
 @Controller
 @RequestMapping(value = "/orders")
