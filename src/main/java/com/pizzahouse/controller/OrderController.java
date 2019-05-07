@@ -39,11 +39,8 @@ public class OrderController extends AbstractController {
     public String list(Model model,
             @RequestParam(value = "query", required = false, defaultValue = "") String query) {
 
-        if (query != null && query.trim().length() > 0) {
-            model.addAttribute("orders", orderService.findAll(Specifications.where(OrderSpecification.containsText(query))));
-        } else {
-            model.addAttribute("orders", orderService.findAll());
-        }
+        
+        model.addAttribute("orders", orderService.findAll());
 
         return "pages/orders/list";
     }

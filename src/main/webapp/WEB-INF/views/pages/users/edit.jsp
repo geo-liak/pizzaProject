@@ -82,18 +82,12 @@
                 </spring:bind>
                 <spring:bind path="password">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="text" path="password" class="form-control" placeholder="password"
-                                    autofocus="true"></form:input>
-                        <form:errors path="password"></form:errors>
-                        </div>
+                            <form:input type="text" path="password" class="form-control" placeholder="password"
+                                        autofocus="true"></form:input>
+                            <form:errors path="password"></form:errors>                       
+                    </div>
                 </spring:bind>
 
-
-                <select class="mdb-select md-form form-control" multiple>
-                    <c:forEach items = "${roles}" var="result" >
-                        <option value="${result.id}">${result.name}</option>
-                    </c:forEach>
-                </select>
 
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
                 <br />
@@ -101,26 +95,24 @@
             </form:form>
 
 
-            <c:if test="${not empty orderProducts}">
+            <c:if test="${not empty roles}">
                 <div class="panel panel-primary">
                     <div class="panel-body">
                         <div class="table-responsive-sm">
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Id</th>
-                                        <th>Product Id</th>
-                                        <th>Quantity</th>
+                                        <th>User</th>
+                                        <th>Role</th>
                                         <th colspan="2">Operations</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach items="${orderProducts}" var="result">
+                                    <c:forEach items="${roles}" var="result">
                                         <tr th:each="result,iter : ${templatePage.content}" >
                                             <td>${result.id}</td>
                                             <td>${productsMap[result.productId].name}</td>
-                                            <td>${result.quantity}</td>
-                                            <td><a class="btn btn-success" href="../orderproducts/${result.orderId}/edit?id=${result.id}">Edit</a></td>
+                                            <td><a class="btn btn-success" href="../orderproducts/${result.id}/edit?id=${result.id}">Edit</a></td>
                                             <td><a class="btn btn-danger" href="../orderproducts/delete?id=${result.id}">Delete</a></td>
                                         </tr>
                                     </c:forEach>

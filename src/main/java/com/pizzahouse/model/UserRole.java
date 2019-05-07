@@ -2,6 +2,7 @@ package com.pizzahouse.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -14,13 +15,14 @@ import javax.persistence.Table;
 public class UserRole {
     
     @Id
-    @Column(name="id")
+    @GeneratedValue
+    @Column(name="id", nullable = false)
     private Long id;
     
-    @Column(name="user_id")
+    @Column(name="user_id", nullable = false)
     private Long userId;
     
-    @Column(name="role_id")
+    @Column(name="role_id", nullable = false)
     private Long roleId;
 
     public UserRole() {

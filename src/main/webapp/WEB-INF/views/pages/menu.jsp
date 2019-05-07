@@ -42,22 +42,35 @@
         </div>
   <section data-spy="scroll" data-target="#navbartop" data-offset="0">
  <!-- MENU CARDS!!! -->
+ 
     <section id="Menu" class="container mt-2">
 
 
       <div class="row mx-2 align-items-center d-flex justify-content-center ">
    
-          <c:forEach items="${menuItems}" var="result">             
+          <c:forEach items="${products}" var="result">             
               <div class="card p-2 m-2 col-3">
-                  <img class="card-img-top" src="${contextPath}/resources/images/${result.imagePath}.jpg" alt="Card image cap">
+                  <img class="card-img-top" src="${contextPath}/resources/images/${result.imagePath}" alt="Card image cap">
                   <div class="card-body">
                       <h5 class="card-title">${result.name}</h5>
                       <p class="card-text">${result.description}</p>
                       <div class="card-footer align-items-center d-flex justify-content-center bg-white">
                           <div class="input-group inputs">
                        
-                         <input class="form-control productId" type="hidden" name="id" value="${result.id}">
-                         <input class="form-control menuItems bg-warning font-weight-bold" type="number" value="0" min="0" max="10" style="text-align: center;">
+                                <c:set var="orderProduct" value="${orderProductMap[result.id]}"/>
+                
+                                <form method="POST" action="./addToCart">
+                                    <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
+                                    <input type="hidden" name="id" value="${orderProduct.id}"></input>
+                                    <input type="hidden" name="orderId" value="${orderProduct.orderId}"></input>
+                                    <input type="hidden" name="productId" value="${orderProduct.productId}"></input>
+                                    <input name="quantity"
+                                                value="${orderProduct.quantity}"
+                                                class="form-control menuItems bg-warning font-weight-bold"
+                                                type="number"
+                                                value="0" min="0" max="100" style="text-align: center;"></input>
+                                    <button class="btn btn-sm btn-primary btn-block" type="submit">Add to cart</button>
+                                </form>
                  
                           </div>
                       </div>

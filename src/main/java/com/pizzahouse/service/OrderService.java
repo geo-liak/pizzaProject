@@ -21,6 +21,8 @@ public interface OrderService {
     List<Order> findAll(Specifications specifications);
 
     Order find(Long id);
+    
+    Order findOrCreateCurrentOrder(Long userId);
 
     void delete(Long id) throws ResourceNotFoundException;
 

@@ -60,7 +60,7 @@
                         </a>-->
                     </c:when>
                     <c:otherwise>
-                        <a href="${contextPath}/login" id="login_btn" class="btn btn-outline-light mt-1">
+                        <a href="${contextPath}/restaurant/login" id="login_btn" class="btn btn-outline-light mt-1">
                             Login
                         </a>
                     </c:otherwise>
