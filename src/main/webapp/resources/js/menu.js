@@ -5,13 +5,13 @@ function init($) {
     
 
     let inputs = document.querySelectorAll(".inputs");
-    let items = document.querySelectorAll(".menuItems");
+    let cart_btns = document.querySelectorAll(".cart");
     
    let products = {};
    
   
    
-    items.forEach((it) => {
+    cart_btns.forEach((it) => {
         it.addEventListener('click', () => {
             updateCart();
         });
@@ -58,7 +58,7 @@ function updateProducts(){
             type: 'post',
             contentType: 'application/json',
             data: JSON.stringify(products),
-            success: function (result) {
+            success: function () {
                 alert("ajax call OK");
             },
             error: function (result) {
