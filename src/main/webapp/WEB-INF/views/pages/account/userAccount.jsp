@@ -46,57 +46,86 @@
         <div class="login-container mt-4" >
 
            
-                    <form id="userForm" class="form-signin" action="/restaurant/registration" method="POST">
-                        <h2 class="form-signin-heading">Account Details</h2>
+            <form:form method="POST" action="./accountUpdate" modelAttribute="user" class="form-signin">
+                <h2 class="form-signin-heading">User Details</h2>
 
-                        <div class="form-group ">
-                            <input id="firstName" name="firstName" placeholder="First Name" type="text" autofocus="true"
-                                class="form-control" value="" />
+                <form:input type="hidden" path="id"></form:input>
 
+                <spring:bind path="firstName">
+                    <div class="form-group ${status.error ? 'has-error' : ''}">
+                        <form:input type="text" path="firstName" class="form-control" placeholder="First Name"
+                                    autofocus="true"></form:input>
+                        <form:errors path="firstName"></form:errors>
                         </div>
-
-
-                        <div class="form-group ">
-                            <input id="lastName" name="lastName" placeholder="Last Name" type="text" autofocus="true"
-                                class="form-control" value="" />
-
+                </spring:bind>
+                <spring:bind path="lastName">
+                    <div class="form-group ${status.error ? 'has-error' : ''}">
+                        <form:input type="text" path="lastName" class="form-control" placeholder="Last Name"
+                                    autofocus="true"></form:input>
+                        <form:errors path="lastName"></form:errors>
                         </div>
-
-
-                        <div class="form-group ">
-                            <input id="username" name="username" placeholder="Email" type="text" autofocus="true"
-                                class="form-control" value="" />
-
+                </spring:bind>
+                <spring:bind path="username">
+                    <div class="form-group ${status.error ? 'has-error' : ''}">
+                        <form:input type="text" path="username" class="form-control" placeholder="username (email)"
+                                    autofocus="true"></form:input>
+                        <form:errors path="username"></form:errors>
                         </div>
-
-
-
-                        <div class="form-group ">
-                            <input id="password" name="password" placeholder="Password" type="password"
-                                class="form-control" value="" />
-
+                </spring:bind>
+                <spring:bind path="password">
+                    <div class="form-group ${status.error ? 'has-error' : ''}">
+                        <form:input type="text" path="password" class="form-control" placeholder="password"
+                                    autofocus="true"></form:input>
+                        <form:errors path="password"></form:errors>                       
                         </div>
+                </spring:bind>
 
 
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                <br />
+            </form:form>
 
-                        <div class="form-group ">
-                            <input id="passwordConfirm" name="passwordConfirm" placeholder="Confirm your password"
-                                type="password" class="form-control" value="" />
-
-                        </div>
-
-
-                       
-                    </form>
 
                     <hr>
                     <!-- ADDRESS -->
-                    <h2> Address </h2>
 
-                    <!-- DROPDOWN MENU -->
-                    <select class="custom-select mb-4" size="5">
-                        <option value="Address 1">Patision 32, 11457, Athens</option>
-                    </select>
+            <!--ADDRESSES-->
+            <c:if test="${not empty user.id}">
+                <div class="card shadow panel panel-primary">
+                    <div class="card-body panel-body">
+                    <h2> Address </h2>
+                        <div class="table-responsive-sm">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Street</th>
+                                        <th>Number</th>
+                                        <th>Postal Code</th>
+                                        <th>Floor</th>
+                                        <th>Telephone</th>
+                                        <th colspan="2">Operations</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach items="${addresses}" var="result">
+                                        <tr th:each="result,iter : ${templatePage.content}" >
+                                            <td>${result.street}</td>
+                                            <td>${result.number}</td>
+                                            <td>${result.postalCode}</td>
+                                            <td>${result.floor}</td>
+                                            <td>${result.telephone}</td>
+                                            <td><a class="btn btn-success" href="${contextPath}/addressEdit?id=${result.id}">Edit</a></td>
+                                            <td><a class="btn btn-danger" href="${contextPath}/addressDelete?id=${result.id}">Delete</a></td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                            <a class="btn btn-success" href="${contextPath}/addressEdit">Add Address</a>
+                        </div>
+                    </div>
+                </div>
+                        <br />
+            </c:if>
 
                     <button type="button" class="btn  btn-outline-info btn-sm" data-toggle="collapse"
                         data-target="#newAddForm">Add new</button>
@@ -253,13 +282,10 @@
 
                     <!-- Contact Footer -->
 
-                   <jsp:include page= "/WEB-INF/views/pages/jsp/footer.jsp" />
-
-
-
     </section>
 
 
+                   <jsp:include page= "/WEB-INF/views/pages/jsp/footer.jsp" />
 
 
     <!-- Optional JavaScript -->
