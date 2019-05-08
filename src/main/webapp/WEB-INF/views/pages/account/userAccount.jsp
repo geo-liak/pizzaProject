@@ -42,7 +42,7 @@
     <section class="container col-6"  >
 
         <!-- USER DETAILS -->
-         <div class="card shadow panel panel-primary">
+         <div class="card shadow panel panel-default">
                     <div class="card-body panel-body">
         <h2> User Details </h2>
         <div class="login-container mt-4 card border-0" >
@@ -94,7 +94,7 @@
 
             <!--ADDRESSES-->
             <c:if test="${not empty user.id}">
-                <div class="card shadow panel panel-primary">
+                <div class="card shadow panel panel-default">
                     <div class="card-body panel-body">
                     <h2> Address </h2>
                         <div class="table-responsive-sm">
