@@ -59,11 +59,11 @@
                                     <input type="hidden" name="productId" value="${orderProduct.productId}"></input>
                                     <input name="quantity"
                                                 value="${orderProduct.quantity}"
-                                                class="form-control menuItems bg-warning font-weight-bold text-center"
+                                                    class="form-control menuItems bg-yellow font-weight-bold text-center"
                                                 type="number"
                                                 value="0" min="0" max="100" ></input>
                                     
-                                    <button class="cart btn btn-sm btn-primary btn-block" type="submit">Add to cart</button>
+                                    <button class="cart btn btn-sm btn-success btn-block" type="submit">Add to cart</button>
                                 </form>
                  
                           </div>
