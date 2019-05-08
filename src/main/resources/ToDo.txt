@@ -32,8 +32,7 @@ FOR GL:
 
 - In the registration form, when there are errors we don't get the messages with red color.
 
-- In the menu, if we change any quantity to zero by typing the number and we press the "add to cart", the new quantity is not saved.
-
+- When user logged in and clicks the "Pizza Margherita" (/home) link he goes to menu not home. 
 
 *****************
 * D I S C U S S *

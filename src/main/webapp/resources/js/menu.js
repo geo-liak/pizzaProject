@@ -12,7 +12,7 @@ function init($) {
   
    
     cart_btns.forEach((it) => {
-        it.addEventListener('click', () => {
+        it.addEventListener('change', () => {
             updateCart();
         });
     });
