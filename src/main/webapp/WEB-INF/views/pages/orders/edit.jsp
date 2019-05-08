@@ -75,8 +75,10 @@
                 </spring:bind>
                 <spring:bind path="addressId">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="text" path="addressId" class="form-control" placeholder="Address"
-                                    autofocus="true"></form:input>
+                        
+                        <form:select path="addressId" class="form-control" >
+                            <form:options items="${addresses}" itemValue="id" itemLabel="name" /> 
+                        </form:select>
                         <form:errors path="addressId"></form:errors>
                         </div>
                 </spring:bind>

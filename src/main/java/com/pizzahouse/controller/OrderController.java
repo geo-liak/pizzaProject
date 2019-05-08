@@ -3,6 +3,7 @@ package com.pizzahouse.controller;
 import com.pizzahouse.exceptions.ResourceNotFoundException;
 import com.pizzahouse.model.Order;
 import com.pizzahouse.model.OrderProduct;
+import com.pizzahouse.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,7 @@ import java.util.List;
 import com.pizzahouse.service.OrderService;
 import com.pizzahouse.service.ProductService;
 import com.pizzahouse.service.OrderProductService;
+import com.pizzahouse.service.UserManagementService;
 
 @Controller
 @RequestMapping(value = "/orders")
@@ -31,6 +33,12 @@ public class OrderController extends AbstractController {
     
     @Autowired
     private ProductService productService;
+    
+    @Autowired
+    private AddressService addressService;
+    
+    @Autowired
+    private UserManagementService userManagementService;
 
     
     @RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -53,6 +61,8 @@ public class OrderController extends AbstractController {
             theModel.addAttribute("order", order);
             theModel.addAttribute("orderProducts", orderProducts);
             theModel.addAttribute("productsMap", productService.asMap());
+            theModel.addAttribute("addresses", addressService.findByUserId(order.getUserId()));
+            theModel.addAttribute("users", userManagementService.findAll());
         }
         return "pages/orders/edit";
     }
@@ -74,6 +84,8 @@ public class OrderController extends AbstractController {
                 List<OrderProduct> orderProducts = orderProductService.findByOrderId(order.getId());
                 theModel.addAttribute("orderProducts", orderProducts);
                 theModel.addAttribute("productsMap", productService.asMap());
+                theModel.addAttribute("addresses", addressService.findByUserId(order.getUserId()));
+                theModel.addAttribute("users",userManagementService.findAll());
             }
             return "pages/orders/edit";
         } else {

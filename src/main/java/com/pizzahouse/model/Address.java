@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -134,6 +135,11 @@ private Long userId;
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+    
+    @Transient
+    public String getName() {
+        return "" + street + ", number=" + number + ", postalCode=" + postalCode + ", floor=" + floor + ", telephone=" + telephone;
     }
 
     @Override
