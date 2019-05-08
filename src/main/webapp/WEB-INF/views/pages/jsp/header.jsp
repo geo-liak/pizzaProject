@@ -23,9 +23,21 @@
             <ul class="navbar-nav">
                 
                     <c:if test="${pageContext.request.userPrincipal != null}">
-                       <li class="nav-item">
+                          <!--CART-->
+                      
+                <li class="nav-item">
+                    <a class="nav-link mr-3" href="${contextPath}/review">
+                            <div id="ex4">
+                                    <span class="p1 fa-stack fa-1x has-badge" data-count="0">
+                                     
+                                      <i class="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse" ></i>
+                                    </span>
+                                  </div>
+                          </a>
+                </li>
+                       <li class="nav-item mr-3">
                             <div class="dropdown"> 
-                                <button type="button" class="btn dropdown-toggle btn btn-outline-light mt-1" data-toggle="dropdown">
+                                <button type="button" class="btn dropdown-toggle btn-outline-light mt-1" data-toggle="dropdown">
                                     ${pageContext.request.userPrincipal.name}
                                 </button>
                                 <div class="dropdown-menu">
@@ -35,31 +47,7 @@
                                 </div>
                             </div>
                         </li>
-                    </c:if>
-               
-<!--                     <span class="text-light nav-link"> ${pageContext.request.userPrincipal.name}</span>
-                         </li>-->
-                 <!-- Account -->
-                 <c:choose>
-                     <c:when test="$${pageContext.request.userPrincipal != null}">
-                         <li class="nav-item">
-                             <a class="nav-link" href="${contextPath}/userAccount">Account</a>
-                         </li>
-                     </c:when>
-                </c:choose>
-                
-                         <!--CART-->
-                      
-                <li class="nav-item">
-                    <a class="nav-link mr-3" href="#Cart">
-                            <div id="ex4">
-                                    <span class="p1 fa-stack fa-1x has-badge" data-count="0">
-                                     
-                                      <i class="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse" ></i>
-                                    </span>
-                                  </div>
-                          </a>
-                </li>
+                 </c:if>
           <!--LOGIN BUTTON--> 
                 <li class="nav-item">
                 <c:choose>

@@ -42,17 +42,19 @@
     <section class="container col-6"  >
 
         <!-- USER DETAILS -->
+         <div class="card shadow panel panel-default">
+                    <div class="card-body panel-body">
         <h2> User Details </h2>
-        <div class="login-container mt-4" >
+        <div class="login-container mt-4 card border-0" >
 
            
             <form:form method="POST" action="./accountUpdate" modelAttribute="user" class="form-signin">
                 <h2 class="form-signin-heading">User Details</h2>
 
                 <form:input type="hidden" path="id"></form:input>
-
+                 <label for="firstName">First Name</label>
                 <spring:bind path="firstName">
-                    <div class="form-group ${status.error ? 'has-error' : ''}">
+                    <div class="form-group rounded ${status.error ? 'has-error' : ''}">
                         <form:input type="text" path="firstName" class="form-control" placeholder="First Name"
                                     autofocus="true"></form:input>
                         <form:errors path="firstName"></form:errors>
@@ -81,17 +83,18 @@
                 </spring:bind>
 
 
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                <button class="btn btn-success" type="submit">Submit</button>
                 <br />
             </form:form>
-
-
+ </div>
+                </div>
+ </div>
                     <hr>
                     <!-- ADDRESS -->
 
             <!--ADDRESSES-->
             <c:if test="${not empty user.id}">
-                <div class="card shadow panel panel-primary">
+                <div class="card shadow panel panel-default">
                     <div class="card-body panel-body">
                     <h2> Address </h2>
                         <div class="table-responsive-sm">

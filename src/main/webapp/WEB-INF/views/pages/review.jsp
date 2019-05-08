@@ -72,29 +72,6 @@
                                   </tr>
                                   
                                     </c:forEach>
-                                  <tr>
-                                        <th scope="row">
-                                               
-                                                <img src="${contextPath}/resources/images/HAWAIIAN.jpg" alt="pizza HAWAIIAN" class="img-thumbnail" >
-                                               
-                                        </th>
-                                        <td>  Pizza Hawaiian </td>
-                                        <td>2</td>
-                                        <td>5 &euro;</td>
-                                        <td>10 &euro;</td>
-                                  </tr>
-                                  <tr>
-                                        <th scope="row">
-                                               
-                                                <img src="${contextPath}/resources/images/PEPPERONI.jpg" alt="pizza Pepperoni" class="img-thumbnail"  >
-                                               
-                                        </th>
-                                        <td>  Pizza Pepperoni </td>
-                                        <td>2</td>
-                                        <td>5 &euro;</td>
-                                        <td>10 &euro;</td>
-                                  </tr>
-                                </tbody>
                               </table>
                 </div>
                 <!-- TOTAL COST -->
