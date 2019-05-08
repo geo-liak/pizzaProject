@@ -1,12 +1,14 @@
 package com.pizzahouse.controller;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import com.pizzahouse.model.User;
+import com.pizzahouse.model.UserRole;
 import com.pizzahouse.service.SecurityService;
+import com.pizzahouse.service.UserRoleService;
 import com.pizzahouse.service.UserService;
 import com.pizzahouse.validator.UserValidator;
 import java.security.Principal;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,11 +24,13 @@ public class UserController {
     private UserService userService;
 
     @Autowired
+    private UserRoleService userRoleService;
+
+    @Autowired
     private SecurityService securityService;
 
     @Autowired
     private UserValidator userValidator;
-
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
@@ -34,7 +38,6 @@ public class UserController {
 
         return "pages/registration";
     }
-
 
     @RequestMapping(value = "/contact", method = RequestMethod.GET)
     public String contact(Model model) {
@@ -80,16 +83,27 @@ public class UserController {
         }
 
         if (principal != null) {
-            return "redirect:/menu";
-        } else {
-//            response.addCookie(new Cookie("sum", "0"));
-            return "/home";
-        }
+            User user = userService.findByUsername(principal.getName());
+            Long userId = user.getId();
+            List<UserRole> userRole = userRoleService.findByUserId(userId);
+            for (int i = 0; i < userRole.size(); i++) {
 
+                if (userRole.get(i).getRoleId() == 1 || userRole.get(i).getRoleId() == 2) {
+                    return "/pages/admin";
+                } else if (userRole.get(i).getRoleId() == 3) {
+                    return "redirect:/menu";
+                } else {
+//            response.addCookie(new Cookie("sum", "0"));
+                    return "/home";
+                }
+            }
+        }
+        return "/home";
     }
 
     @RequestMapping(value = "/welcome", method = RequestMethod.GET)
-    public String welcome(Model model) {
+    public String welcome(Model model
+    ) {
         return "/pages/welcome";
     }
 }
