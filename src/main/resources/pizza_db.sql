@@ -138,14 +138,31 @@ insert into `user_role` values ('3', '3', '3');
 
 INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`, `imagePath`) VALUES ('1', 'Margherita', 'Pizza margherita', 'Tomato, cheese', '10', 'MARGHERITA.jpg');
 INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`, `imagePath`) VALUES ('2', 'Pepperoni', 'Pizza pepperoni', 'Tomato, cheese, pepperoni', '12','PEPPERONI.jpg');
-INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`, `imagePath`) VALUES ('3', 'Carbonara', 'Spaghetti Carbonara', 'Fresh cream, bacon', '15','CARBONARA.jpg');
-INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`, `imagePath`) VALUES ('4', 'Water 0.5l', 'Table water', 'water', '3','WATER.jpg');
+INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`, `imagePath`) VALUES ('3', 'Pepperoni Max', 'Extra spicy pepperoni', 'Fresh cream, bacon', '15','Pepperoni_max.jpg');
+INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`, `imagePath`) VALUES ('4', 'Bacon', 'Delicious with extra bacon', 'Bacon', '14','Bacon.jpg');
+INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`, `imagePath`) VALUES ('5', 'Veggie', 'Vegeterian', 'Sweet peppers, onion, corn, olives', '11','Veggie.jpg');
+INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`, `imagePath`) VALUES ('6', 'Putanesca', 'Pizza Puttanesca', 'Garlic, spice, anchovies', '13','Puttanesca.jpg');
+INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`, `imagePath`) VALUES ('7', 'Special', 'A very special choice', 'Peppers, Onion, olives, bacon', '15','Special.jpg');
+INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`, `imagePath`) VALUES ('8', 'Signature', 'Our Signature pizza', 'Fresh cream, Chicken, Bacon', '17','Signature.jpg');
 
-INSERT INTO `pizza_project`.`address` (`id`, `street`, `number`, `postal_code`, `floor`, `notes`, `user_id`) VALUES ('1', '52nd Avenue', '456', '22908', '2', '0', '3');
-INSERT INTO `pizza_project`.`address` (`id`, `street`, `number`, `postal_code`, `floor`, `notes`, `user_id`) VALUES ('2', '33rd street', '140', '22909', '3', '0', '3');
-INSERT INTO `pizza_project`.`orders` (`id`, `price`, `user_id`, `address_id`, `order_date`, `progress`) VALUES ('1', '10', '3', '1', '2019-05-03', '1');
+
+
+INSERT INTO `pizza_project`.`address` (`id`, `street`, `number`, `postal_code`, `floor`, `notes`, `telephone`, `user_id`) VALUES ('1', '52nd Avenue', '456', '22908', '2', '0', '25989966', '3');
+INSERT INTO `pizza_project`.`address` (`id`, `street`, `number`, `postal_code`, `floor`, `notes`, `telephone`,  `user_id`) VALUES ('2', '33rd street', '140', '22909', '3', '0', '68957788', '3');
+INSERT INTO `pizza_project`.`orders` (`id`, `price`, `user_id`, `address_id`, `order_date`, `progress`) VALUES ('1', '10', '3', '1', '2019-05-03 16:33:22.0', '1');
+INSERT INTO `pizza_project`.`orders` (`id`, `price`, `user_id`, `address_id`, `order_date`, `progress`) VALUES ('2', '10', '3', '1', '2019-05-03 16:35:43.0', '1');
+INSERT INTO `pizza_project`.`orders` (`id`, `price`, `user_id`, `address_id`, `order_date`, `progress`) VALUES ('3', '10', '3', '1', '2019-05-03 16:48:10.0', '1');
+INSERT INTO `pizza_project`.`orders` (`id`, `price`, `user_id`, `address_id`, `order_date`, `progress`) VALUES ('4', '10', '3', '1', '2019-05-03 17:01:52.0', '1');
 INSERT INTO `pizza_project`.`order_product` (`id`, `product_id`, `quantity`, `order_id`) VALUES ('1', '1', '3', '1');
 INSERT INTO `pizza_project`.`order_product` (`id`, `product_id`, `quantity`, `order_id`) VALUES ('2', '2', '4', '1');
-INSERT INTO `pizza_project`.`order_product` (`id`, `product_id`, `quantity`, `order_id`) VALUES ('3', '6', '1', '1');
+INSERT INTO `pizza_project`.`order_product` (`id`, `product_id`, `quantity`, `order_id`) VALUES ('3', '5', '1', '1');
+INSERT INTO `pizza_project`.`order_product` (`id`, `product_id`, `quantity`, `order_id`) VALUES ('4', '2', '2', '2');
+INSERT INTO `pizza_project`.`order_product` (`id`, `product_id`, `quantity`, `order_id`) VALUES ('5', '7', '1', '3');
+INSERT INTO `pizza_project`.`order_product` (`id`, `product_id`, `quantity`, `order_id`) VALUES ('6', '2', '2', '3');
+INSERT INTO `pizza_project`.`order_product` (`id`, `product_id`, `quantity`, `order_id`) VALUES ('7', '1', '8', '3');
+INSERT INTO `pizza_project`.`order_product` (`id`, `product_id`, `quantity`, `order_id`) VALUES ('8', '6', '1', '4');
+INSERT INTO `pizza_project`.`order_product` (`id`, `product_id`, `quantity`, `order_id`) VALUES ('9', '8', '3', '4');
+
+
 
 

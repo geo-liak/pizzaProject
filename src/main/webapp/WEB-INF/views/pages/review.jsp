@@ -61,7 +61,7 @@
                                 <tr>
                                     <th scope="row" class="" >
 
-                                        <img src="${contextPath}/resources/images/${product.imagePath}"  alt="${product.name}" class="img-thumbnail">
+                                        <img  width="160" height="95" src="${contextPath}/resources/images/${product.imagePath}"  alt="${product.name}" class="img-thumbnail">
 
 
                                     </th>

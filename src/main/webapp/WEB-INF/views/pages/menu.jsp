@@ -43,10 +43,11 @@
    
           <c:forEach items="${products}" var="result">             
               <div class="card p-2 m-2 col-3">
-                  <img class="card-img-top" src="${contextPath}/resources/images/${result.imagePath}" alt="${result.name}">
+                  <img class="card-img-top" width="155" height="150" src="${contextPath}/resources/images/${result.imagePath}" alt="${result.name}">
                   <div class="card-body">
-                      <h5 class="card-title">${result.name}</h5>
+                      <h5 class="card-title">${result.name}, ${result.price}&euro; </h5>
                       <p class="card-text">${result.description}</p>
+                      <p class="card-text">${result.ingredients}</p>
                       <div class="card-footer align-items-center d-flex justify-content-center bg-white">
                           <div class="input-group inputs d-flex justify-content-center">
                        

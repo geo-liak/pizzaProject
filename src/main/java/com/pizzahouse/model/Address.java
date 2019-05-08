@@ -139,7 +139,7 @@ private Long userId;
     
     @Transient
     public String getName() {
-        return "" + street + ", number=" + number + ", postalCode=" + postalCode + ", floor=" + floor + ", telephone=" + telephone;
+        return "" + number +", " + street + ", Postal Code: " + postalCode + ", Floor:" + floor + ", Telephone=" + telephone;
     }
 
     @Override
