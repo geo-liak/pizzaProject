@@ -56,29 +56,33 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach items="${menuItems}" var="result">             
-
+                            <c:forEach items="${orderProducts}" var="result">             
+                                <c:set var="product" value="${productsMap[result.productId]}"/>
                                 <tr>
                                     <th scope="row" class="" >
 
-                                        <img src="${contextPath}/resources/images/${result.imagePath}"  alt="${result.name}" class="img-thumbnail">
+                                        <img src="${contextPath}/resources/images/${product.imagePath}"  alt="${product.name}" class="img-thumbnail">
 
 
                                     </th>
-                                    <td>  ${result.name} </td>
-                                    <td>2</td>
-                                    <td>${result.price} &euro;</td>
-                                    <td>  &euro;</td>
+                                    <td>  ${product.name} </td>
+                                    <td>${result.quantity}</td>
+                                    <td>${product.price} &euro;</td>
+                                    <td>${(product.price)*(result.quantity)} &euro;</td>
                                 </tr>
 
                             </c:forEach>
                     </table>
+                    
+                    <c:if test="${not empty priceError}">
+                        <span style="color:red;">${priceError}</span>
+                    </c:if>
                 </div>
                 <!-- TOTAL COST -->
                 <div class="col-4 border-rounded bg-white md-2 text-center">
                     <h3>Total Cost</h3>
                     <div class="display-3">
-                        30 &euro;
+                        ${order.price} &euro;
                     </div>
                 </div>
             </div>
@@ -88,158 +92,86 @@
             <h2> Address </h2>
 
             <!-- DROPDOWN MENU -->
-            <select class="custom-select mb-4" >
-                <option selected>Please select an address:</option>
-                <option value="Address 1">Patision 32, 11457, Athens</option>
-            </select>
+            <form:form method="POST" action="./placeOrder" modelAttribute="order">
+                <form:input type="hidden" path="id"></form:input>
+                <form:input type="hidden" path="price"></form:input>
+                <form:input type="hidden" path="userId"></form:input>
 
-            <button type="button" class="btn  btn-outline-info btn-sm" data-toggle="collapse" data-target="#newAddForm">Add new</button>
-            <!-- NEW ADDRESS FORM -->
-            <div  class="row d-flex justify-content-center" >
-                <aside class="col-sm-8 ">
-                    <article class="card mt-3 border-0 shadow">
-                        <div id="newAddForm" class="card-body p-5 collapse" >
-                            <form>
-                                <h3>Add new address</h3>
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <label for="inputAddress">Name</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Home address">
+
+                <spring:bind path="addressId">
+                    <div class="form-group ${status.error ? 'has-error' : ''}">
+                        
+                        <form:select path="addressId" class="custom-select mb-4" >
+                            <form:options items="${addresses}" itemValue="id" itemLabel="name" /> 
+                        </form:select>
+                        <c:if test="${not empty addressError}">
+                            <span style="color:red;">${addressError}</span>
+                        </c:if>
+                        <form:errors path="addressId"></form:errors>
+                    </div>
+                </spring:bind>
+
+
+                <button type="button" class="btn  btn-outline-info btn-sm" data-toggle="collapse" data-target="#newAddForm">Add new</button>
+                <!-- NEW ADDRESS FORM -->
+<!--                <div  class="row d-flex justify-content-center" >
+                    <aside class="col-sm-8 ">
+                        <article class="card mt-3 border-0 shadow">
+                            <div id="newAddForm" class="card-body p-5 collapse" >
+                                <form>
+                                    <h3>Add new address</h3>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="inputAddress">Name</label>
+                                            <input type="text" class="form-control" id="name" placeholder="Home address">
+                                        </div>
+
                                     </div>
-
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-9">
-                                        <label for="inputAddress">Street</label>
-                                        <input type="text" class="form-control" id="street" placeholder="Street">
-                                    </div>
-                                    <div class="form-group col-3">
-                                        <label for="inputAddress2">Number</label>
-                                        <input type="text" class="form-control" id="number" placeholder="no.">
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-3">
-                                        <label for="inputCity">Floor</label>
-                                        <input type="text" class="form-control" id="floor">
-                                    </div>
-
-                                    <div class="form-group col-md-3">
-                                        <label for="inputZip">Post Code</label>
-                                        <input type="text" class="form-control" id="postcode">
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="inputCity">Notes</label>
-                                        <input type="text" class="form-control" id="notes">
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-secondary">Add new Address</button>
-                            </form>
-                        </div>
-                    </article>
-                </aside>
-            </div>
-            <hr>
-            <!-- PAYMENT -->
-            <h2> Payment </h2>
-            <!-- DROP DOWN MENU -->
-            <select class="custom-select mb-4">
-                <option selected>Please select payment: </option>
-                <option value="PayPal">PayPal</option>
-                <option value="Card 1">Card 1 4323 9889 0099 8989 0000</option>
-                <option value="New">Add new...</option>
-            </select>
-            <!--NEW CARD-->
-            <button type="button" class="btn  btn-outline-info btn-sm" data-toggle="collapse" data-target="#newCardForm">Add new</button>
-
-            <div class="row d-flex justify-content-center" >
-                <aside class="col-sm-8 ">
-
-
-                    <article class="card mt-3 border-0 shadow">
-                        <div class="card-body p-5 collapse" id="newCardForm"  >
-
-                            <form>
-                                <h3>Add new credit card</h3>
-                                <div class="form-group" >
-                                    <label for="username">Full name (on the card)</label>
-                                    <input type="text" class="form-control" name="username" placeholder="" required="">
-                                </div> <!-- form-group.// -->
-
-                                <div class="form-group">
-                                    <label for="cardNumber">Card number</label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="cardNumber" placeholder="">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text text-muted">
-                                                <i class="fab fa-cc-visa"></i>   <i class="fab fa-cc-amex"></i>  
-                                                <i class="fab fa-cc-mastercard"></i>
-                                            </span>
+                                    <div class="form-row">
+                                        <div class="form-group col-9">
+                                            <label for="inputAddress">Street</label>
+                                            <input type="text" class="form-control" id="street" placeholder="Street">
+                                        </div>
+                                        <div class="form-group col-3">
+                                            <label for="inputAddress2">Number</label>
+                                            <input type="text" class="form-control" id="number" placeholder="no.">
                                         </div>
                                     </div>
-                                </div> <!-- form-group.// -->
+                                    <div class="form-row">
+                                        <div class="form-group col-md-3">
+                                            <label for="inputCity">Floor</label>
+                                            <input type="text" class="form-control" id="floor">
+                                        </div>
 
-                                <div class="row">
-                                    <div class="col-sm-8">
-                                        <div class="form-group">
-                                            <label><span class="hidden-xs">Expiration</span> </label>
-                                            <div class="input-group">
-                                                <select class="form-control">
-                                                    <option value="01">January</option>
-                                                    <option value="02">February </option>
-                                                    <option value="03">March</option>
-                                                    <option value="04">April</option>
-                                                    <option value="05">May</option>
-                                                    <option value="06">June</option>
-                                                    <option value="07">July</option>
-                                                    <option value="08">August</option>
-                                                    <option value="09">September</option>
-                                                    <option value="10">October</option>
-                                                    <option value="11">November</option>
-                                                    <option value="12">December</option>
-                                                </select>
-                                                <select class="form-control">
-                                                    <option value="2019">2019</option>
-                                                    <option value="2020">2020</option>
-                                                    <option value="2021">2021</option>
-                                                    <option value="2022">2022</option>
-                                                    <option value="2023">2023</option>
-                                                    <option value="2024">2024</option>
-                                                </select>
-                                            </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="inputZip">Post Code</label>
+                                            <input type="text" class="form-control" id="postcode">
                                         </div>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label data-toggle="tooltip" title=""
-                                                   data-original-title="3 digits code on back side of the card">CCV <i
-                                                    class="fa fa-question-circle"></i></label>
-                                            <input type="number" class="form-control" required="">
-                                        </div> <!-- form-group.// -->
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputCity">Notes</label>
+                                            <input type="text" class="form-control" id="notes">
+                                        </div>
                                     </div>
-                                </div> <!-- row.// -->
-                                <button class="subscribe btn btn-secondary" type="button"> Confirm </button>
-                            </form>
-
-                        </div> <!-- card-body.// -->
-                    </article> <!-- card.// -->
-
-
-                </aside>
-
-            </div>
-
-            <hr>
-            <!-- BUTTONS -->
-            <div class="text-center">
-                <a class="btn btn-danger text-light btn-lg" id="back_btn" role="button"><i class="fas fa-chevron-left"></i>Back</a>
-
-                <a class="btn btn-success btn-lg" href="${contextPath}/home" role="button">Place Order</a>
-            </div>
+                                    <button type="submit" class="btn btn-secondary">Add new Address</button>
+                                </form>
+                            </div>
+                        </article>
+                    </aside>
+                </div>-->
 
 
+
+              
+                <!-- BUTTONS -->
+                <div class="text-center">
+                    <a class="btn btn-danger text-light btn-lg" id="back_btn" role="button"><i class="fas fa-chevron-left"></i>Back</a>
+
+                    <button class="btn btn-success btn-lg" type="submit">Place Order</button>
+                </div>
+
+            </form:form>
 
             <!-- Contact Footer -->
 
