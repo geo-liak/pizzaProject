@@ -85,12 +85,12 @@ public class UserController {
         if (principal != null) {
             User user = userService.findByUsername(principal.getName());
             Long userId = user.getId();
-            List<UserRole> userRole = userRoleService.findByUserId(userId);
-            for (int i = 0; i < userRole.size(); i++) {
+            List<UserRole> userRoles = userRoleService.findByUserId(userId);
+            for (UserRole userRole : userRoles) {
 
-                if (userRole.get(i).getRoleId() == 1 || userRole.get(i).getRoleId() == 2) {
+                if (userRole.getRoleId() == 1 || userRole.getRoleId() == 2) {
                     return "/pages/admin";
-                } else if (userRole.get(i).getRoleId() == 3) {
+                } else if (userRole.getRoleId() == 3) {
                     return "redirect:/menu";
                 } else {
 //            response.addCookie(new Cookie("sum", "0"));
