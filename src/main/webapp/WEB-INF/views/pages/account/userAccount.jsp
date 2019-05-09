@@ -50,18 +50,18 @@
         <br>
         <br>
         <br>
-        <section class="container col-6"  >
+        <section class="container col-6" >
 
             <!-- USER DETAILS -->
-            <div class="card shadow panel panel-default">
-                <div class="card-body panel-body">
+            <div class="card shadow">
+                <div class="card-body ">
 
                     <div class="login-container border-0" >
 
 
                         <form:form method="POST" action="./accountUpdate" modelAttribute="user" class="form-signin">
                             <h2 class="form-signin-heading">User Details</h2>
-
+                            <hr>
                             <form:input type="hidden" path="id"></form:input>
                                 <label for="firstName">First Name</label>
                             <spring:bind path="firstName">
@@ -126,8 +126,8 @@
             <hr>
             <!--ADDRESSES-->
             <c:if test="${not empty user.id}">
-                <div class="card shadow panel panel-default">
-                    <div class="card-body panel-body">
+                <div class="card shadow">
+                    <div class="card-body ">
                         <h2> Address </h2>
                         <div class="table-responsive">
                             <table class="table table-hover ">
@@ -166,11 +166,11 @@
             <hr>
              <!-- CARDs -->
              <c:if test="${not empty user.id}">
-                <div class=" shadow panel panel-default">
-                    <div class=" panel-body">
+                <div class="card shadow">
+                    <div class=" card-body" >
                         <h2> Cards </h2>
-                        <div class="table-responsive-sm">
-                            <table class="table table-hover">
+                        <div class="table" >
+                            <table class="table table-hover"  >
                                 <thead>
                                     <tr>
                                         <th>Card No.</th>
@@ -201,104 +201,12 @@
                 </div>
                 <br/>
             </c:if>
-            <!-- PAYMENT -->
-            
-            
-            
-            
-            <h2> Payment Methods </h2>
-            <!-- DROP DOWN MENU -->
-            <select class="custom-select mb-4" size="5">
-                <option value="PayPal">PayPal</option>
-                <option value="Card 1">Card 1 4323 9889 0099 8989 0000</option>
-            </select>
-            <!--NEW CARD-->
-            <button type="button" class="btn  btn-outline-info btn-sm" data-toggle="collapse"
-                    data-target="#newCardForm">Add new</button>
-
-            <div class="row d-flex justify-content-center">
-                <aside class="col-sm-8 ">
-
-
-                    <article class="card mt-3 border-0 shadow">
-                        <div class="card-body p-5 collapse" id="newCardForm">
-
-                            <form>
-                                <h3>Add new credit card</h3>
-                                <div class="form-group">
-                                    <label for="username">Full name (on the card)</label>
-                                    <input type="text" class="form-control" name="username" placeholder=""
-                                           required="">
-                                </div> <!-- form-group.// -->
-
-                                <div class="form-group">
-                                    <label for="cardNumber">Card number</label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="cardNumber"
-                                               placeholder="">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text text-muted">
-                                                <i class="fab fa-cc-visa"></i> <i class="fab fa-cc-amex"></i>
-                                                <i class="fab fa-cc-mastercard"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div> 
-
-                                <div class="row">
-                                    <div class="col-sm-8">
-                                        <div class="form-group">
-                                            <label><span class="hidden-xs">Expiration</span> </label>
-                                            <div class="input-group">
-                                                <select class="form-control">
-                                                    <option value="01">January</option>
-                                                    <option value="02">February </option>
-                                                    <option value="03">March</option>
-                                                    <option value="04">April</option>
-                                                    <option value="05">May</option>
-                                                    <option value="06">June</option>
-                                                    <option value="07">July</option>
-                                                    <option value="08">August</option>
-                                                    <option value="09">September</option>
-                                                    <option value="10">October</option>
-                                                    <option value="11">November</option>
-                                                    <option value="12">December</option>
-                                                </select>
-                                                <select class="form-control">
-                                                    <option value="2019">2019</option>
-                                                    <option value="2020">2020</option>
-                                                    <option value="2021">2021</option>
-                                                    <option value="2022">2022</option>
-                                                    <option value="2023">2023</option>
-                                                    <option value="2024">2024</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label data-toggle="tooltip" title=""
-                                                   data-original-title="3 digits code on back side of the card">CVV
-                                                <i class="fa fa-question-circle"></i></label>
-                                            <input type="number" class="form-control" required="">
-                                        </div> <!-- form-group.// -->
-                                    </div>
-                                </div> <!-- row.// -->
-                                <button class="subscribe btn btn-secondary" type="button"> Confirm </button>
-                            </form>
-
-                        </div> <!-- card-body.// -->
-                    </article> <!-- card.// -->
-
-
-                </aside>
-
-            </div>
+           
 
             <hr>
             <!-- BUTTONS -->
             <div class="text-center">
-                <a class="btn btn-secondary text-light btn-lg" id="back_btn" role="button"><i class="fas fa-chevron-left"></i>Back</a>
+                <a class="btn btn-secondary text-light btn-lg" id="back_btn" role="button"><i class="fas fa-chevron-left"></i> Back</a>
 
                 <button class="btn btn-lg btn-warning" type="submit">Save Changes</button>
                 <div>

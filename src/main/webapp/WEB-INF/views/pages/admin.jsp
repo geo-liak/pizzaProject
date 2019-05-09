@@ -28,11 +28,11 @@
 <body>
     <!-- HEADER -->
 
-   <jsp:include page= "/WEB-INF/views/pages/jsp/header_admin.jsp" />
-<br><br><br><br>
+   <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
+   <br><br><br><br>
 <section class="container col-6"  >
-<div class="card shadow panel panel-default">
-    <div class="card-body panel-body">
+<div class="card shadow ">
+    <div class="card-body ">
         <div class="login-container border-0" >
            
             <h1>Pending Orders</h1>
@@ -50,14 +50,10 @@
        
      </section>
    
-   
+
    
 </section>   
-   
-<!-- Contact Footer -->
-   <jsp:include page= "/WEB-INF/views/pages/jsp/footer.jsp" />
-
-
+    
 
 
 

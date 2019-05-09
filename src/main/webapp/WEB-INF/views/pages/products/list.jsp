@@ -21,43 +21,27 @@
 
         <!-- Style css -->
         <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
-        <title>Dashboard</title>
+        <title>Products</title>
     </head>
 
 
     <body>
         <!-- HEADER -->
 
-        <jsp:include page= "/WEB-INF/views/pages/jsp/header_admin.jsp" />
+   <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
         <br><br><br><br>
         <section class="container col-9"  >
-            <div class="card shadow panel panel-default">
-                <div class="card-body panel-body">
-                    <div class="login-container border-0" >
-
-
-                        <jsp:include page="../search.jsp" />
-
-                    </div>
-                </div>
-            </div>
-
+           
+  <jsp:include page="../search.jsp" />
             <br />
 
-            <div class="card shadow panel panel-default">
-                <div class="card-body panel-body">
-                    <div class="login-container border-0" >
-                        <h2>Products list</h2>
+           <h2>Products list</h2>
 
-                        <div class="panel panel-default">
+                       
                             <div class="btn-group" role="group">
                                 <a class="btn btn-primary" href="./edit">Add new</a>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br />
+           <br><br>
 
             <div class="card shadow panel panel-default">
                 <div class="card-body panel-body">
@@ -101,19 +85,13 @@
                 </div>
             </div>
 
-        </div>
-    </div>
-</div>
+    
+ 
 
 
 
- <div class="text-center mt-3">
-       <a class="btn btn-lg btn-secondary btn-block" href="../"> <i class="fas fa-chevron-left"></i> Back</a>
 
-            </div>
-
-
-
+    </section>
 
 
 

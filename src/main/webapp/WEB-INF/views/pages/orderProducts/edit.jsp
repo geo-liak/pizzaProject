@@ -34,9 +34,30 @@
 
         <div class="container">
 
-            <form:form method="POST" action="./update" modelAttribute="orderProduct" class="form-signin">
-                <h2 class="form-signin-heading">Order ${orderProduct.orderId}: OrderProduct ${orderProduct.id}</h2>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!-- Style css -->
+     <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
+    <title>Order Product</title>
+</head>
+
+
+<body>
+    <!-- HEADER -->
+
+   <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
+   <br><br><br><br>
+
+
+        <section class="container col-6">
+             <div class="card">
+                <div class="card-body">
+
+            <form:form method="POST" action="./update" modelAttribute="orderProduct" class="form-signin">
+                <h2 class="form-signin-heading">Order ${orderProduct.orderId}:<br> OrderProduct ${orderProduct.id}</h2>
+                <hr>
                 <form:input type="hidden" path="id"></form:input>
                 <form:input type="hidden" path="orderId"></form:input>
 
@@ -44,7 +65,8 @@
                     <div class="form-group ${status.error ? 'has-error' : ''}">
                         <label for="productId">Product id</label>
 
-                        <form:select path="productId" class="form-control">
+                        <form:select path="productId" class="form-control custom-select">
+                             <option selected>Select...</option>
                             <form:options items="${products}" itemValue="id" itemLabel="name" />                    
                         </form:select>
 
@@ -62,13 +84,15 @@
 
 
 
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                <button class="btn btn-lg btn-success btn-block" type="submit">Submit</button>
                 <br />
-                <a class="btn btn-lg btn-dark btn-block" href="${contextPath}/orders/edit?id=${orderProduct.orderId}">Back</a>
+                <a class="btn btn-lg btn-dark btn-block" href="${contextPath}/orders/edit?id=${orderProduct.orderId}"><i class="fas fa-chevron-left"></i> Back</a>
             </form:form>
 
 
         </div>
+             </div>
+        </section>
         <!-- /container -->
 
 

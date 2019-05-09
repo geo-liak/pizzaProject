@@ -24,7 +24,7 @@
                 <div class="dropdown">
                     <button type="button" class="btn dropdown-toggle btn-outline-dark mt-1 "
                             data-toggle="dropdown">
-                        Users
+                        Users 
                     </button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item text-dark" href="${pageContext.request.contextPath}/users/list?role=customers">Customers</a>

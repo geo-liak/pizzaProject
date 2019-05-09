@@ -21,14 +21,15 @@
 
         <!-- Style css -->
         <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
-        <title>Dashboard</title>
+        <title>Product Details</title>
     </head>
 
 
     <body>
         <!-- HEADER -->
 
-        <jsp:include page= "/WEB-INF/views/pages/jsp/header_admin.jsp" />
+           <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
+
         <br><br>
 
       
@@ -39,8 +40,8 @@
                     <div class="login-container border-0" >
 
                         <form:form method="POST" action="./update" modelAttribute="product" class="form-signin">
-                            <h2 class="form-signin-heading">Product</h2>
-                          
+                            <h2 class="form-signin-heading">Product Details</h2>
+                            <hr>
                             <form:input type="hidden" path="id"></form:input>
                              <label for="name">Name</label>
                             <spring:bind path="name">
@@ -85,7 +86,7 @@
 
                             <button class="btn btn-lg btn-success btn-block" type="submit">Submit</button>
                             <br />
-                            <a class="btn btn-lg btn-secondary btn-block" href="./list"> <i class="fas fa-chevron-left"></i> Back</a>
+                            <a class="btn btn-lg btn-dark btn-block" href="./list"> <i class="fas fa-chevron-left"></i> Back</a>
 
                         </form:form>
 

@@ -11,32 +11,35 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-        <!-- LOAD BOOTSTRAP 4 ( Building our interface and page layout -quickly & easily- ) -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!-- FONT AWESOME ( Icons ) -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
               integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
         <!-- Style css -->
-        <link rel="stylesheet" href="style.css">
         <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
-        <title>Main Page</title>
+        <title>Customers</title>
     </head>
 
 
     <body>
         <!-- HEADER -->
-        <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
+       
 
-        <br />
-        <br />
-        <div class="container">
+        <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
+        <br><br>
+        <section class="container col-9"  >
 
             <jsp:include page="../search.jsp" />
+            <br><br>
 
-            <br />
 
+<!--            <h2>Users</h2>
+            <div class="btn-group" role="group">
+                <a class="btn btn-primary" href="./edit">Add new</a>-->
             <c:choose>
                 <c:when test="${param.role == 'employees'}"><h2>Employees</h2></c:when>
                 <c:otherwise><h2>Customers</h2></c:otherwise>
@@ -47,12 +50,11 @@
                     <a class="btn btn-primary" href="./edit?role=${param.role}">Add new</a>
                 </div>
             </div>
-
-            <br />
-
-            <div class="panel panel-primary">
-                <div class="panel-body">
-                    <div class="table-responsive-sm">
+            <br>
+            <br>
+            <div class="card shadow ">
+                <div class="card-body ">
+                    <div class="table-responsive">
                         <table class="table table-hover">
                             <thead>
                                 <tr>
@@ -82,8 +84,10 @@
                 </div>
             </div>
 
-        </div>
 
+
+
+        </section>
 
 
 

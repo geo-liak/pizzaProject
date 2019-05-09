@@ -29,14 +29,30 @@
         <!-- HEADER -->
         <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
 
-        <br />
-        <br />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-        <div class="container">
+    <!-- Style css -->
+     <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
+    <title>User Role</title>
+</head>
 
+
+<body>
+    <!-- HEADER -->
+
+   <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
+   <br><br><br><br>
+
+    
+
+        <div class="container col-6">
+            <div class="card shadow">
+                <div class="card-body ">
             <form:form method="POST" action="./update" modelAttribute="userRole" class="form-signin">
-                <h2 class="form-signin-heading">User ${userRole.userId}: UserRole ${userRole.id}</h2>
-
+                <h2 class="form-signin-heading">User ${userRole.userId}:<br> UserRole ${userRole.id}</h2>
+                <hr>
                 <form:input type="hidden" path="id"></form:input>
                 <form:input type="hidden" path="userId"></form:input>
 
@@ -44,7 +60,8 @@
                     <div class="form-group ${status.error ? 'has-error' : ''}">
                         <label for="roleId">Role id</label>
 
-                        <form:select path="roleId" class="form-control">
+                        <form:select path="roleId" class="form-control custom-select">
+                            <option selected>Select...</option>
                             <form:options items="${roles}" itemValue="id" itemLabel="name" />                    
                         </form:select>
 
@@ -54,16 +71,15 @@
 
 
 
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                <button class="btn btn-lg btn-success btn-block" type="submit">Submit</button>
                 <br />
-                <a class="btn btn-lg btn-dark btn-block" href="${contextPath}/users/edit?id=${userRole.userId}">Back</a>
+                <a class="btn btn-lg btn-dark btn-block" href="${contextPath}/users/edit?id=${userRole.userId}"> <i class="fas fa-chevron-left"></i> Back</a>
             </form:form>
 
-
+                </div>
+            </div>
         </div>
         <!-- /container -->
-
-
 
 
         <!-- FINAL IMPORTS -->

@@ -21,39 +21,37 @@
         <!-- Style css -->
         <link rel="stylesheet" href="style.css">
         <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
-        <title>Main Page</title>
+        <title>Orders List</title>
     </head>
 
 
     <body>
         <!-- HEADER -->
-      <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
 
-        <br />
-        <br />
-        <div class="container">
-
-            <br />
-
-            <h2>Orders   
+   <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
+   <br><br> 
+   <section class="container col-8">
+       
+            <h2>Orders  
     <c:choose>
         <c:when test="${param.progress == 1}">: Pending</c:when>
         <c:when test="${param.progress == 2}">: Completed</c:when>
         <c:otherwise>: All</c:otherwise>
     </c:choose>
             </h2>
-
-            <div class="panel panel-default">
+            
+  <jsp:include page="../search.jsp" />
+  <br>
+            
                 <div class="btn-group" role="group">
                     <a class="btn btn-primary" href="./edit">Add new</a>
                 </div>
-            </div>
+            
+<br> <br> 
 
-            <br />
-
-            <div class="panel panel-primary">
-                <div class="panel-body">
-                    <div class="table-responsive-sm">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
                         <table class="table table-hover">
                             <thead>
                             <tr>
@@ -87,7 +85,7 @@
                 </div>
             </div>
 
-        </div>
+        </section>
 
 
 

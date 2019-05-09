@@ -32,14 +32,34 @@
         <br />
         <br />
 
-        <div class="container">
+     
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Style css -->
+     <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
+    <title>User Details</title>
+</head>
+
+
+<body>
+    <!-- HEADER -->
+
+   <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
+   <br><br><br><br>
+
+        <div class="container col-8">
+             <div class="card shadow">
+                <div class="card-body ">
             <form:form method="POST" action="./update?role=${param.role}" modelAttribute="user" class="form-signin">
                 <h2 class="form-signin-heading">User Details</h2>
-
+                <hr>
                 <form:input type="hidden" path="id"></form:input>
-
+                               
                 <spring:bind path="firstName">
+                     <label for="firstName">First Name</label>
                     <div class="form-group ${status.error ? 'has-error' : ''}">
                         <form:input type="text" path="firstName" class="form-control" placeholder="First Name"
                                     autofocus="true"></form:input>
@@ -47,6 +67,7 @@
                         </div>
                 </spring:bind>
                 <spring:bind path="lastName">
+                     <label for="lastName">Last Name</label>
                     <div class="form-group ${status.error ? 'has-error' : ''}">
                         <form:input type="text" path="lastName" class="form-control" placeholder="Last Name"
                                     autofocus="true"></form:input>
@@ -54,6 +75,7 @@
                         </div>
                 </spring:bind>
                 <spring:bind path="username">
+                     <label for="userame">Username</label>
                     <div class="form-group ${status.error ? 'has-error' : ''}">
                         <form:input type="text" path="username" class="form-control" placeholder="username (email)"
                                     autofocus="true"></form:input>
@@ -61,6 +83,7 @@
                         </div>
                 </spring:bind>
                 <spring:bind path="password">
+                     <label style="${empty param.id ? '' : 'display:none'}" for="password">Password</label>
                     <div style="${empty param.id ? '' : 'display:none'}" class="form-group ${status.error ? 'has-error' : ''}">
                         <form:input type="text" path="password" class="form-control" placeholder="password"
                                     autofocus="true"></form:input>
@@ -69,17 +92,19 @@
                 </spring:bind>
 
 
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                <button class="btn btn-lg btn-success btn-block" type="submit">Submit</button>
                 <br />
                 <a class="btn btn-sm btn-dark btn-block" href="./list?role=customers">&smt; Back to Customers</a>
                 <a class="btn btn-sm btn-dark btn-block" href="./list?role=employees">&smt; Back to Employees</a>
             </form:form>
-
+                </div>
+             </div>
+            <br>
             <!--USER ROLES-->
             <c:if test="${not empty user.id}">
-                <div class="panel panel-primary">
-                    <div class="panel-body">
-                        <div class="table-responsive-sm">
+                <div class="card shadow"> 
+                    <div class="card-body">
+                        <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
@@ -102,13 +127,13 @@
                 </div>
             </c:if>
 
-
+            <br>
 
             <!--ADDRESSES-->
             <c:if test="${not empty user.id}">
-                <div class="panel panel-primary">
-                    <div class="panel-body">
-                        <div class="table-responsive-sm">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <div class="table-responsive"> 
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
@@ -143,9 +168,9 @@
 
 
 
-
         </div>
         <!-- /container -->
+
 
 
         <!-- FINAL IMPORTS -->

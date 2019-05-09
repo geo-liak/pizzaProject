@@ -34,9 +34,28 @@
 
         <div class="container">
 
-            <form:form method="POST" action="./update" modelAttribute="address" class="form-signin">
-                <h2 class="form-signin-heading">User ${address.userId}: address ${address.id}</h2>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!-- Style css -->
+     <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
+    <title>Edit Address</title>
+</head>
+
+
+<body>
+    <!-- HEADER -->
+
+   <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
+   <br><br><br><br>
+<section class="container col-6"  >
+<div class="card shadow ">
+    <div class="card-body ">
+
+            <form:form method="POST" action="./update" modelAttribute="address" class="form-signin">
+                <h2 class="form-signin-heading">User ${address.userId}:<br> address ${address.id}</h2>
+                <hr>
                 <form:input type="hidden" path="id"></form:input>
                 <form:input type="hidden" path="userId"></form:input>
 
@@ -85,13 +104,14 @@
                         </div>
                 </spring:bind>
 
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                <button class="btn btn-lg btn-success btn-block" type="submit">Submit</button>
                 <br />
-                <a class="btn btn-lg btn-dark btn-block" href="${contextPath}/users/edit?id=${address.userId}">Back</a>
+                <a class="btn btn-lg btn-dark btn-block" href="${contextPath}/users/edit?id=${address.userId}"><i class="fas fa-chevron-left"></i> Back</a>
             </form:form>
 
-
+    </div>
         </div>
+</section>
         <!-- /container -->
 
 
