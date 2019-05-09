@@ -22,24 +22,27 @@ public class UserRoleServiceImpl implements UserRoleService {
     @Autowired
     UserRoleRepository userRoleRepository;
 
-    
     @Override
-    public UserRole find(Long id){
+    public UserRole find(Long id) {
         return userRoleRepository.findById(id);
     }
-    
+
     @Override
-    public UserRole findByUserIdAndRoleId(Long userId, Long roleId){
+    public UserRole findByUserIdAndRoleId(Long userId, Long roleId) {
         return userRoleRepository.findByUserIdAndRoleId(userId, roleId);
     }
-    
+
     @Override
     public UserRole save(UserRole userRole) {
         return userRoleRepository.save(userRole);
     }
 
-    
-    
+    @Override
+    public List<UserRole> findByRoleId(Long roleId) {
+        List<UserRole> userRole = userRoleRepository.findByRoleId(roleId);
+        return userRole;
+    }
+
     @Override
     public List<UserRole> findByUserId(Long userId) {
         List<UserRole> userRole = userRoleRepository.findByUserId(userId);
@@ -50,11 +53,10 @@ public class UserRoleServiceImpl implements UserRoleService {
     public List<UserRole> findAll() {
         return userRoleRepository.findAll();
     }
-    
+
     @Override
     public void delete(Long id) throws ResourceNotFoundException {
         userRoleRepository.deleteById(id);
     }
-
 
 }

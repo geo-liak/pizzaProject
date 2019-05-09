@@ -39,6 +39,15 @@
             <h2>Users</h2>
             <div class="btn-group" role="group">
                 <a class="btn btn-primary" href="./edit">Add new</a>
+            <c:choose>
+                <c:when test="${param.role == 'employees'}"><h2>Employees</h2></c:when>
+                <c:otherwise><h2>Customers</h2></c:otherwise>
+            </c:choose>
+
+            <div class="panel panel-default">
+                <div class="btn-group" role="group">
+                    <a class="btn btn-primary" href="./edit?role=${param.role}">Add new</a>
+                </div>
             </div>
             <br>
             <br>
@@ -62,10 +71,10 @@
                                         <td>${result.firstName}</td>
                                         <td>${result.lastName}</td>
                                         <td>${result.username}</td>
-                                        <td><a class="btn btn-success" href="./edit?id=${result.id}">Edit</a></td>
-                                        <td><a class="btn btn-danger" href="./delete?id=${result.id}">Delete</a></td>
-                                    </tr>
-                                </c:forEach>
+                                    <td><a class="btn btn-success" href="./edit?id=${result.id}&role=${param.role}">Edit</a></td>
+                                    <td><a class="btn btn-danger" href="./delete?id=${result.id}&role=${param.role}">Delete</a></td>
+                                </tr>
+                            </c:forEach>
                             </tbody>
 
                         </table>

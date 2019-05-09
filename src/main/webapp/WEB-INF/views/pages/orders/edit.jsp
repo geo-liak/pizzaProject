@@ -123,6 +123,51 @@
                         </div>
                     </c:if>
 
+                <spring:bind path="progress">
+                    <div class="form-group ${status.error ? 'has-error' : ''}">
+                        <form:input type="text" path="progress" class="form-control" placeholder="Status"
+                                    autofocus="true"></form:input>
+                        <form:errors path="progress"></form:errors>
+                        </div>
+                </spring:bind>
+
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                <br />
+                <a class="btn btn-lg btn-dark btn-block" href="./list?progress=${order.progress}">Back</a>
+            </form:form>
+
+
+            <c:if test="${not empty orderProducts}">
+                <div class="panel panel-primary">
+                    <div class="panel-body">
+                        <div class="table-responsive-sm">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Product Id</th>
+                                        <th>Quantity</th>
+                                        <th colspan="2">Operations</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach items="${orderProducts}" var="result">
+                                        <tr th:each="result,iter : ${templatePage.content}" >
+                                            <td>${result.id}</td>
+                                            <td>${productsMap[result.productId].name}</td>
+                                            <td>${result.quantity}</td>
+                                            <td><a class="btn btn-success" href="../orderproducts/${result.orderId}/edit?id=${result.id}">Edit</a></td>
+                                            <td><a class="btn btn-danger" href="../orderproducts/delete?id=${result.id}">Delete</a></td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                            <a class="btn btn-success" href="../orderproducts/${order.id}/edit">Add Product</a>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
 
 
                 </div>

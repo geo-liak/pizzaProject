@@ -39,6 +39,16 @@
 
             <h2>Orders</h2>
 <div class="btn-group" role="group">
+            <h2>Orders   
+    <c:choose>
+        <c:when test="${param.progress == 1}">: Pending</c:when>
+        <c:when test="${param.progress == 2}">: Completed</c:when>
+        <c:otherwise>: All</c:otherwise>
+    </c:choose>
+            </h2>
+
+            <div class="panel panel-default">
+                <div class="btn-group" role="group">
                     <a class="btn btn-primary" href="./edit">Add new</a>
                 </div>
             

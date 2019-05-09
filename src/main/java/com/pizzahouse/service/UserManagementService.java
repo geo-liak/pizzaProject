@@ -32,6 +32,6 @@ public interface UserManagementService {
 
     User save(User user) throws ResourceNotFoundException;
     
-    User saveNew(User user) throws ResourceNotFoundException;
+    User saveNew(User user, String desiredRole) throws ResourceNotFoundException;
 
 }

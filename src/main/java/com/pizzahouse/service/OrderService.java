@@ -19,6 +19,8 @@ public interface OrderService {
     List<Order> findAll();
 
     List<Order> findAll(Specifications specifications);
+    
+    List<Order> findByProgress(Integer progress);
 
     Order find(Long id);
     
