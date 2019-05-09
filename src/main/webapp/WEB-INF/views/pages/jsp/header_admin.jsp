@@ -64,32 +64,5 @@
 
 
 
-
-        <ul class="navbar-nav">
-
-
-            <!--LOGIN BUTTON--> 
-            <!--                <li class="nav-item">
-                            <c:choose>
-                                <c:when test="${pageContext.request.userPrincipal != null}">
-                                    
-                                    <form id="logoutForm" method="POST" action="${contextPath}/logout">
-                                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                                  
-                                    <a  id="logout_btn" class="btn btn-outline-light text-light mt-1" onclick="document.forms['logoutForm'].submit()">Logout</a>
-                                      </form>
-            
-                                </c:when>
-                                <c:otherwise>
-                                    <a href="${contextPath}/login" id="login_btn" class="btn btn-outline-light mt-1">
-                                        Login
-                                    </a>
-                                </c:otherwise>
-                            </c:choose>
-                            </li>-->
-        </ul> 
-
-
-
     </div>
 </header>
