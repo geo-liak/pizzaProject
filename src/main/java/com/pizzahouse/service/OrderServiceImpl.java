@@ -79,4 +79,10 @@ public class OrderServiceImpl implements OrderService {
         }
     }
 
+    @Override
+    public List<Order> findByProgress(Integer progress) {
+        List<Order> pendingOrders = orderRepository.findByProgress(progress);
+        return pendingOrders;
+    }
+    
 }

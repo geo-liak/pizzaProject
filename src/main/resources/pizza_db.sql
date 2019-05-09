@@ -131,10 +131,42 @@ UNLOCK TABLES;
 insert into `user` values ('1', 'admin1', 'admin1', 'admin1234@xyz.com', '$2a$11$PHZUahDIpGGD/UJhHizjnuhSt4r60a580nsHIhn3y4.nMiFnZzC0W');
 insert into `user` values ('2', 'employee1', 'employee1', 'empl1234@xyz.com', '$2a$11$ZpaxTgSkKsW0MfJTNmVeKOkeLdc/RnKYgDF5udyCoy3W5lMhIrF6G');
 insert into `user` values ('3', 'customer1', 'customer1', 'cust1234@xyz.com', '$2a$11$lwcI6HZJRV2W6XEdYaL4duQYgG9ce70ldOkSIVHW67TUbWIBelTJm');
+INSERT INTO user (`firstName` ,`lastName`,`userName`,`password`) 
+VALUES ('chris','doulamis','chrisdoulamis@xyz.com', '$2a$11$lwcI6HZJRV2W6XEdYaL4duQYgG9ce70ldOkSIVHW67TUbWIBelTJm');
+
+INSERT INTO user (`firstName` ,`lastName`,`userName`,`password`)
+VALUES ("george","liakopoulos","georgeliakopoulos@xyz.com", '$2a$11$lwcI6HZJRV2W6XEdYaL4duQYgG9ce70ldOkSIVHW67TUbWIBelTJm');
+
+INSERT INTO user (`firstName` ,`lastName`,`userName`,`password`)
+VALUES ("george","grigoriou","georgegrigoriou@xyz.com", '$2a$11$lwcI6HZJRV2W6XEdYaL4duQYgG9ce70ldOkSIVHW67TUbWIBelTJm');
+
+INSERT INTO user (`firstName` ,`lastName`,`userName`,`password`)
+VALUES ("athina","wasilla","athinawasilla@xyz.com", '$2a$11$lwcI6HZJRV2W6XEdYaL4duQYgG9ce70ldOkSIVHW67TUbWIBelTJm');
+
+INSERT INTO user (`firstName` ,`lastName`,`userName`,`password`)
+VALUES ("steven","alkidis","stevenalkidis@xyz.com", '$2a$11$lwcI6HZJRV2W6XEdYaL4duQYgG9ce70ldOkSIVHW67TUbWIBelTJm');
+
+INSERT INTO user (`firstName` ,`lastName`,`userName`,`password`)
+VALUES ("john","imelos","georgegrigoriou@xyz.com", '$2a$11$lwcI6HZJRV2W6XEdYaL4duQYgG9ce70ldOkSIVHW67TUbWIBelTJm');
+
+INSERT INTO user (`firstName` ,`lastName`,`userName`,`password`)
+VALUES ("chris","viliotis","chrisviliotis@xyz.com", '$2a$11$lwcI6HZJRV2W6XEdYaL4duQYgG9ce70ldOkSIVHW67TUbWIBelTJm');
+
+INSERT INTO user (`firstName` ,`lastName`,`userName`,`password`)
+VALUES ("nick","broupis","nickbroupis@xyz.com", '$2a$11$lwcI6HZJRV2W6XEdYaL4duQYgG9ce70ldOkSIVHW67TUbWIBelTJm');
+
 
 insert into `user_role` values ('1', '1', '1');
 insert into `user_role` values ('2', '2', '2');
 insert into `user_role` values ('3', '3', '3');
+INSERT INTO `user_role` (`user_id`,`role_id`) VALUES (4,2);
+INSERT INTO `user_role` (`user_id`,`role_id`) VALUES (5,3);
+INSERT INTO `user_role` (`user_id`,`role_id`) VALUES (6,3);
+INSERT INTO `user_role` (`user_id`,`role_id`) VALUES (7,3);
+INSERT INTO `user_role` (`user_id`,`role_id`) VALUES (8,3);
+INSERT INTO `user_role` (`user_id`,`role_id`) VALUES (9,3);
+INSERT INTO `user_role` (`user_id`,`role_id`) VALUES (10,3);
+INSERT INTO `user_role` (`user_id`,`role_id`) VALUES (11,3);
 
 INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`, `imagePath`) VALUES ('1', 'Margherita', 'Pizza margherita', 'Tomato, cheese', '10', 'MARGHERITA.jpg');
 INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients`, `price`, `imagePath`) VALUES ('2', 'Pepperoni', 'Pizza pepperoni', 'Tomato, cheese, pepperoni', '12','PEPPERONI.jpg');
@@ -149,6 +181,17 @@ INSERT INTO `pizza_project`.`product` (`id`, `name`, `description`, `ingredients
 
 INSERT INTO `pizza_project`.`address` (`id`, `street`, `number`, `postal_code`, `floor`, `notes`, `telephone`, `user_id`) VALUES ('1', '52nd Avenue', '456', '22908', '2', '0', '25989966', '3');
 INSERT INTO `pizza_project`.`address` (`id`, `street`, `number`, `postal_code`, `floor`, `notes`, `telephone`,  `user_id`) VALUES ('2', '33rd street', '140', '22909', '3', '0', '68957788', '3');
+INSERT INTO `pizza_project`.`address` (`id`, `street`, `number`, `postal_code`, `floor`, `notes`, `telephone`, `user_id`) VALUES ('3', "mesogion","120","14333",5,0,697456345,4);
+INSERT INTO `pizza_project`.`address` (`id`, `street`, `number`, `postal_code`, `floor`, `notes`, `telephone`, `user_id`) VALUES ('5', "eolou","3","13894",2,0,694567809,5);
+INSERT INTO `pizza_project`.`address` (`id`, `street`, `number`, `postal_code`, `floor`, `notes`, `telephone`, `user_id`) VALUES ('6', "kifisias","45","13813",1,0,697589458,6);
+INSERT INTO `pizza_project`.`address` (`id`, `street`, `number`, `postal_code`, `floor`, `notes`, `telephone`, `user_id`) VALUES ('7', "samou","4","15878",3,0,694498990,7);
+INSERT INTO `pizza_project`.`address` (`id`, `street`, `number`, `postal_code`, `floor`, `notes`, `telephone`, `user_id`) VALUES ('8', "pedelis","445","12345",3,0,694656556,8);
+INSERT INTO `pizza_project`.`address` (`id`, `street`, `number`, `postal_code`, `floor`, `notes`, `telephone`, `user_id`) VALUES ('9', 'mesogion',"450","14434",1,0,698400458,9);
+INSERT INTO `pizza_project`.`address` (`id`, `street`, `number`, `postal_code`, `floor`, `notes`, `telephone`, `user_id`) VALUES ('10', "kifisias","122","13813",4,0,697499958,11);
+INSERT INTO `pizza_project`.`address` (`id`, `street`, `number`, `postal_code`, `floor`, `notes`, `telephone`, `user_id`) VALUES ('11', 'Athinas', "43", "15553" ,'1', '0', '694557323', '11');
+
+
+
 INSERT INTO `pizza_project`.`orders` (`id`, `price`, `user_id`, `address_id`, `order_date`, `progress`) VALUES ('1', '10', '3', '1', '2019-05-03 16:33:22.0', '1');
 INSERT INTO `pizza_project`.`orders` (`id`, `price`, `user_id`, `address_id`, `order_date`, `progress`) VALUES ('2', '10', '3', '1', '2019-05-03 16:35:43.0', '1');
 INSERT INTO `pizza_project`.`orders` (`id`, `price`, `user_id`, `address_id`, `order_date`, `progress`) VALUES ('3', '10', '3', '1', '2019-05-03 16:48:10.0', '1');

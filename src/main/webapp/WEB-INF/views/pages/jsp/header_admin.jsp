@@ -1,3 +1,4 @@
+
 <header class="navbar navbar-expand-lg navbar-dark bg-warning container-fluid fixed-top shadow" id="navbartop">
     <a class="navbar-brand text-dark" href="#Home"><strong>Dashboard</strong></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -12,8 +13,8 @@
                         Orders
                     </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item text-dark" href="#">Pending</a>                             
-                        <a class="dropdown-item text-dark" href="#">Completed</a>
+                        <a class="dropdown-item text-dark" href="${pageContext.request.contextPath}/orders/list?progress=1">Pending</a>                             
+                        <a class="dropdown-item text-dark" href="${pageContext.request.contextPath}/orders/list?progress=2">Completed</a>
 
                     </div>
                 </div>
@@ -26,8 +27,8 @@
                         Users
                     </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item text-dark" href="#">Customers</a>
-                        <a class="dropdown-item text-dark" href="#">Employees</a>
+                        <a class="dropdown-item text-dark" href="${pageContext.request.contextPath}/users/list?role=customers">Customers</a>
+                        <a class="dropdown-item text-dark" href="${pageContext.request.contextPath}/users/list?role=employees">Employees</a>
 
                     </div>
                 </div>

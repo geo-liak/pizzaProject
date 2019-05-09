@@ -43,10 +43,13 @@ public class OrderController extends AbstractController {
     
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model,
-            @RequestParam(value = "query", required = false, defaultValue = "") String query) {
+            @RequestParam(name = "progress", required = false, defaultValue = "1") Integer progress) {
 
-        
-        model.addAttribute("orders", orderService.findAll());
+        if (progress == null) {
+            model.addAttribute("orders", orderService.findAll());
+        } else {
+            model.addAttribute("orders", orderService.findByProgress(progress));
+        }
 
         return "pages/orders/list";
     }
@@ -89,7 +92,7 @@ public class OrderController extends AbstractController {
             }
             return "pages/orders/edit";
         } else {
-            return "redirect:/orders/list";
+            return "redirect:/orders/list?progress="+order.getProgress();
         }
     }
 
@@ -98,4 +101,5 @@ public class OrderController extends AbstractController {
         orderService.delete(id);
         return "redirect:/orders/list";
     }
+    
 }

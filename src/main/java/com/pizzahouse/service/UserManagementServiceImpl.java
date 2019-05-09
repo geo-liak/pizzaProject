@@ -92,10 +92,14 @@ public class UserManagementServiceImpl implements UserManagementService {
     }
 
     @Override
-    public User saveNew(User user) throws ResourceNotFoundException {
+    public User saveNew(User user, String desiredRole) throws ResourceNotFoundException {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         Set<Role> role = new HashSet();
-        role.add(roleRepository.findByName("ROLE_CUSTOMER"));
+        if ( "employees".equals(desiredRole) ) {
+            role.add(roleRepository.findByName("ROLE_EMPLOYEE"));
+        } else {
+            role.add(roleRepository.findByName("ROLE_CUSTOMER"));
+        }
         user.setRoles(role);
         userRepository.save(user);
         return user;

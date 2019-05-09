@@ -54,7 +54,7 @@
 
         <div class="container">
 
-            <form:form method="POST" action="./update" modelAttribute="user" class="form-signin">
+            <form:form method="POST" action="./update?role=${param.role}" modelAttribute="user" class="form-signin">
                 <h2 class="form-signin-heading">User Details</h2>
 
                 <form:input type="hidden" path="id"></form:input>
@@ -91,7 +91,8 @@
 
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
                 <br />
-                <a class="btn btn-lg btn-dark btn-block" href="./list">Back</a>
+                <a class="btn btn-sm btn-dark btn-block" href="./list?role=customers">&smt; Back to Customers</a>
+                <a class="btn btn-sm btn-dark btn-block" href="./list?role=employees">&smt; Back to Employees</a>
             </form:form>
 
             <!--USER ROLES-->

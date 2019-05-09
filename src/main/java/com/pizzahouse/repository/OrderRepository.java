@@ -6,6 +6,7 @@
 package com.pizzahouse.repository;
 
 import com.pizzahouse.model.Order;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
@@ -22,6 +23,8 @@ public interface OrderRepository  extends JpaRepository<Order, Long>, JpaSpecifi
     
     Order findByUserIdAndProgress(Long userId, Integer progress);
 
+    List<Order> findByProgress(Integer progress);
+    
     @Modifying
     @Transactional
     void deleteById(Long id);

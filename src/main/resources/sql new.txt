@@ -1,0 +1,227 @@
+INSERT INTO user (`firstName` ,`lastName`,`userName`,`password`)
+VALUES ('chris','doulamis','chrisdoulamis@xyz.com', '$2a$11$lwcI6HZJRV2W6XEdYaL4duQYgG9ce70ldOkSIVHW67TUbWIBelTJm');
+
+INSERT INTO user (`firstName` ,`lastName`,`userName`,`password`)
+VALUES ("george","liakopoulos","georgeliakopoulos@xyz.com", '$2a$11$lwcI6HZJRV2W6XEdYaL4duQYgG9ce70ldOkSIVHW67TUbWIBelTJm');
+
+INSERT INTO user (`firstName` ,`lastName`,`userName`,`password`)
+VALUES ("george","grigoriou","georgegrigoriou@xyz.com", '$2a$11$lwcI6HZJRV2W6XEdYaL4duQYgG9ce70ldOkSIVHW67TUbWIBelTJm');
+
+INSERT INTO user (`firstName` ,`lastName`,`userName`,`password`)
+VALUES ("athina","wasilla","athinawasilla@xyz.com", '$2a$11$lwcI6HZJRV2W6XEdYaL4duQYgG9ce70ldOkSIVHW67TUbWIBelTJm');
+
+INSERT INTO user (`firstName` ,`lastName`,`userName`,`password`)
+VALUES ("steven","alkidis","stevenalkidis@xyz.com", '$2a$11$lwcI6HZJRV2W6XEdYaL4duQYgG9ce70ldOkSIVHW67TUbWIBelTJm');
+
+INSERT INTO user (`firstName` ,`lastName`,`userName`,`password`)
+VALUES ("john","imelos","georgegrigoriou@xyz.com", '$2a$11$lwcI6HZJRV2W6XEdYaL4duQYgG9ce70ldOkSIVHW67TUbWIBelTJm');
+
+INSERT INTO user (`firstName` ,`lastName`,`userName`,`password`)
+VALUES ("chris","viliotis","chrisviliotis@xyz.com", '$2a$11$lwcI6HZJRV2W6XEdYaL4duQYgG9ce70ldOkSIVHW67TUbWIBelTJm');
+
+INSERT INTO user (`firstName` ,`lastName`,`userName`,`password`)
+VALUES ("nick","broupis","nickbroupis@xyz.com", '$2a$11$lwcI6HZJRV2W6XEdYaL4duQYgG9ce70ldOkSIVHW67TUbWIBelTJm');
+
+-----------
+
+INSERT INTO user_role (`user_id`,`role_id`)
+VALUES (4,2);
+
+INSERT INTO user_role (`user_id`,`role_id`)
+VALUES (5,3);
+
+INSERT INTO user_role (`user_id`,`role_id`)
+VALUES (6,3);
+
+INSERT INTO user_role (`user_id`,`role_id`)
+VALUES (7,3);
+
+INSERT INTO user_role (`user_id`,`role_id`)
+VALUES (8,3);
+
+INSERT INTO user_role (`user_id`,`role_id`)
+VALUES (9,3);
+
+INSERT INTO user_role (`user_id`,`role_id`)
+VALUES (11,3);
+
+INSERT INTO user_role (`user_id`,`role_id`)
+VALUES (12,3);
+
+---------
+
+INSERT INTO product (`name`,`description`,`ingredients`,`price`)
+VALUES ("italian salame","pizza italian saame","mozzarella, tomato,salame ventrixina,green peppers",14);
+
+INSERT INTO product (`name`,`description`,`ingredients`,`price`)
+VALUES ("fajitas","pizza fajitas","mozzarella, chicken fajitas, green peppers, onion, tomato,cheddar and sour cream",15.00);
+
+INSERT INTO product (`name`,`description`,`ingredients`,`price`)
+VALUES ("vegan","pizza vegan","vegetable cheese, tomato, green peppers, onios",9.00);
+
+INSERT INTO product (`name`,`description`,`ingredients`,`price`)
+VALUES ("flambee","pizza flambe","mozzarella, freash cream, bacon, onions, extra bacon",14);
+
+INSERT INTO product (`name`,`description`,`ingredients`,`price`)
+VALUES ("cheddar melt","pizza cheddar melt","mozzarella, tomato, extra cheddar, extra bacon, fresh mushrooms",12.00);
+
+INSERT INTO product (`name`,`description`,`ingredients`,`price`)
+VALUES ("greek","pizza greek","mozzarella, tomato, feta, greek sausage, green peppers, black olives, onions",11.00);
+
+INSERT INTO product (`name`,`description`,`ingredients`,`price`)
+VALUES ("barbecue classic","pizza barbecue classic","mozzarella, barbecue sause, bacon, spicy beef",10.00);
+
+INSERT INTO product (`name`,`description`,`ingredients`,`price`)
+VALUES ("alfa","beer","beer",2.00);
+
+INSERT INTO product (`name`,`description`,`ingredients`,`price`)
+VALUES ("amistel","beer","beer",2.00);
+
+INSERT INTO product (`name`,`description`,`ingredients`,`price`)
+VALUES ("heineken","beer","beer",2.00);
+
+INSERT INTO product (`name`,`description`,`ingredients`,`price`)
+VALUES ("amita","with 7 fruits","amita",2.00);
+
+--------
+
+INSERT INTO credit_card (`cardNumber`,`ccv`,`expiryMonth`,`expiryYear`,`cardHolderName`,`fk_user`)
+VALUES (111,111,2,21,"chris doulamis",4);
+
+INSERT INTO credit_card (`cardNumber`,`ccv`,`expiryMonth`,`expiryYear`,`cardHolderName`,`fk_user`)
+VALUES (222,222,5,22,"athina wasilla",5);
+
+INSERT INTO credit_card (`cardNumber`,`ccv`,`expiryMonth`,`expiryYear`,`cardHolderName`,`fk_user`)
+VALUES (333,333,10,25,"steven alkidis",6);
+
+INSERT INTO credit_card (`cardNumber`,`ccv`,`expiryMonth`,`expiryYear`,`cardHolderName`,`fk_user`)
+VALUES (444,444,2,21,"john imelos",7);
+
+INSERT INTO credit_card (`cardNumber`,`ccv`,`expiryMonth`,`expiryYear`,`cardHolderName`,`fk_user`)
+VALUES (555,555,7,22,"chris viliotis",8);
+
+INSERT INTO credit_card (`cardNumber`,`ccv`,`expiryMonth`,`expiryYear`,`cardHolderName`,`fk_user`)
+VALUES (666,666,9,20,"nick broupis",9);
+
+INSERT INTO credit_card (`cardNumber`,`ccv`,`expiryMonth`,`expiryYear`,`cardHolderName`,`fk_user`)
+VALUES (777,777,5,23,"george liakopoulos",11);
+
+INSERT INTO credit_card (`cardNumber`,`ccv`,`expiryMonth`,`expiryYear`,`cardHolderName`,`fk_user`)
+VALUES (888,888,12,21,"george grigoriou",12);
+
+------
+
+INSERT INTO address (`street`,`number`,`postal_code`,`floor`,`notes`,`telephone`,`user_id`)
+VALUES ("mesogion","120","14333",5,0,697456345,4);
+
+INSERT INTO address (`street`,`number`,`postal_code`,`floor`,`notes`,`telephone`,`user_id`)
+VALUES ("eolou","3","13894",2,0,694567809,5);
+
+INSERT INTO address (`street`,`number`,`postal_code`,`floor`,`notes`,`telephone`,`user_id`)
+VALUES ("kifisias","45","13813",1,0,697589458,6);
+
+INSERT INTO address (`street`,`number`,`postal_code`,`floor`,`notes`,`telephone`,`user_id`)
+VALUES ("samou","4","15878",3,0,694498990,7);
+
+INSERT INTO address (`street`,`number`,`postal_code`,`floor`,`notes`,`telephone`,`user_id`)
+VALUES ("pedelis","445","12345",3,0,694656556,8);
+
+INSERT INTO address (`street`,`number`,`postal_code`,`floor`,`notes`,`telephone`,`user_id`)
+VALUES ("mesogion","450","14434",1,0,698400458,9);
+
+INSERT INTO address (`street`,`number`,`postal_code`,`floor`,`notes`,`telephone`,`user_id`)
+VALUES ("kifisias","122","13813",4,0,697499958,11);
+
+INSERT INTO address (`street`,`number`,`postal_code`,`floor`,`notes`,`telephone`,`user_id`)
+VALUES ("athinas","43","15553",1,0,694557323,12);
+
+-----
+
+INSERT INTO orders (`price`,`user_id`,`address_id`,`order_date`,`progress`)
+VALUES (25,4,3,"2019-05-07 22:34:04",1);
+
+INSERT INTO orders (`price`,`user_id`,`address_id`,`order_date`,`progress`)
+VALUES (10,11,9,"2019-05-05 21:24:13",1);
+
+INSERT INTO orders (`price`,`user_id`,`address_id`,`order_date`,`progress`)
+VALUES (18,8,7,"2019-05-01 21:30:30",1);
+
+INSERT INTO orders (`price`,`user_id`,`address_id`,`order_date`,`progress`)
+VALUES (21,12,10,"2019-05-01 20:12:34",1);
+
+INSERT INTO orders (`price`,`user_id`,`address_id`,`order_date`,`progress`)
+VALUES (35,9,8,"2019-05-08 23:34:34",1);
+
+INSERT INTO orders (`price`,`user_id`,`address_id`,`order_date`,`progress`)
+VALUES (9,5,4,"2019-05-05 22:44:24",1);
+
+INSERT INTO orders (`price`,`user_id`,`address_id`,`order_date`,`progress`)
+VALUES (14,5,4,"2019-05-04 21:18:54",1);
+
+INSERT INTO orders (`price`,`user_id`,`address_id`,`order_date`,`progress`)
+VALUES (18,6,5,"2019-05-05 21:17:54",1);
+
+INSERT INTO orders (`price`,`user_id`,`address_id`,`order_date`,`progress`)
+VALUES (17,7,6,"2019-05-05 20:17:54",1);
+
+-----
+
+INSERT INTO order_product (`product_id`,`quantity`,`order_id`)
+VALUES (9,1,2);
+
+INSERT INTO order_product (`product_id`,`quantity`,`order_id`)
+VALUES (10,1,2);
+
+INSERT INTO order_product (`product_id`,`quantity`,`order_id`)
+VALUES (13,1,2);
+
+INSERT INTO order_product (`product_id`,`quantity`,`order_id`)
+VALUES (15,5,3);
+
+INSERT INTO order_product (`product_id`,`quantity`,`order_id`)
+VALUES (8,1,4);
+
+INSERT INTO order_product (`product_id`,`quantity`,`order_id`)
+VALUES (13,1,4);
+
+INSERT INTO order_product (`product_id`,`quantity`,`order_id`)
+VALUES (14,1,4);
+
+INSERT INTO order_product (`product_id`,`quantity`,`order_id`)
+VALUES (10,1,5);
+
+INSERT INTO order_product (`product_id`,`quantity`,`order_id`)
+VALUES (11,1,5);
+
+INSERT INTO order_product (`product_id`,`quantity`,`order_id`)
+VALUES (5,1,6);
+
+INSERT INTO order_product (`product_id`,`quantity`,`order_id`)
+VALUES (6,1,6);
+
+INSERT INTO order_product (`product_id`,`quantity`,`order_id`)
+VALUES (12,2,6);
+
+INSERT INTO order_product (`product_id`,`quantity`,`order_id`)
+VALUES (13,1,6);
+
+INSERT INTO order_product (`product_id`,`quantity`,`order_id`)
+VALUES (7,1,7);
+
+INSERT INTO order_product (`product_id`,`quantity`,`order_id`)
+VALUES (9,1,8);
+
+INSERT INTO order_product (`product_id`,`quantity`,`order_id`)
+VALUES (14,1,8);
+
+INSERT INTO order_product (`product_id`,`quantity`,`order_id`)
+VALUES (11,1,9);
+
+INSERT INTO order_product (`product_id`,`quantity`,`order_id`)
+VALUES (14,4,9);
+
+INSERT INTO order_product (`product_id`,`quantity`,`order_id`)
+VALUES (6,1,10);
+
+INSERT INTO order_product (`product_id`,`quantity`,`order_id`)
+VALUES (13,1,10);

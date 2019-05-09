@@ -50,7 +50,7 @@ public class GeneralController {
 
                 if (userRole.getRoleId() == 1 || userRole.getRoleId() == 2) {
                     model.addAttribute("privileges", true);
-                    return "/pages/admin";
+                    return "redirect:/orders/list?progress=1";
                 } else if (userRole.getRoleId() == 3) {
                     model.addAttribute("privileges", false);
                     return "redirect:/menu";

@@ -101,7 +101,7 @@
 
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
                 <br />
-                <a class="btn btn-lg btn-dark btn-block" href="./list">Back</a>
+                <a class="btn btn-lg btn-dark btn-block" href="./list?progress=${order.progress}">Back</a>
             </form:form>
 
 
