@@ -147,10 +147,10 @@
 
     
             <hr>
-             <!-- PAYMENT -->
+             <!-- CARDs -->
              <c:if test="${not empty user.id}">
-                <div class="card shadow panel panel-default">
-                    <div class="card-body panel-body">
+                <div class=" shadow panel panel-default">
+                    <div class=" panel-body">
                         <h2> Cards </h2>
                         <div class="table-responsive-sm">
                             <table class="table table-hover">

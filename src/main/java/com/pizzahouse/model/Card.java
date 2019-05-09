@@ -25,7 +25,7 @@ private String cardNumber;
 
 @NotNull
 @Column(name="ccv")
-private String ccv;
+private Integer ccv;
 
 @NotNull
 @Column(name="cardHolderName")
@@ -47,7 +47,7 @@ public Card(){
     
 }
 
-    public Card(String cardNumber, String ccv, String cardHolderName, Integer expiryMonth, Integer expiryYear, Long userId) {
+    public Card(String cardNumber, Integer ccv, String cardHolderName, Integer expiryMonth, Integer expiryYear, Long userId) {
         this.cardNumber = cardNumber;
         this.ccv = ccv;
         this.cardHolderName = cardHolderName;
@@ -56,7 +56,7 @@ public Card(){
         this.userId = userId;
     }
 
-    public Card(Long id, String cardNumber, String ccv, String cardHolderName, Integer expiryMonth, Integer expiryYear, Long userId) {
+    public Card(Long id, String cardNumber, Integer ccv, String cardHolderName, Integer expiryMonth, Integer expiryYear, Long userId) {
         this.id = id;
         this.cardNumber = cardNumber;
         this.ccv = ccv;
@@ -82,11 +82,11 @@ public Card(){
         this.cardNumber = cardNumber;
     }
 
-    public String getCcv() {
+    public Integer getCcv() {
         return ccv;
     }
 
-    public void setCcv(String ccv) {
+    public void setCcv(Integer ccv) {
         this.ccv = ccv;
     }
 

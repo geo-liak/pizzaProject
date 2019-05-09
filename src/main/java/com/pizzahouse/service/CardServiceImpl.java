@@ -5,8 +5,9 @@ import com.pizzahouse.model.Card;
 import com.pizzahouse.repository.CardRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public class CardServiceImpl implements CardService {
     
     @Autowired

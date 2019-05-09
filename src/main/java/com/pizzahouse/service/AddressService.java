@@ -7,15 +7,9 @@ package com.pizzahouse.service;
 
 import com.pizzahouse.exceptions.ResourceNotFoundException;
 import com.pizzahouse.model.Address;
-import com.pizzahouse.model.OrderProduct;
-
 import java.util.List;
 
-/**
- * @author stargazer
- */
 public interface AddressService {
-
 
     List<Address> findAll();
 
