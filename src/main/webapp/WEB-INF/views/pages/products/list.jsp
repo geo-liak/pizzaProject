@@ -107,7 +107,10 @@
 
 
 
+ <div class="text-center mt-3">
+       <a class="btn btn-lg btn-secondary btn-block" href="../"> <i class="fas fa-chevron-left"></i> Back</a>
 
+            </div>
 
 
 
