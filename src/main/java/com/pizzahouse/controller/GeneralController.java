@@ -49,6 +49,7 @@ public class GeneralController {
             for (UserRole userRole : userRoles) {
 
                 if (userRole.getRoleId() == 1 || userRole.getRoleId() == 2) {
+                    model.addAttribute("role", userRole.getRoleId());
                     return "/pages/admin";
                 } else if (userRole.getRoleId() == 3) {
                     return "redirect:/menu";
