@@ -20,7 +20,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- Style css -->
-    <link rel="stylesheet" href="admin.css">
+     <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
     <title>Dashboard</title>
 </head>
 
@@ -30,15 +30,21 @@
 
    <jsp:include page= "/WEB-INF/views/pages/jsp/header_admin.jsp" />
 <br><br><br><br>
-   <!--INNER TITLE-->
-      <div class="container jumbotron bg-dark text-white-50 m-5 p-2">
+<section class="container col-6"  >
+<div class="card shadow panel panel-default">
+    <div class="card-body panel-body">
+        <div class="login-container border-0" >
+           
             <h1>Pending Orders</h1>
-      </div>
+
+        </div>
+    </div>
+</div>
     
 
    <!--MAIN CONTENT-->
    
-     <section class="container col-10   rounded p-2 mb-4 shadow" style="background-color:rgba(250, 249, 240, 0.486)"  >
+     <section class="container col-10   rounded p-2 my-3-4 shadow" style="background-color:rgba(250, 249, 240, 0.486)"  >
       Lorem ipsum dolor sit amet consectetur adipisicing elit. In officiis possimus illo expedita inventore fugit tempore, ex ab, excepturi optio, quis quaerat vero ipsum et rem incidunt numquam vitae cumque!
       
        
@@ -46,7 +52,7 @@
    
    
    
-   
+</section>   
    
 <!-- Contact Footer -->
    <jsp:include page= "/WEB-INF/views/pages/jsp/footer.jsp" />

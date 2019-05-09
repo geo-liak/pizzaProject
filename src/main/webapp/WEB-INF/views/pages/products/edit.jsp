@@ -11,99 +11,88 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-        <!-- LOAD BOOTSTRAP 4 ( Building our interface and page layout -quickyl & easily- ) -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!-- FONT AWESOME ( Icons ) -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
               integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
         <!-- Style css -->
-        <link rel="stylesheet" href="style.css">
         <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
-        <title>Main Page</title>
+        <title>Dashboard</title>
     </head>
 
 
     <body>
         <!-- HEADER -->
-        <header class="navbar navbar-expand-lg navbar-dark bg-success fixed-top shadow" id="navbartop">
-            <a class="navbar-brand" href="#Home">Pizza Margherita</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#Home">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#Menu">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#Contact">Contact</a>
-                    </li>
 
-                </ul>
-            </div>
-        </header>
+        <jsp:include page= "/WEB-INF/views/pages/jsp/header_admin.jsp" />
+        <br><br>
 
-        <br />
-        <br />
+      
+        <div class="container col-6">
 
-        <div class="container">
+            <div class="card shadow panel panel-default">
+                <div class="card-body panel-body">
+                    <div class="login-container border-0" >
 
-            <form:form method="POST" action="./update" modelAttribute="product" class="form-signin">
-                <h2 class="form-signin-heading">Product</h2>
+                        <form:form method="POST" action="./update" modelAttribute="product" class="form-signin">
+                            <h2 class="form-signin-heading">Product</h2>
+                          
+                            <form:input type="hidden" path="id"></form:input>
+                             <label for="name">Name</label>
+                            <spring:bind path="name">
+                                <div class="form-group ${status.error ? 'has-error' : ''}">
+                                    <form:input type="text" path="name" class="form-control" placeholder="Name"
+                                                autofocus="true"></form:input>
+                                    <form:errors path="name"></form:errors>
+                                    </div>
+                            </spring:bind>
+                               <label for="description">Description</label>
+                            <spring:bind path="description">
+                                <div class="form-group ${status.error ? 'has-error' : ''}">
+                                    <form:input type="text" path="description" class="form-control" placeholder="Description"
+                                                autofocus="true"></form:input>
+                                    <form:errors path="description"></form:errors>
+                                    </div>
+                            </spring:bind>
+                            <label for="ingredients">Ingredients</label>
+                            <spring:bind path="ingredients">
+                                <div class="form-group ${status.error ? 'has-error' : ''}">
+                                    <form:input type="text" path="ingredients" class="form-control" placeholder="Ingredients"
+                                                autofocus="true"></form:input>
+                                    <form:errors path="ingredients"></form:errors>
+                                    </div>
+                            </spring:bind>
+                            <label for="price">Price</label>
+                            <spring:bind path="price">
+                                <div class="form-group ${status.error ? 'has-error' : ''}">
+                                    <form:input type="text" path="price" class="form-control" placeholder="Price"
+                                                autofocus="true"></form:input>
+                                    <form:errors path="price"></form:errors>
+                                    </div>
+                            </spring:bind>
+                             <label for="imagePath">Image</label>
+                            <spring:bind path="imagePath">
+                                <div class="form-group ${status.error ? 'has-error' : ''}">
+                                    <form:input type="text" path="imagePath" class="form-control" placeholder="Image"
+                                                autofocus="true"></form:input>
+                                    <form:errors path="imagePath"></form:errors>
+                                    </div>
+                            </spring:bind>
 
-                <form:input type="hidden" path="id"></form:input>
+                            <button class="btn btn-lg btn-success btn-block" type="submit">Submit</button>
+                            <br />
+                            <a class="btn btn-lg btn-secondary btn-block" href="./list"> <i class="fas fa-chevron-left"></i> Back</a>
 
-                <spring:bind path="name">
-                    <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="text" path="name" class="form-control" placeholder="Name"
-                                    autofocus="true"></form:input>
-                        <form:errors path="name"></form:errors>
+                        </form:form>
+
+
                     </div>
-                </spring:bind>
-                <spring:bind path="description">
-                    <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="text" path="description" class="form-control" placeholder="Description"
-                                    autofocus="true"></form:input>
-                        <form:errors path="description"></form:errors>
-                    </div>
-                </spring:bind>
-                <spring:bind path="ingredients">
-                    <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="text" path="ingredients" class="form-control" placeholder="Ingredients"
-                                    autofocus="true"></form:input>
-                        <form:errors path="ingredients"></form:errors>
-                    </div>
-                </spring:bind>
+                </div></div></div>
 
-                <spring:bind path="price">
-                    <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="text" path="price" class="form-control" placeholder="Price"
-                                    autofocus="true"></form:input>
-                        <form:errors path="price"></form:errors>
-                    </div>
-                </spring:bind>
-
-                <spring:bind path="imagePath">
-                    <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="text" path="imagePath" class="form-control" placeholder="Image"
-                                    autofocus="true"></form:input>
-                        <form:errors path="imagePath"></form:errors>
-                    </div>
-                </spring:bind>
-
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-                <br />
-                <a class="btn btn-lg btn-dark btn-block" href="./list">Back</a>
-            </form:form>
-
-
-        </div>
         <!-- /container -->
 
 
@@ -121,11 +110,11 @@
         </script>
         <script src="home.js"></script>
         <script type="text/javascript">
-            
-        $( document ).ready(function() {
-            
-            //CUSTOM JAVASCRIPT
-        });
+
+                    $(document).ready(function () {
+
+                        //CUSTOM JAVASCRIPT
+                    });
         </script>
     </body>
 

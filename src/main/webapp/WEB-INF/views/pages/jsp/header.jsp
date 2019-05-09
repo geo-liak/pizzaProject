@@ -59,8 +59,7 @@
                         <a  id="logout_btn" class="btn btn-outline-light text-light mt-1" onclick="document.forms['logoutForm'].submit()">Logout</a>
                           </form>
 
-                    </c:when>
-                    <c:otherwise>
+             
                         <a href="${contextPath}/login" id="login_btn" class="btn btn-outline-light mt-1">
                             Login
                         </a>

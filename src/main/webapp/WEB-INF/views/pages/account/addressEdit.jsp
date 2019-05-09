@@ -11,27 +11,25 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-        <!-- LOAD BOOTSTRAP 4 ( Building our interface and page layout -quickyl & easily- ) -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!-- FONT AWESOME ( Icons ) -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
               integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
         <!-- Style css -->
-        <link rel="stylesheet" href="style.css">
         <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
-        <title>Main Page</title>
+        <title>Dashboard</title>
     </head>
 
 
     <body>
         <!-- HEADER -->
-        
-     <%@include file = "/WEB-INF/views/pages/jsp/header.jsp" %>
 
-        <br />
-        <br />
+        <jsp:include page= "/WEB-INF/views/pages/jsp/header_admin.jsp" />
+        <br><br><br><br>
 
         <div class="container col-6">
 
