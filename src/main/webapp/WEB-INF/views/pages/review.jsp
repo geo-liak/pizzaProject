@@ -79,9 +79,10 @@
                     </c:if>
                 </div>
                 <!-- TOTAL COST -->
-                <div class="col-4 border-rounded bg-white md-2 text-center">
-                    <h3>Total Cost</h3>
-                    <div class="display-3">
+                <div class="offset-1 col md-2 d-flex align-items-end ">
+                   
+                    <div class="display-3 text-success">
+                         <h3>Total Cost</h3> <br>
                         ${order.price} &euro;
                     </div>
                 </div>
@@ -113,54 +114,7 @@
 
                 <a class="btn btn-success" href="${contextPath}/addressEdit">Add Address</a>
 
-                <!--<button type="button" class="btn  btn-outline-info btn-sm" data-toggle="collapse" data-target="#newAddForm">Add new</button>-->
-                <!-- NEW ADDRESS FORM -->
-<!--                <div  class="row d-flex justify-content-center" >
-                    <aside class="col-sm-8 ">
-                        <article class="card mt-3 border-0 shadow">
-                            <div id="newAddForm" class="card-body p-5 collapse" >
-                                <form>
-                                    <h3>Add new address</h3>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label for="inputAddress">Name</label>
-                                            <input type="text" class="form-control" id="name" placeholder="Home address">
-                                        </div>
-
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-9">
-                                            <label for="inputAddress">Street</label>
-                                            <input type="text" class="form-control" id="street" placeholder="Street">
-                                        </div>
-                                        <div class="form-group col-3">
-                                            <label for="inputAddress2">Number</label>
-                                            <input type="text" class="form-control" id="number" placeholder="no.">
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-3">
-                                            <label for="inputCity">Floor</label>
-                                            <input type="text" class="form-control" id="floor">
-                                        </div>
-
-                                        <div class="form-group col-md-3">
-                                            <label for="inputZip">Post Code</label>
-                                            <input type="text" class="form-control" id="postcode">
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="inputCity">Notes</label>
-                                            <input type="text" class="form-control" id="notes">
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-secondary">Add new Address</button>
-                                </form>
-                            </div>
-                        </article>
-                    </aside>
-                </div>-->
+            
 
 
 
