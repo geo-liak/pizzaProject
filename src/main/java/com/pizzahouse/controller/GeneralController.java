@@ -49,12 +49,14 @@ public class GeneralController {
             for (UserRole userRole : userRoles) {
 
                 if (userRole.getRoleId() == 1 || userRole.getRoleId() == 2) {
-                    model.addAttribute("role", userRole.getRoleId());
+                    model.addAttribute("privileges", true);
                     return "/pages/admin";
                 } else if (userRole.getRoleId() == 3) {
+                    model.addAttribute("privileges", false);
                     return "redirect:/menu";
                 } else {
 //            response.addCookie(new Cookie("sum", "0"));
+                    model.addAttribute("privileges", false);
                     return "/home";
                 }
             }
@@ -102,5 +104,4 @@ public class GeneralController {
         return "/pages/login";
     }
 
-  
 }
