@@ -61,7 +61,7 @@
                         </div>
                 </spring:bind>
                 <spring:bind path="password">
-                    <div class="form-group ${status.error ? 'has-error' : ''}">
+                    <div style="${empty param.id ? '' : 'display:none'}" class="form-group ${status.error ? 'has-error' : ''}">
                         <form:input type="text" path="password" class="form-control" placeholder="password"
                                     autofocus="true"></form:input>
                         <form:errors path="password"></form:errors>                       

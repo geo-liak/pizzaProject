@@ -22,6 +22,11 @@
         <!-- Style css -->
         <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
         <title>Dashboard</title>
+        
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+
     </head>
 
 
@@ -36,22 +41,46 @@
                 <%@include file = "/WEB-INF/views/pages/jsp/header.jsp" %>
             </c:otherwise>
         </c:choose>
-        <br><br><br><br>
+        <br><br>
 
-        <div class="container col-6">
+        <div class="container col-8">
 
             <div class="card shadow panel panel-default">
                 <div class="card-body panel-body">
                     <div class="login-container border-0" >
 
-                        <!--THIS IS WHERE THE CHAT CODE GOES-->
+                        <div class="row">
+                            <div class="offset-sm-1 col-sm-10 offset-md-2 col-md-8 offset-lg-3 col-lg-6">
+
+                                <div class="form-signin">
+                                    <div class="form-group">
+                                <h2>Chat with us</h2>
+                                        <input class="form-control" type="text" id="from" placeholder="Choose a nickname" value="${pageContext.request.userPrincipal.name}"/>
+
+                                        <button class="btn btn-sm btn-primary" id="connect" onclick="connect();">Connect</button>
+                                        <button class="btn btn-sm btn-primary" id="disconnect" disabled="disabled" onclick="disconnect();">
+                                            Disconnect
+                                        </button>
+                                    </div>
+                                    <br />
+                                    <div id="conversationDiv" class="form-group">
+                                        <input class="form-control" type="text" id="text" placeholder="Write a message..." />
+                                        <button class="btn btn-sm btn-primary" id="sendMessage" onclick="sendMessage();">Send</button>
+                                        <br /><br /><br />
+                                        <div id="response" style="max-height:500px; overflow-y:auto;"></div>
+                                        <br /><br /><br />
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
 
                     </div>
                 </div>
             </div>
 
         </div>
-
+        <br /><br /><br />
 
         <jsp:include page= "/WEB-INF/views/pages/jsp/footer.jsp" />
 
@@ -71,11 +100,66 @@
         </script>
         <script src="home.js"></script>
         <script type="text/javascript">
+            var stompClient = null;
 
-                    $(document).ready(function () {
+            function setConnected(connected) {
+                document.getElementById('connect').disabled = connected;
+                document.getElementById('disconnect').disabled = !connected;
+                document.getElementById('conversationDiv').style.visibility
+                    = connected ? 'visible' : 'hidden';
+                document.getElementById('response').innerHTML = '<br />';
+            }
 
-                        //CUSTOM JAVASCRIPT
+            function connect() {
+                var socket = new SockJS('${contextPath}/chat');
+                stompClient = Stomp.over(socket);
+                stompClient.connect({}, function(frame) {
+                    setConnected(true);
+                    console.log('Connected: ' + frame);
+                    stompClient.subscribe('/topic/messages', function(messageOutput) {
+                        showMessageOutput(JSON.parse(messageOutput.body));
                     });
+                });
+            }
+
+            function disconnect() {
+                if(stompClient != null) {
+                    stompClient.disconnect();
+                }
+                setConnected(false);
+                console.log("Disconnected");
+            }
+
+            function sendMessage() {
+                var from = document.getElementById('from').value;
+                var text = document.getElementById('text').value;
+                stompClient.send("/app/chat", {},
+                    JSON.stringify({'from':from, 'text':text}));
+            }
+
+            function showMessageOutput(messageOutput) {
+                var response = document.getElementById('response');
+                var textSender = document.createElement('div');
+                textSender.style.padding = '2px 20px';
+                textSender.style.fontWeight = 'bold';
+                textSender.appendChild(document.createTextNode(messageOutput.from + " (" + messageOutput.time + ")"));
+                var textMsg = document.createElement('div');
+                textMsg.style.backgroundColor = '#ffff66';
+                textMsg.style.wordWrap = 'break-word';
+                textMsg.style.border = '1px solid #ddd';
+                textMsg.style.padding = '5px 20px';
+                textMsg.style.borderRadius = '20px';
+                textMsg.appendChild(document.createTextNode(messageOutput.text));
+
+                response.insertBefore(document.createElement('br'), response.firstChild);
+                response.insertBefore(textMsg, response.firstChild);
+                response.insertBefore(textSender, response.firstChild);
+            }
+
+            $(document).ready(function () {
+
+                disconnect();
+            });
         </script>
     </body>
 
