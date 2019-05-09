@@ -93,9 +93,9 @@
 
 
                     <c:if test="${not empty orderProducts}">
-                        <div class="panel panel-primary">
-                            <div class="panel-body">
-                                <div class="table-responsive-sm">
+                        <div class="card ">
+                            <div class="card-body">
+                                <div class="table-responsive">
                                     <table class="table table-hover">
                                         <thead>
                                             <tr>
@@ -131,7 +131,7 @@
                         </div>
                 </spring:bind>
 
-
+                         <form:form>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
                 <br />
                 <a class="btn btn-lg btn-dark btn-block" href="./list?progress=${order.progress}">Back</a>
