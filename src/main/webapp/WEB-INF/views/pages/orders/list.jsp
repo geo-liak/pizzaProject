@@ -40,7 +40,6 @@
     </c:choose>
             </h2>
             
-  <jsp:include page="../search.jsp" />
   <br>
             
                 <div class="btn-group" role="group">

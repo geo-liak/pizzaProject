@@ -20,6 +20,7 @@
 
     <!-- Style css -->
     <link rel="stylesheet" href="${contextPath}/resources/css/login.css">
+    <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
     <title>Registration Page</title>
 </head>
 

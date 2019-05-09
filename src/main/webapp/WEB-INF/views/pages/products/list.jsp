@@ -29,7 +29,7 @@
         <!-- HEADER -->
 
    <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
-        <br><br><br><br>
+   <br><br>
         <section class="container col-9"  >
            
   <jsp:include page="../search.jsp" />
