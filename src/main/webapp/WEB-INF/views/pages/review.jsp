@@ -176,10 +176,10 @@
 
             <!-- Contact Footer -->
 
-            <jsp:include page= "/WEB-INF/views/pages/jsp/footer.jsp" />
 
         </section>
-
+<br><br>
+            <jsp:include page= "/WEB-INF/views/pages/jsp/footer.jsp" />
 
 
 

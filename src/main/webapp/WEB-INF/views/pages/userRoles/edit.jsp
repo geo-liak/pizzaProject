@@ -21,21 +21,7 @@
         <!-- Style css -->
         <link rel="stylesheet" href="style.css">
         <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
-        <title>Main Page</title>
-    </head>
-
-
-    <body>
-        <!-- HEADER -->
-        <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <!-- Style css -->
-     <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
-    <title>User Role</title>
+       <title>User Role</title>
 </head>
 
 
