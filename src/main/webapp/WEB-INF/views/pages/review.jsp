@@ -111,8 +111,9 @@
                     </div>
                 </spring:bind>
 
+                <a class="btn btn-success" href="${contextPath}/addressEdit">Add Address</a>
 
-                <button type="button" class="btn  btn-outline-info btn-sm" data-toggle="collapse" data-target="#newAddForm">Add new</button>
+                <!--<button type="button" class="btn  btn-outline-info btn-sm" data-toggle="collapse" data-target="#newAddForm">Add new</button>-->
                 <!-- NEW ADDRESS FORM -->
 <!--                <div  class="row d-flex justify-content-center" >
                     <aside class="col-sm-8 ">

@@ -30,10 +30,10 @@
 
         <c:choose>
             <c:when test="${privileges}">
-                <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
+                <%@include file = "/WEB-INF/views/pages/jsp/header.jsp" %>
             </c:when>
             <c:otherwise>
-                <%@include file = "/WEB-INF/views/pages/jsp/header.jsp" %>
+                <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
             </c:otherwise>
         </c:choose>
         <br><br><br><br>
@@ -45,55 +45,55 @@
 
                 <div class="login-container border-0" >
             
-            <form:form method="POST" action="./addressUpdate" modelAttribute="address" class="form-signin">
-                <h2 class="form-signin-heading"> User ${address.userId}</h2>
-                <h3> Address #${address.id}</h3>
+            <form:form method="POST" action="./cardUpdate" modelAttribute="card" class="form-signin">
+                <h2 class="form-signin-heading"> User ${card.userId}</h2>
+                <h3> Card #${card.id}</h3>
                 <hr>
                 <form:input type="hidden" path="id"></form:input>
                 <form:input type="hidden" path="userId"></form:input>
 
-                <spring:bind path="street">
+                <spring:bind path="cardNumber">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <label for="street">Street</label>
-                        <form:input type="text" path="street" class="form-control" placeholder="Street" autofocus="true"></form:input>
+                        <label for="cardNumber">Card Number</label>
+                        <form:input type="text" path="cardNumber" class="form-control" placeholder="Card Number" autofocus="true"></form:input>
 
-                        <form:errors path="street"></form:errors>
+                        <form:errors path="cardNumber"></form:errors>
                         </div>
                 </spring:bind>
 
-                <spring:bind path="number">
+                <spring:bind path="cardHolderName">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <label for="number">Number</label>
-                        <form:input type="text" path="number" class="form-control" placeholder="Number" autofocus="true"></form:input>
+                        <label for="cardHolderName">Number</label>
+                        <form:input type="text" path="cardHolderName" class="form-control" placeholder="Card Holder's Name" autofocus="true"></form:input>
 
-                        <form:errors path="number"></form:errors>
+                        <form:errors path="cardHolderName"></form:errors>
                         </div>
                 </spring:bind>
 
-                <spring:bind path="postalCode">
+                <spring:bind path="ccv">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <label for="postalCode">Postal Code</label>
-                        <form:input type="text" path="postalCode" class="form-control" placeholder="Postal Code" autofocus="true"></form:input>
+                        <label for="ccv">CCV</label>
+                        <form:input type="text" path="ccv" class="form-control" placeholder="CCV" autofocus="true"></form:input>
 
-                        <form:errors path="postalCode"></form:errors>
+                        <form:errors path="ccv"></form:errors>
                         </div>
                 </spring:bind>
 
-                <spring:bind path="floor">
+                <spring:bind path="expiryMonth">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
                         <label for="floor">Floor</label>
-                        <form:input type="text" path="floor" class="form-control" placeholder="Floor" autofocus="true"></form:input>
+                        <form:input type="text" path="expiryMonth" class="form-control" placeholder="Expiry Month" autofocus="true"></form:input>
 
-                        <form:errors path="floor"></form:errors>
+                        <form:errors path="expiryMonth"></form:errors>
                         </div>
                 </spring:bind>
 
-                <spring:bind path="telephone">
+                <spring:bind path="expiryYear">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
                         <label for="telephone">Telephone</label>
-                        <form:input type="text" path="telephone" class="form-control" placeholder="Telephone" autofocus="true"></form:input>
+                        <form:input type="text" path="expiryYear" class="form-control" placeholder="Expiry Year" autofocus="true"></form:input>
 
-                        <form:errors path="telephone"></form:errors>
+                        <form:errors path="expiryYear"></form:errors>
                         </div>
                 </spring:bind>
 

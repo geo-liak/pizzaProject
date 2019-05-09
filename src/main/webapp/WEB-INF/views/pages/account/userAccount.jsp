@@ -112,8 +112,8 @@
                 <div class="card shadow panel panel-default">
                     <div class="card-body panel-body">
                         <h2> Address </h2>
-                        <div class="table-responsive-sm">
-                            <table class="table table-hover">
+                        <div class="table-responsive">
+                            <table class="table table-hover ">
                                 <thead>
                                     <tr>
                                         <th>Street</th>
@@ -145,59 +145,50 @@
                 <br/>
             </c:if>
 
-            <!--                    <button type="button" class="btn  btn-outline-info btn-sm" data-toggle="collapse"
-                                    data-target="#newAddForm">Add new</button>-->
-            <!-- NEW ADDRESS FORM -->
-            <!--                    <div class="row d-flex justify-content-center">
-                                    <aside class="col-sm-8 ">
-                                        <article class="card mt-3 border-0 shadow">
-                                            <div id="newAddForm" class="card-body p-5 collapse">
-                                                <form>
-                                                    <h3>Add new address</h3>
-                                                    <div class="form-row">
-                                                        <div class="form-group col-md-12">
-                                                            <label for="inputAddress">Name</label>
-                                                            <input type="text" class="form-control" id="name"
-                                                                placeholder="Home address">
-                                                        </div>
-            
-                                                    </div>
-                                                    <div class="form-row">
-                                                        <div class="form-group col-9">
-                                                            <label for="inputAddress">Street</label>
-                                                            <input type="text" class="form-control" id="street"
-                                                                placeholder="Street">
-                                                        </div>
-                                                        <div class="form-group col-3">
-                                                            <label for="inputAddress2">Number</label>
-                                                            <input type="text" class="form-control" id="number" placeholder="no.">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-row">
-                                                        <div class="form-group col-md-3">
-                                                            <label for="inputCity">Floor</label>
-                                                            <input type="text" class="form-control" id="floor">
-                                                        </div>
-            
-                                                        <div class="form-group col-md-3">
-                                                            <label for="inputZip">Post Code</label>
-                                                            <input type="text" class="form-control" id="postcode">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-row">
-                                                        <div class="form-group col-md-6">
-                                                            <label for="inputCity">Notes</label>
-                                                            <input type="text" class="form-control" id="notes">
-                                                        </div>
-                                                    </div>
-                                                    <button type="submit" class="btn btn-secondary">Add new Address</button>
-                                                </form>
-                                            </div>
-                                        </article>
-                                    </aside>
-                                </div>-->
+    
             <hr>
+             <!-- PAYMENT -->
+             <c:if test="${not empty user.id}">
+                <div class="card shadow panel panel-default">
+                    <div class="card-body panel-body">
+                        <h2> Cards </h2>
+                        <div class="table-responsive-sm">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Card No.</th>
+                                         <th>Card Holder Name</th>
+                                        <th>CCV</th>
+                                        <th>Expiry Month</th>
+                                        <th>Expiry Year</th>
+                                        <th colspan="2">Operations</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach items="${cards}" var="result">
+                                        <tr th:each="result,iter : ${templatePage.content}" >
+                                            <td>${result.cardNumber}</td>
+                                            <td>${result.cardHolderName}</td>
+                                            <td>${result.ccv}</td>
+                                            <td>${result.expiryMonth}</td>
+                                            <td>${result.expiryYear}</td>
+                                            <td><a class="btn btn-success" href="${contextPath}/addressEdit?id=${result.id}">Edit</a></td>
+                                            <td><a class="btn btn-danger" href="${contextPath}/addressDelete?id=${result.id}">Delete</a></td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                            <a class="btn btn-success" href="${contextPath}/cardEdit">Add Card</a>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+            </c:if>
             <!-- PAYMENT -->
+            
+            
+            
+            
             <h2> Payment Methods </h2>
             <!-- DROP DOWN MENU -->
             <select class="custom-select mb-4" size="5">
@@ -235,7 +226,7 @@
                                             </span>
                                         </div>
                                     </div>
-                                </div> <!-- form-group.// -->
+                                </div> 
 
                                 <div class="row">
                                     <div class="col-sm-8">
