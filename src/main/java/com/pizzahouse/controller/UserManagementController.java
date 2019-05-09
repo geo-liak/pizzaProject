@@ -7,6 +7,7 @@ import com.pizzahouse.model.UserRole;
 import com.pizzahouse.model.specifications.UserManagementSpecification;
 import com.pizzahouse.service.AddressService;
 import com.pizzahouse.service.RoleService;
+//import com.pizzahouse.repository.UserRoleRepository;
 import com.pizzahouse.service.UserManagementService;
 import com.pizzahouse.service.UserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,8 @@ public class UserManagementController extends AbstractController {
     @Autowired
     private AddressService addressService;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model,
@@ -112,6 +115,7 @@ public class UserManagementController extends AbstractController {
             }
         } else {
             try {
+                user.setPassword(passwordEncoder.encode(user.getPassword()));
                 user = userManagementService.saveNew(user, role);
             } catch (Exception exc) {
                 System.out.println(exc.getMessage());

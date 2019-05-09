@@ -34,10 +34,10 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link nav-pill active text-dark" href="${pageContext.request.contextPath}/products/list">Products</a>
+                <a class="nav-link nav-pill active text-dark" href="/restaurant/products/list">Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link nav-pill active text-dark" href="${pageContext.request.contextPath}/messages">HelpDesk</a>
+                <a class="nav-link nav-pill active text-dark" href="#">HelpDesk</a>
             </li>
         </ul>
     </div>
@@ -48,7 +48,7 @@
             <c:if test="${pageContext.request.userPrincipal != null}">
 
                 <li class="nav-item">
-                    <a class="btn btn-outline-dark mt-1 mr-1" type="button" href="${pageContext.request.contextPath}/userAccount">  ${pageContext.request.userPrincipal.name} </a>
+                    <a class="btn btn-outline-dark mt-1 mr-1" type="button" href="/restaurant/userAccount">  ${pageContext.request.userPrincipal.name} </a>
                 </li>
 
 
