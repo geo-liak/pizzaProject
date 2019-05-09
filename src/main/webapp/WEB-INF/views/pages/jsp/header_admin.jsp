@@ -13,7 +13,7 @@
                     </button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item text-dark" href="#">Pending</a>                             
-                        <a class="dropdown-item text-dark" href="#">Completed</a>
+                        <a class="dropdown-item text-dark" href="/restaurant/orders/list">Completed</a>
 
                     </div>
                 </div>
@@ -23,10 +23,10 @@
                 <div class="dropdown">
                     <button type="button" class="btn dropdown-toggle btn-outline-dark mt-1 "
                             data-toggle="dropdown">
-                        Users
+                        Users 
                     </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item text-dark" href="#">Customers</a>
+                        <a class="dropdown-item text-dark" href="/restaurant/users/list">Customers</a>
                         <a class="dropdown-item text-dark" href="#">Employees</a>
 
                     </div>

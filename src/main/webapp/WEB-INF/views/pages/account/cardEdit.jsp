@@ -40,8 +40,8 @@
 
         <div class="container col-6">
 
-            <div class="card shadow panel panel-default">
-            <div class="card-body panel-body">
+            <div class="card shadow ">
+            <div class="card-body ">
 
                 <div class="login-container border-0" >
             

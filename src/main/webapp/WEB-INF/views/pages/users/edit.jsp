@@ -7,59 +7,40 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- FONT AWESOME ( Icons ) -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-        <!-- LOAD BOOTSTRAP 4 ( Building our interface and page layout -quickyl & easily- ) -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <!-- FONT AWESOME ( Icons ) -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-              integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-        <!-- Style css -->
-        <link rel="stylesheet" href="style.css">
-        <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
-        <title>Main Page</title>
-    </head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Style css -->
+     <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
+    <title>User Details</title>
+</head>
 
 
-    <body>
-        <!-- HEADER -->
-        <header class="navbar navbar-expand-lg navbar-dark bg-success fixed-top shadow" id="navbartop">
-            <a class="navbar-brand" href="#Home">Pizza Margherita</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#Home">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#Menu">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#Contact">Contact</a>
-                    </li>
+<body>
+    <!-- HEADER -->
 
-                </ul>
-            </div>
-        </header>
+   <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
+   <br><br><br><br>
 
-        <br />
-        <br />
-
-        <div class="container">
-
+        <div class="container col-6">
+             <div class="card shadow">
+                <div class="card-body ">
             <form:form method="POST" action="./update" modelAttribute="user" class="form-signin">
                 <h2 class="form-signin-heading">User Details</h2>
-
+                <hr>
                 <form:input type="hidden" path="id"></form:input>
-
+                               
                 <spring:bind path="firstName">
+                     <label for="firstName">First Name</label>
                     <div class="form-group ${status.error ? 'has-error' : ''}">
                         <form:input type="text" path="firstName" class="form-control" placeholder="First Name"
                                     autofocus="true"></form:input>
@@ -67,6 +48,7 @@
                         </div>
                 </spring:bind>
                 <spring:bind path="lastName">
+                     <label for="lastName">Last Name</label>
                     <div class="form-group ${status.error ? 'has-error' : ''}">
                         <form:input type="text" path="lastName" class="form-control" placeholder="Last Name"
                                     autofocus="true"></form:input>
@@ -74,6 +56,7 @@
                         </div>
                 </spring:bind>
                 <spring:bind path="username">
+                     <label for="userame">Username</label>
                     <div class="form-group ${status.error ? 'has-error' : ''}">
                         <form:input type="text" path="username" class="form-control" placeholder="username (email)"
                                     autofocus="true"></form:input>
@@ -81,6 +64,7 @@
                         </div>
                 </spring:bind>
                 <spring:bind path="password">
+                     <label for="password">Password</label>
                     <div class="form-group ${status.error ? 'has-error' : ''}">
                         <form:input type="text" path="password" class="form-control" placeholder="password"
                                     autofocus="true"></form:input>
@@ -89,16 +73,18 @@
                 </spring:bind>
 
 
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                <button class="btn btn-lg btn-success btn-block" type="submit">Submit</button>
                 <br />
-                <a class="btn btn-lg btn-dark btn-block" href="./list">Back</a>
+                <a class="btn btn-lg btn-dark btn-block" href="./list"><i class="fas fa-chevron-left"></i> Back</a> 
             </form:form>
-
+                </div>
+             </div>
+            <br>
             <!--USER ROLES-->
             <c:if test="${not empty user.id}">
-                <div class="panel panel-primary">
-                    <div class="panel-body">
-                        <div class="table-responsive-sm">
+                <div class="card shadow"> 
+                    <div class="card-body">
+                        <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
@@ -121,13 +107,13 @@
                 </div>
             </c:if>
 
-
+            <br>
 
             <!--ADDRESSES-->
             <c:if test="${not empty user.id}">
-                <div class="panel panel-primary">
-                    <div class="panel-body">
-                        <div class="table-responsive-sm">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <div class="table-responsive"> 
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
@@ -162,9 +148,9 @@
 
 
 
-
         </div>
         <!-- /container -->
+
 
 
         <!-- FINAL IMPORTS -->

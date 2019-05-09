@@ -50,11 +50,11 @@
         <br>
         <br>
         <br>
-        <section class="container col-6"  >
+        <section class="container col-6" >
 
             <!-- USER DETAILS -->
-            <div class="card shadow panel panel-default">
-                <div class="card-body panel-body">
+            <div class="card shadow">
+                <div class="card-body ">
 
                     <div class="login-container border-0" >
 
@@ -109,8 +109,8 @@
 
             <!--ADDRESSES-->
             <c:if test="${not empty user.id}">
-                <div class="card shadow panel panel-default">
-                    <div class="card-body panel-body">
+                <div class="card shadow">
+                    <div class="card-body ">
                         <h2> Address </h2>
                         <div class="table-responsive">
                             <table class="table table-hover ">
@@ -149,11 +149,11 @@
             <hr>
              <!-- CARDs -->
              <c:if test="${not empty user.id}">
-                <div class=" shadow panel panel-default">
-                    <div class=" panel-body">
+                <div class="card shadow">
+                    <div class=" card-body" >
                         <h2> Cards </h2>
-                        <div class="table-responsive-sm">
-                            <table class="table table-hover">
+                        <div class="table" >
+                            <table class="table table-hover"  >
                                 <thead>
                                     <tr>
                                         <th>Card No.</th>
@@ -281,7 +281,7 @@
             <hr>
             <!-- BUTTONS -->
             <div class="text-center">
-                <a class="btn btn-secondary text-light btn-lg" id="back_btn" role="button"><i class="fas fa-chevron-left"></i>Back</a>
+                <a class="btn btn-secondary text-light btn-lg" id="back_btn" role="button"><i class="fas fa-chevron-left"></i> Back</a>
 
                 <button class="btn btn-lg btn-warning" type="submit">Save Changes</button>
                 <div>
