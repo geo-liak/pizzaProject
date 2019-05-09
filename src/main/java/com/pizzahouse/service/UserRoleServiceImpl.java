@@ -45,7 +45,7 @@ public class UserRoleServiceImpl implements UserRoleService {
 
     @Override
     public List<UserRole> findByUserId(Long userId) {
-        List<UserRole> userRole = userRoleRepository.findByUserId(userId);
+        List<UserRole> userRole = userRoleRepository.findByUserIdOrderByRoleId(userId);
         return userRole;
     }
 

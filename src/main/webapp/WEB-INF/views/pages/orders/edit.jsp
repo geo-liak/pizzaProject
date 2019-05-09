@@ -27,6 +27,7 @@
 
     <body>
         <!-- HEADER -->
+       <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
 
         <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
         <br><br> 

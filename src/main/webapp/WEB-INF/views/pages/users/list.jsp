@@ -27,6 +27,7 @@
 
     <body>
         <!-- HEADER -->
+        <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
 
         <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
         <br><br>
@@ -71,10 +72,10 @@
                                         <td>${result.firstName}</td>
                                         <td>${result.lastName}</td>
                                         <td>${result.username}</td>
-                                    <td><a class="btn btn-success" href="./edit?id=${result.id}&role=${param.role}">Edit</a></td>
-                                    <td><a class="btn btn-danger" href="./delete?id=${result.id}&role=${param.role}">Delete</a></td>
-                                </tr>
-                            </c:forEach>
+                                        <td><a class="btn btn-success" href="./edit?id=${result.id}&role=${param.role}">Edit</a></td>
+                                        <td><a class="btn btn-danger" href="./delete?id=${result.id}&role=${param.role}">Delete</a></td>
+                                    </tr>
+                                </c:forEach>
                             </tbody>
 
                         </table>

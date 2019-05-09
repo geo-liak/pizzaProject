@@ -23,7 +23,7 @@ public interface UserRoleRepository  extends JpaRepository<UserRole, Long>, JpaS
     
     List<UserRole> findByRoleId(Long roleId);
     
-    List<UserRole> findByUserId(Long userId);
+    List<UserRole> findByUserIdOrderByRoleId(Long userId);
     
     UserRole findByUserIdAndRoleId(Long userId, Long roleId);
     

@@ -87,9 +87,9 @@
                                     <form:errors path="username"></form:errors>
                                     </div>
                             </spring:bind>
-                            <label for="password">Password</label>
+                            <label style="display:none;" for="password">Password</label>
                             <spring:bind path="password">
-                                <div class="form-group ${status.error ? 'has-error' : ''}">
+                                <div style="display:none;" class="form-group ${status.error ? 'has-error' : ''}">
                                     <form:input type="text" path="password" class="form-control" placeholder="password"
                                                 autofocus="true"></form:input>
                                     <form:errors path="password"></form:errors>                       
@@ -105,8 +105,25 @@
             </div>
             <br/>
             <hr>
-            <!-- ADDRESS -->
+            <!-- PASSWORD -->
+            <div class="card shadow panel panel-default">
+                <div class="card-body panel-body">
+                    <h2>Change Password </h2>
+                    <form action="./passwordUpdate" method="POST" class="form-signin">
+                        <div class="form-group rounded">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                            <input name="password" type="password" class="form-control" placeholder="Password" />
+                            <br />
+                            <button class="btn btn-success " type="submit">Change</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <br/>
+            
+            <!-- PASSWORD -->
 
+            <hr>
             <!--ADDRESSES-->
             <c:if test="${not empty user.id}">
                 <div class="card shadow">

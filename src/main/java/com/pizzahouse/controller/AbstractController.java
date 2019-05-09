@@ -1,11 +1,13 @@
 package com.pizzahouse.controller;
 
+import com.pizzahouse.model.UserRole;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
 import java.beans.PropertyEditorSupport;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class AbstractController {
 
@@ -27,5 +29,16 @@ public class AbstractController {
             }
         });
 
+    }
+    
+    
+    public boolean checkPrivileges(Long userId, List<UserRole> userRoles) {
+        
+        for (UserRole userRole : userRoles) {
+            if (userRole.getRoleId() == 1 || userRole.getRoleId() == 2) {
+                return true;
+            }  
+        }
+        return false;
     }
 }
