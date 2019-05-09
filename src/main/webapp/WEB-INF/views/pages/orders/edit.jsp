@@ -111,7 +111,7 @@
                                                     <td>${result.id}</td>
                                                     <td>${productsMap[result.productId].name}</td>
                                                     <td>${result.quantity}</td>
-                                                    <td><a class="btn btn-success" href="../orderproducts/${result.orderId}/edit?id=${result.id}">Edit</a></td>
+                                                    <td> <a class="btn btn-success" href="../orderproducts/${result.orderId}/edit?id=${result.id}"> Edit</a></td>
                                                     <td><a class="btn btn-danger" href="../orderproducts/delete?id=${result.id}">Delete</a></td>
                                                 </tr>
                                             </c:forEach>

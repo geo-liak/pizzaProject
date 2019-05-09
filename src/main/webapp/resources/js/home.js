@@ -10,6 +10,9 @@ function init($){
   
 
 
+function goBack() {
+  window.history.back()
+}
 
 
 

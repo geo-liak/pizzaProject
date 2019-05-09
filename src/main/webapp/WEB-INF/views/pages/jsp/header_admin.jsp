@@ -1,6 +1,6 @@
 
 <header class="navbar navbar-expand-lg navbar-dark bg-warning container-fluid fixed-top shadow" id="navbartop">
-    <a class="navbar-brand text-dark" href="#Home"><strong>Dashboard</strong></a>
+    <a class="navbar-brand text-dark" href="${pageContext.request.contextPath}/orders/list?progress=1"><strong>Dashboard</strong></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -34,10 +34,10 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link nav-pill active text-dark" href="${pageContext.request.contextPath}/products/list">Products</a>
+                <a class="nav-link nav-pill active text-dark" href="/restaurant/products/list">Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link nav-pill active text-dark" href="${pageContext.request.contextPath}/messages">HelpDesk</a>
+                <a class="nav-link nav-pill active text-dark" href="#">HelpDesk</a>
             </li>
         </ul>
     </div>
@@ -48,7 +48,7 @@
             <c:if test="${pageContext.request.userPrincipal != null}">
 
                 <li class="nav-item">
-                    <a class="btn btn-outline-dark mt-1 mr-1" type="button" href="${pageContext.request.contextPath}/userAccount">  ${pageContext.request.userPrincipal.name} </a>
+                    <a class="btn btn-outline-dark mt-1 mr-1" type="button" href="/restaurant/userAccount">  ${pageContext.request.userPrincipal.name} </a>
                 </li>
 
 

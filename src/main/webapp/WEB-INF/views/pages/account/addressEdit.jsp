@@ -127,7 +127,9 @@
 
                     $(document).ready(function () {
 
-                        //CUSTOM JAVASCRIPT
+                       function goBack() {
+  window.history.back();
+}
                     });
         </script>
     </body>

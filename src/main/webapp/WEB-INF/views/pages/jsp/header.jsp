@@ -13,6 +13,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="${contextPath}/menu">Menu</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Contact">Contact</a>
+                </li>
             </ul>
         </div>
       <!--ACCOUNT-->
@@ -39,7 +42,7 @@
                                 </button>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="${contextPath}/userAccount"> <i class="fas fa-user"></i> Account</a>
-                                    <a class="dropdown-item" href="${contextPath}/messages"> <i class="fas fa-comments"> </i> HelpDesk</a>
+                                    <a class="dropdown-item" href="#"> <i class="fas fa-comments"> </i> HelpDesk</a>
 
                                 </div>
                             </div>

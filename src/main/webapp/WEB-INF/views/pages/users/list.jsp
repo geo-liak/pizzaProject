@@ -21,7 +21,7 @@
 
         <!-- Style css -->
         <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
-        <title>Customers</title>
+        <title>Users</title>
     </head>
 
 
