@@ -29,13 +29,12 @@
         <!-- HEADER -->
        <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
 
-        <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
         <br><br> 
 
         <section class="container col-6">
             <div class="card">
                 <div class="card-body">
-
+                    
                     <form:form method="POST" action="./update" modelAttribute="order" class="form-signin">
                         <h2 class="form-signin-heading">Order information</h2>
                         <hr>
@@ -50,7 +49,7 @@
                                 </div>
                         </spring:bind>
                         <spring:bind path="userId">
-                            <label for="userId">User id</label>
+                            <label for="userId">Customer id</label>
                             <div class="form-group ${status.error ? 'has-error' : ''}">
                                 <form:input type="text" path="userId" class="form-control" placeholder="User Id"
                                             autofocus="true"></form:input>

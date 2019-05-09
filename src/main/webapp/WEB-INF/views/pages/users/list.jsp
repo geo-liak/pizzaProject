@@ -27,7 +27,7 @@
 
     <body>
         <!-- HEADER -->
-        <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
+       
 
         <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
         <br><br>
@@ -37,9 +37,9 @@
             <br><br>
 
 
-            <h2>Users</h2>
+<!--            <h2>Users</h2>
             <div class="btn-group" role="group">
-                <a class="btn btn-primary" href="./edit">Add new</a>
+                <a class="btn btn-primary" href="./edit">Add new</a>-->
             <c:choose>
                 <c:when test="${param.role == 'employees'}"><h2>Employees</h2></c:when>
                 <c:otherwise><h2>Customers</h2></c:otherwise>

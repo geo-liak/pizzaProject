@@ -32,7 +32,7 @@
         <br />
         <br />
 
-        <div class="container">
+     
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -50,7 +50,7 @@
    <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
    <br><br><br><br>
 
-        <div class="container col-6">
+        <div class="container col-8">
              <div class="card shadow">
                 <div class="card-body ">
             <form:form method="POST" action="./update?role=${param.role}" modelAttribute="user" class="form-signin">
