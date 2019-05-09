@@ -28,7 +28,7 @@
               integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <!-- Style css -->
         <link href="${contextPath}/resources/css/home.css" rel="stylesheet">
-        <title>Review Order</title>
+        <title>User Account</title>
     </head>
 
 
@@ -38,14 +38,16 @@
 
     <!--Order Review-->
 
-
+<br>
+<br>
+<br>
     <section class="container col-6"  >
 
         <!-- USER DETAILS -->
          <div class="card shadow panel panel-default">
                     <div class="card-body panel-body">
-        <h2> User Details </h2>
-        <div class="login-container mt-4 card border-0" >
+        
+        <div class="login-container border-0" >
 
            
             <form:form method="POST" action="./accountUpdate" modelAttribute="user" class="form-signin">
@@ -60,6 +62,7 @@
                         <form:errors path="firstName"></form:errors>
                         </div>
                 </spring:bind>
+                  <label for="lastName">Last Name</label>
                 <spring:bind path="lastName">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
                         <form:input type="text" path="lastName" class="form-control" placeholder="Last Name"
@@ -67,6 +70,7 @@
                         <form:errors path="lastName"></form:errors>
                         </div>
                 </spring:bind>
+                   <label for="username">Username</label>
                 <spring:bind path="username">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
                         <form:input type="text" path="username" class="form-control" placeholder="username (email)"
@@ -74,6 +78,7 @@
                         <form:errors path="username"></form:errors>
                         </div>
                 </spring:bind>
+                    <label for="password">Password</label>
                 <spring:bind path="password">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
                         <form:input type="text" path="password" class="form-control" placeholder="password"
@@ -86,10 +91,11 @@
                 <button class="btn btn-success" type="submit">Submit</button>
                 <br />
             </form:form>
- </div>
-                </div>
- </div>
-                    <hr>
+        </div>
+                    </div>
+         </div>
+         <br/>
+         <hr>
                     <!-- ADDRESS -->
 
             <!--ADDRESSES-->
@@ -127,13 +133,13 @@
                         </div>
                     </div>
                 </div>
-                        <br />
+                        <br/>
             </c:if>
 
-                    <button type="button" class="btn  btn-outline-info btn-sm" data-toggle="collapse"
-                        data-target="#newAddForm">Add new</button>
+<!--                    <button type="button" class="btn  btn-outline-info btn-sm" data-toggle="collapse"
+                        data-target="#newAddForm">Add new</button>-->
                     <!-- NEW ADDRESS FORM -->
-                    <div class="row d-flex justify-content-center">
+<!--                    <div class="row d-flex justify-content-center">
                         <aside class="col-sm-8 ">
                             <article class="card mt-3 border-0 shadow">
                                 <div id="newAddForm" class="card-body p-5 collapse">
@@ -180,7 +186,7 @@
                                 </div>
                             </article>
                         </aside>
-                    </div>
+                    </div>-->
                     <hr>
                     <!-- PAYMENT -->
                     <h2> Payment Methods </h2>
@@ -275,7 +281,7 @@
                     <hr>
                     <!-- BUTTONS -->
                     <div class="text-center">
-                        <a class="btn btn-danger text-light btn-lg" id="back_btn" role="button"><i class="fas fa-chevron-left"></i>Back</a>
+                        <a class="btn btn-secondary text-light btn-lg" id="back_btn" role="button"><i class="fas fa-chevron-left"></i>Back</a>
                 
                     <button class="btn btn-lg btn-warning" type="submit">Save Changes</button>
                         <div>

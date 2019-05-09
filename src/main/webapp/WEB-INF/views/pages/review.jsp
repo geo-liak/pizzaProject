@@ -166,7 +166,7 @@
               
                 <!-- BUTTONS -->
                 <div class="text-center">
-                    <a class="btn btn-danger text-light btn-lg" id="back_btn" role="button"><i class="fas fa-chevron-left"></i>Back</a>
+                    <a class="btn btn-danger text-light btn-lg" id="back_btn" role="button"> <i class="fas fa-chevron-left"></i> Back </a>
 
                     <button class="btn btn-success btn-lg" type="submit">Place Order</button>
                 </div>

@@ -33,11 +33,17 @@
         <br />
         <br />
 
-        <div class="container">
+        <div class="container col-6">
 
+            <div class="card shadow panel panel-default">
+            <div class="card-body panel-body">
+
+                <div class="login-container border-0" >
+            
             <form:form method="POST" action="./addressUpdate" modelAttribute="address" class="form-signin">
-                <h2 class="form-signin-heading">User ${address.userId}: address ${address.id}</h2>
-
+                <h2 class="form-signin-heading"> User ${address.userId}</h2>
+                <h3> Address #${address.id}</h3>
+                <hr>
                 <form:input type="hidden" path="id"></form:input>
                 <form:input type="hidden" path="userId"></form:input>
 
@@ -86,11 +92,14 @@
                         </div>
                 </spring:bind>
 
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                <button class="btn btn-lg btn-success btn-block" type="submit">Submit</button>
                 <br />
-                <a class="btn btn-lg btn-dark btn-block" href="${contextPath}/userAccount">Back</a>
+                <a class="btn btn-lg btn-secondary btn-block" href="${contextPath}/userAccount"> <i class="fas fa-chevron-left"></i> Back</a>
             </form:form>
 
+                 </div>
+            </div>
+        </div>
 
         </div>
         <!-- /container -->

@@ -19,26 +19,42 @@
                             </div>
                    
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active text-dark" href="#">Customers</a>
+               <li class="nav-item ml-2">
+                    <div class="dropdown">
+                        <button type="button" class="btn dropdown-toggle btn btn-outline-dark mt-1 "
+                            data-toggle="dropdown">
+                            Users
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item text-dark" href="#">Customers</a>
+                            <a class="dropdown-item text-dark" href="#">Employees</a>
+
+                        </div>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link nav-pill active text-dark" href="#">Products</a>
                 </li>
-                <li class="nav-item">
-                        <a class="nav-link nav-pill active text-dark" href="#">Employee</a>
-                    </li>
+             
             </ul>
         </div>
       
         <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
-       
+                <c:if test="${pageContext.request.userPrincipal != null}">
+                    <li class="nav-item">
+                    <span class="nav-link nav-pill active text-dark">
+                          ${pageContext.request.userPrincipal.name}
+                    </span>
+                    </li>
+                </c:if>
          <!-- LOGIN BUTTON -->
                 <li class="nav-item">
-                    <a href="login.html" id="login_btn" class="btn btn-outline-dark my-2 my-sm-0">
-                        Logout
-                    </a>
+                     <form id="logoutForm" method="POST" action="${contextPath}/logout">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                      
+                        <a  id="logout_btn" class="btn btn-outline-dark text-dark mt-1" onclick="document.forms['logoutForm'].submit()">Logout</a>
+                          </form>
                 </li>
             </ul>
 

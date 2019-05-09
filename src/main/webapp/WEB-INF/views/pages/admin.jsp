@@ -29,7 +29,7 @@
     <!-- HEADER -->
 
    <jsp:include page= "/WEB-INF/views/pages/jsp/header_admin.jsp" />
-
+<br><br><br><br>
    <!--INNER TITLE-->
       <div class="container jumbotron bg-dark text-white-50 m-5 p-2">
             <h1>Pending Orders</h1>

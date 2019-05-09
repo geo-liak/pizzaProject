@@ -41,8 +41,8 @@
                                     ${pageContext.request.userPrincipal.name}
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="${contextPath}/userAccount">Account</a>
-                                    <a class="dropdown-item" href="#">Messages</a>
+                                    <a class="dropdown-item" href="${contextPath}/userAccount"> <i class="fas fa-user"></i> Account</a>
+                                    <a class="dropdown-item" href="#"> <i class="fas fa-comments"> </i> HelpDesk</a>
 
                                 </div>
                             </div>
