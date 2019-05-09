@@ -1,6 +1,7 @@
 package com.pizzahouse.controller;
 
 import com.pizzahouse.exceptions.ResourceNotFoundException;
+import com.pizzahouse.model.Role;
 import com.pizzahouse.model.User;
 import com.pizzahouse.model.UserRole;
 import com.pizzahouse.model.specifications.UserManagementSpecification;
@@ -103,14 +104,19 @@ public class UserManagementController extends AbstractController {
 
         if (user.getId() != null) {
             try {
-                user = userManagementService.save(user);
+                User existing = userManagementService.find(user.getId());
+                existing.setFirstName(user.getFirstName());
+                existing.setLastName(user.getLastName());
+                existing.setUsername(user.getUsername());
+               
+                user = userManagementService.save(existing);
             } catch (Exception exc) {
                 System.out.println(exc.getMessage());
             }
         } else {
             try {
+                user.setPassword(passwordEncoder.encode(user.getPassword()));
                 user = userManagementService.saveNew(user, role);
-                user.setPassword(passwordEncoder.encode("test"));
             } catch (Exception exc) {
                 System.out.println(exc.getMessage());
             }
@@ -132,43 +138,4 @@ public class UserManagementController extends AbstractController {
         return "redirect:/users/list?role="+role;
     }
 
-    @RequestMapping(value = "/customers", method = RequestMethod.GET)
-    public String customers(Model theModel) {
-        List<User> customers = null;
-
-        try {
-            List<UserRole> listOfCustomers = userRoleService.findByRoleId(3L);
-            for (UserRole userRole : listOfCustomers) {
-                Long userId = userRole.getId();
-                customers.add(userManagementService.find(userId));
-            }
-        } catch (Exception exc) {
-            System.out.println(exc.getMessage());
-        }
-
-        theModel.addAttribute("users", customers);
-        return "pages/users/list";
-
-    }
-
-    @RequestMapping(value = "/employees", method = RequestMethod.GET)
-    public String employees(Model theModel) {
-        List<User> employees = null;
-
-        try {
-            List<UserRole> listOfEmployees = userRoleService.findAll();
-            for (UserRole userRole : listOfEmployees) {
-                if (userRole.getId() != 3L) {
-                    Long userId = userRole.getId();
-                    employees.add(userManagementService.find(userId));
-                }
-            }
-        } catch (NullPointerException exc) {
-            System.out.println(exc.getMessage());
-        }
-
-        theModel.addAttribute("users", employees);
-        return "pages/users/list";
-
-    }
 }

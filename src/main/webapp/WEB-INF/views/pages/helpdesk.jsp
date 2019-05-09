@@ -30,10 +30,10 @@
 
         <c:choose>
             <c:when test="${privileges}">
-                <%@include file = "/WEB-INF/views/pages/jsp/header.jsp" %>
+                <jsp:include page= "/WEB-INF/views/pages/jsp/header_admin.jsp" />
             </c:when>
             <c:otherwise>
-                <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
+                <%@include file = "/WEB-INF/views/pages/jsp/header.jsp" %>
             </c:otherwise>
         </c:choose>
         <br><br><br><br>
@@ -41,19 +41,19 @@
         <div class="container col-6">
 
             <div class="card shadow panel panel-default">
-            <div class="card-body panel-body">
-                <div class="login-container border-0" >
-            
-      <!--THIS IS WHERE THE CHAT CODE GOES-->
+                <div class="card-body panel-body">
+                    <div class="login-container border-0" >
 
-                 </div>
+                        <!--THIS IS WHERE THE CHAT CODE GOES-->
+
+                    </div>
+                </div>
             </div>
-        </div>
 
         </div>
-        
-        
-                <jsp:include page= "/WEB-INF/views/pages/jsp/footer.jsp" />
+
+
+        <jsp:include page= "/WEB-INF/views/pages/jsp/footer.jsp" />
 
 
 

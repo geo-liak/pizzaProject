@@ -27,27 +27,7 @@
 
     <body>
         <!-- HEADER -->
-        <header class="navbar navbar-expand-lg navbar-dark bg-success fixed-top shadow" id="navbartop">
-            <a class="navbar-brand" href="#Home">Pizza Margherita</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#Home">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#Menu">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#Contact">Contact</a>
-                    </li>
-
-                </ul>
-            </div>
-        </header>
+        <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
 
         <br />
         <br />

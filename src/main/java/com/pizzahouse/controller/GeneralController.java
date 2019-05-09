@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class GeneralController {
+public class GeneralController extends AbstractController {
 
     @Autowired
     private UserService userService;
@@ -46,21 +46,19 @@ public class GeneralController {
             User user = userService.findByUsername(principal.getName());
             Long userId = user.getId();
             List<UserRole> userRoles = userRoleService.findByUserId(userId);
-            for (UserRole userRole : userRoles) {
-
-                if (userRole.getRoleId() == 1 || userRole.getRoleId() == 2) {
-                    model.addAttribute("privileges", true);
-                    return "redirect:/orders/list?progress=1";
-                } else if (userRole.getRoleId() == 3) {
-                    model.addAttribute("privileges", false);
-                    return "redirect:/menu";
-                } else {
-//            response.addCookie(new Cookie("sum", "0"));
-                    model.addAttribute("privileges", false);
-                    return "/home";
-                }
+            
+            boolean hasPrivileges = checkPrivileges(userId, userRoles);
+            
+            model.addAttribute("privileges", hasPrivileges);
+ 
+            if (hasPrivileges) {
+                return "redirect:/orders/list?progress=1";
+            } else {
+                return "redirect:/menu";
             }
+
         }
+        model.addAttribute("privileges", false);
         return "/home";
     }
 

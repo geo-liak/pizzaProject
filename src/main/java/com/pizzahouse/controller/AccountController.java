@@ -12,6 +12,7 @@ import java.security.Principal;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,7 +26,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author stargazer
  */
 @Controller
-public class AccountController {
+public class AccountController extends AbstractController {
 
     @Autowired
     private UserService userService;
@@ -38,6 +39,9 @@ public class AccountController {
 
     @Autowired
     private UserRoleService userRoleService;
+    
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @RequestMapping(value = "/userAccount", method = RequestMethod.GET)
     public String edit(Model theModel, Principal principal) {
@@ -49,6 +53,7 @@ public class AccountController {
         theModel.addAttribute("user", user);
         theModel.addAttribute("addresses", addressService.findByUserId(user.getId()));
 
+        modelPrivileges(user, theModel);
         return "pages/account/userAccount";
     }
 
@@ -57,19 +62,54 @@ public class AccountController {
 
         if (user.getId() != null) {
             try {
+                User existing = userManagementService.find(user.getId());
+                existing.setFirstName(user.getFirstName());
+                existing.setLastName(user.getLastName());
+                existing.setUsername(user.getUsername());
+               
+                user = userManagementService.save(existing);
+            } catch (Exception exc) {
+                System.out.println(exc.getMessage());
+            }
+        }
+
+        List<UserRole> userRoles = userRoleService.findByUserId(user.getId());
+        boolean hasPrivileges = checkPrivileges(user.getId(), userRoles);
+        theModel.addAttribute("privileges", hasPrivileges);
+
+        if (bindingResult.hasErrors()) {
+            theModel.addAttribute("user", user);
+            
+            modelPrivileges(user, theModel);
+            return "pages/account/userAccount";
+        } else {
+            return "redirect:/userAccount";
+        }
+    }
+
+    @RequestMapping(value = "/passwordUpdate", method = RequestMethod.POST)
+    public String update(Principal principal, Model theModel, @RequestParam(name = "password", required = true) String password) {
+
+        if (principal == null) {
+            return "redirect:/login";
+        }
+        User user = userService.findByUsername(principal.getName());
+        
+        if (user.getId() != null) {
+            try {
+                user.setPassword(passwordEncoder.encode(password));
                 user = userManagementService.save(user);
             } catch (Exception exc) {
                 System.out.println(exc.getMessage());
             }
         }
 
-        if (bindingResult.hasErrors()) {
-            theModel.addAttribute("user", user);
+        List<UserRole> userRoles = userRoleService.findByUserId(user.getId());
+        boolean hasPrivileges = checkPrivileges(user.getId(), userRoles);
+        theModel.addAttribute("privileges", hasPrivileges);
 
-            return "pages/account/userAccount";
-        } else {
-            return "redirect:/userAccount";
-        }
+        return "redirect:/userAccount";
+
     }
 
     @RequestMapping(value = "/addressEdit", method = RequestMethod.GET)
@@ -87,6 +127,8 @@ public class AccountController {
             Address address = addressService.find(id);
             theModel.addAttribute("address", address);
         }
+        
+        modelPrivileges(user, theModel);
         return "pages/account/addressEdit";
     }
 
@@ -109,6 +151,7 @@ public class AccountController {
         if (bindingResult.hasErrors()) {
             theModel.addAttribute("address", address);
 
+            modelPrivileges(user, theModel);
             return "pages/account/addressEdit";
         } else {
             return "redirect:/userAccount";
@@ -128,5 +171,11 @@ public class AccountController {
             addressService.delete(id);
         }
         return "redirect:/userAccount";
+    }
+    
+    private void modelPrivileges(User user, Model theModel) {
+        List<UserRole> userRoles = userRoleService.findByUserId(user.getId());
+        boolean hasPrivileges = checkPrivileges(user.getId(), userRoles);
+        theModel.addAttribute("privileges", hasPrivileges);
     }
 }
