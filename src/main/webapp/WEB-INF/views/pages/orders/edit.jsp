@@ -27,14 +27,14 @@
 
     <body>
         <!-- HEADER -->
-       <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
+        <%@include file = "/WEB-INF/views/pages/jsp/header_admin.jsp" %>
 
         <br><br> 
 
         <section class="container col-6">
             <div class="card">
                 <div class="card-body">
-                    
+
                     <form:form method="POST" action="./update" modelAttribute="order" class="form-signin">
                         <h2 class="form-signin-heading">Order information</h2>
                         <hr>
@@ -90,89 +90,53 @@
                         <br />
                         <a class="btn btn-lg btn-dark btn-block" href="./list"><i class="fas fa-chevron-left"></i> Back</a>
                     </form:form>
+                </div>
+            </div>
 
-
-                    <c:if test="${not empty orderProducts}">
-                        <div class="card ">
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>Id</th>
-                                                <th>Product Id</th>
-                                                <th>Quantity</th>
-                                                <th colspan="2">Operations</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <c:forEach items="${orderProducts}" var="result">
-                                                <tr th:each="result,iter : ${templatePage.content}" >
-                                                    <td>${result.id}</td>
-                                                    <td>${productsMap[result.productId].name}</td>
-                                                    <td>${result.quantity}</td>
-                                                    <td> <a class="btn btn-success" href="../orderproducts/${result.orderId}/edit?id=${result.id}"> Edit</a></td>
-                                                    <td><a class="btn btn-danger" href="../orderproducts/delete?id=${result.id}">Delete</a></td>
-                                                </tr>
-                                            </c:forEach>
-                                        </tbody>
-                                    </table>
-                                    <a class="btn btn-success" href="../orderproducts/${order.id}/edit">Add Product</a>
-                                </div>
-                            </div>
-                        </div>
-                    </c:if>
-
-                <spring:bind path="progress">
-                    <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="text" path="progress" class="form-control" placeholder="Status"
-                                    autofocus="true"></form:input>
-                        <form:errors path="progress"></form:errors>
-                        </div>
-                </spring:bind>
-
-            <form:form>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-                <br />
-                <a class="btn btn-lg btn-dark btn-block" href="./list?progress=${order.progress}">Back</a>
-            </form:form>
-
-
+            
             <c:if test="${not empty orderProducts}">
-                <div class="panel panel-primary">
-                    <div class="panel-body">
-                        <div class="table-responsive-sm">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Product Id</th>
-                                        <th>Quantity</th>
-                                        <th colspan="2">Operations</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <c:forEach items="${orderProducts}" var="result">
-                                        <tr th:each="result,iter : ${templatePage.content}" >
-                                            <td>${result.id}</td>
-                                            <td>${productsMap[result.productId].name}</td>
-                                            <td>${result.quantity}</td>
-                                            <td><a class="btn btn-success" href="../orderproducts/${result.orderId}/edit?id=${result.id}">Edit</a></td>
-                                            <td><a class="btn btn-danger" href="../orderproducts/delete?id=${result.id}">Delete</a></td>
+            <div class="card ">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Product Id</th>
+                                            <th>Quantity</th>
+                                            <th colspan="2">Operations</th>
                                         </tr>
-                                    </c:forEach>
-                                </tbody>
-                            </table>
-                            <a class="btn btn-success" href="../orderproducts/${order.id}/edit">Add Product</a>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach items="${orderProducts}" var="result">
+                                            <tr th:each="result,iter : ${templatePage.content}" >
+                                                <td>${result.id}</td>
+                                                <td>${productsMap[result.productId].name}</td>
+                                                <td>${result.quantity}</td>
+                                                <td> <a class="btn btn-success" href="../orderproducts/${result.orderId}/edit?id=${result.id}"> Edit</a></td>
+                                                <td><a class="btn btn-danger" href="../orderproducts/delete?id=${result.id}">Delete</a></td>
+                                            </tr>
+                                        </c:forEach>
+                                    </tbody>
+                                </table>
+                                <a class="btn btn-success" href="../orderproducts/${order.id}/edit">Add Product</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </c:if>
-
-
-                </div>
             </div>
+        </c:if>
+
+
+
+
+
         </section>
+
+
+        
         <!-- /container -->
 
 
