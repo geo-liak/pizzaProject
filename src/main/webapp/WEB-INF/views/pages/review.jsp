@@ -102,7 +102,8 @@
                 <spring:bind path="addressId">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
                         
-                        <form:select path="addressId" class="custom-select mb-4" >
+                        <form:select path="addressId" class="custom-select mb-2" >
+                            <option selected>Select Address...</option>
                             <form:options items="${addresses}" itemValue="id" itemLabel="name" /> 
                         </form:select>
                         <c:if test="${not empty addressError}">
@@ -113,14 +114,23 @@
                 </spring:bind>
 
                 <a class="btn btn-success" href="${contextPath}/addressEdit">Add Address</a>
+                
+                <br><br>
+                
+                <select class="custom-select">
+                  <option selected>Select Card...</option>
+                  <option value="1">Visa - 4916 3088 7313 8301</option>
+                  <option value="2">Mastercard - 5489 6050 0206 8521</option>
+                  <option value="3">American Express - 3760 1590 2294 069</option>
+                </select>
+            <br><br>
+            <a class="btn btn-success" href="${contextPath}/addressEdit">Add Card</a>
 
-            
-
-
+               
 
               
                 <!-- BUTTONS -->
-                <div class="text-center">
+                <div class="text-center mt-3">
                     <a class="btn btn-danger text-light btn-lg" id="back_btn" role="button"> <i class="fas fa-chevron-left"></i> Back </a>
 
                     <button class="btn btn-success btn-lg" type="submit">Place Order</button>
